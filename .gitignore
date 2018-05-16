@@ -1,0 +1,8 @@
+.idea/
+*.iml
+build/
+*.class
+target/
+bin/
+obj/
+allure-results/
