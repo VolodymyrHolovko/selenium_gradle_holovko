@@ -25,7 +25,6 @@ public class LoginPageTests {
                 }
 
         }
-
         @BeforeMethod
         public void BeforeClass() {
             driver.get(homeUrl);
@@ -39,7 +38,6 @@ public class LoginPageTests {
             test.pressSubmit();
             test.checkSuccessLogin();
         }
-
 
         @AfterClass
         public void closeDriver() {
