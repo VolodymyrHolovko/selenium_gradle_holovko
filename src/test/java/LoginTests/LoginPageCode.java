@@ -10,13 +10,14 @@ import static org.testng.AssertJUnit.assertEquals;
     public class LoginPageCode {
         WebDriver driver;
         WebDriverWait wait;
+        ElementsLocators elementsLocators = new ElementsLocators();
         String urlAfterLogin = "http://stage.eservia.com/business/calendar/day";
-        String username = "ivan@ukr.net";
+        String username = "JohnstonLouie@mail.com";
         String password = "12345678";
-        By usernameFieldLocator = By.id("login");
-        By passwordFieldLocator = By.id("password");
-        By pressSubmitLoginButoonlocator = By.id("login-btn");
-        By bookingButton = By.xpath("/html/body/app/ui-view/business-header/nav/div[2]/ul/li[1]/a/button");
+        By usernameFieldLocator = By.id(elementsLocators.getUsernameOnLoginFieldLocator());
+        By passwordFieldLocator = By.id(elementsLocators.getPasswordOnLoginFieldLocator());
+        By pressSubmitLoginButoonlocator = By.id(elementsLocators.submitLoginButoonlocator);
+        By bookingButton = By.xpath(elementsLocators.bookingCreateButton);
 
 
         public LoginPageCode(WebDriver driver, WebDriverWait wait){
