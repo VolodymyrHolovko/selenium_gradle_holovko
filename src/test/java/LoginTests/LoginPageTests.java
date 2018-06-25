@@ -1,6 +1,7 @@
 package LoginTests;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
@@ -15,10 +16,15 @@ public class LoginPageTests {
         String homeUrl = "http://stage.eservia.com/auth/sign-in";
 
         @BeforeClass
-        public void beforeCl(){
-            System.setProperty("webdriver.gecko.driver", "C:\\Users\\User\\Downloads\\geckodriver-v0.18.0-win64\\geckodriver.exe");
-        }
+        public  void main() {
+            String os = System.getProperty("os.name").toLowerCase();
+                if (os.contains("mac")){
+            System.setProperty("webdriver.gecko.driver", "/Users/volodymyr_holovko/WORK/QA/projects/BookingWebTests/geckodriver");}
+            else {
+                    System.setProperty("webdriver.gecko.driver" , "C:\\Users\\User\\Downloads\\geckodriver-v0.18.0-win64\\geckodriver.exe");
+                }
 
+        }
         @BeforeMethod
         public void BeforeClass() {
             driver.get(homeUrl);
@@ -32,7 +38,6 @@ public class LoginPageTests {
             test.pressSubmit();
             test.checkSuccessLogin();
         }
-
 
         @AfterClass
         public void closeDriver() {
