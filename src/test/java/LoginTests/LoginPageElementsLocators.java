@@ -1,6 +1,6 @@
 package LoginTests;
 
-public class ElementsLocators {
+public class LoginPageElementsLocators {
     String urlAfterLogin = "http://stage.eservia.com/business/calendar/day";
     String usernameOnLoginFieldLocator = "login";
     String passwordOnLoginFieldLocator = "password";
