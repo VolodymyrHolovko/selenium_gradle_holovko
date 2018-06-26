@@ -12,12 +12,7 @@ import org.testng.annotations.Test;
 public class LoginPageTests {
         WebDriver driver = new FirefoxDriver();
         WebDriverWait wait = new WebDriverWait(driver, 30, 700);
-        String homeUrl = "http://stage.eservia.com/auth/sign-in";
-
-        @BeforeClass
-        public void beforeCl(){
-            System.setProperty("webdriver.gecko.driver", "C:\\Users\\User\\Downloads\\geckodriver-v0.18.0-win64\\geckodriver.exe");
-        }
+        String homeUrl = "http://staging.eservia.com/auth/sign-in";
 
         @BeforeMethod
         public void BeforeClass() {
@@ -32,7 +27,6 @@ public class LoginPageTests {
             test.pressSubmit();
             test.checkSuccessLogin();
         }
-
 
         @AfterClass
         public void closeDriver() {
