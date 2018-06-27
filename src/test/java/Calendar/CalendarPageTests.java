@@ -29,10 +29,11 @@ public class CalendarPageTests {
         test.checkAddresField();
         test.checkModalCalendar();
         driver.navigate().refresh();
-        test.checkCalendarButton();
+        test.checkCalendarButtons();
         driver.navigate().back();
         test.checkStaff();
         test.checkCalendarGrid();
+        test.checkProfileIcon();
     }
 
     @AfterClass

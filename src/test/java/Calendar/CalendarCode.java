@@ -24,7 +24,7 @@ public class CalendarCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate))).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
     }
-    public void checkCalendarButton() {
+    public void checkCalendarButtons() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarButton)));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.nextDayButton))).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarGrid)));
@@ -39,5 +39,8 @@ public class CalendarCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentTimeLine)));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarGrid)));
     }
-
+    public  void checkProfileIcon() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.profileIcon))).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.closeProfileModal)));
+    }
 }
