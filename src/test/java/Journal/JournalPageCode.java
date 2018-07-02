@@ -13,19 +13,32 @@ public class JournalPageCode {
         By journalTitle = By.xpath(locators.journalTitle);
         By journalActualTab = By.xpath(locators.journalActualTab);
         By journalArchiveTab = By.xpath(locators.journalArchiveTab);
-        By journalAddressFilter = By.xpath(locators.journalAddressFilter);
-        By journalStaffFilter = By.xpath(locators.journalStaffFilter);
-        By journalPeriodFilter = By.xpath(locators.journalPeriodFilter);
+        By journalAddressFilter = By.className(locators.journalAddressFilter);
+        By journalStaffFilter = By.className(locators.journalStaffFilter);
+        By journalPeriodFilter = By.className(locators.journalPeriodFilter);
         By journalSearch = By.xpath(locators.journalSearch);
-        By journalSearchFilter = By.xpath(locators.journalSearchFilter);
+        By journalSearchFilter = By.cssSelector(locators.journalSearchFilter);
 
         public  JournalPageCode(WebDriver driver,WebDriverWait wait){
             this.driver = driver;
             this.wait = wait;
         }
 
-        public void checkElementsVisibility(String path){
+        public void checkElementsVisibilityXpath(String path){
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(path)));
+        }
+
+        public void checkElementsVisibilityClassName(String path){
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.className(path)));
+        }
+
+        public void checkElementsVisibilityCssSelector(String path){
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(path)));
+        }
+
+        public void clickAtJournal(){
+                wait.until(ExpectedConditions.presenceOfElementLocated(journalButton));
+                driver.findElement(journalButton).click();
         }
 
 
