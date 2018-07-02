@@ -16,11 +16,14 @@ public class LoginPageTests {
         WebDriverWait wait = new WebDriverWait(driver, 30, 700);
         String homeUrl = "http://staging.eservia.com/auth/sign-in";
         JournalElementsLocators locators = new JournalElementsLocators();
-        @BeforeMethod
+        LoginPageCode login  = new LoginPageCode(driver,wait);
+        JournalPageCode test= new JournalPageCode(driver,wait);
+
+        @BeforeClass
         public void BeforeClass() {
             driver.get(homeUrl);
         }
-        JournalPageCode test= new JournalPageCode(driver,wait);
+
 
         @Test
         public void CheckLogin() throws InterruptedException {
