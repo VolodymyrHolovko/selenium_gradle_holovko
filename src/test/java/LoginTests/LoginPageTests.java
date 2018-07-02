@@ -1,5 +1,7 @@
 package LoginTests;
 
+import Journal.JournalElementsLocators;
+import Journal.JournalPageCode;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,19 +15,18 @@ public class LoginPageTests {
         WebDriver driver = new FirefoxDriver();
         WebDriverWait wait = new WebDriverWait(driver, 30, 700);
         String homeUrl = "http://staging.eservia.com/auth/sign-in";
-
+        JournalElementsLocators locators = new JournalElementsLocators();
         @BeforeMethod
         public void BeforeClass() {
             driver.get(homeUrl);
         }
-        LoginPageCode test = new LoginPageCode(driver,wait);
+        JournalPageCode test= new JournalPageCode(driver,wait);
 
         @Test
         public void CheckLogin() throws InterruptedException {
-            test.typeUsername();
-            test.typePassword();
-            test.pressSubmit();
-            test.checkSuccessLogin();
+            test.checkElementsVisibility(locators.getJournalButton());
+            test.checkElementsVisibility(locators.getJournalTitle());
+            test.checkElementsVisibility(locators.getJournalActualTab());
         }
 
         @AfterClass
