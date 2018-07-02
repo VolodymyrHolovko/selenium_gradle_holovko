@@ -14,6 +14,24 @@ public class CalendarLocators {
     String nextDayButton = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[2]/div[1]/div/button[2]";
     String addBookingButton = "/html/body/app/ui-view/business-header/nav/div[2]/ul/li[1]/a/button";
     String addBookingPageHeader = "/html/body/app/ui-view/div/ui-view/add-booking-beauty/div/div/div[2]";
+    String profileIcon = "//*[@id=\"userAccountSettings\"]";
+    String closeProfileModal = "icon-close";
+
+    public String getCloseProfileModal() {
+        return closeProfileModal;
+    }
+
+    public void setCloseProfileModal(String closeProfileModal) {
+        this.closeProfileModal = closeProfileModal;
+    }
+
+    public String getProfileIcon() {
+        return profileIcon;
+    }
+
+    public void setProfileIcon(String profileIcon) {
+        this.profileIcon = profileIcon;
+    }
 
     public String getAddBookingPageHeader() {
         return addBookingPageHeader;
