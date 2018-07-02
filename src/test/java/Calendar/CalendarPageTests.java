@@ -17,7 +17,7 @@ public class CalendarPageTests {
 
     @BeforeClass
     public  void Before() {
-        driver.manage().window().fullscreen();
+        driver.manage().window().maximize();
         driver.get(homeUrl);
         login.typeUsername();
         login.typePassword();
