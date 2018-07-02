@@ -16,9 +16,7 @@ public class LoginPageTests {
         WebDriver driver = new FirefoxDriver();
         WebDriverWait wait = new WebDriverWait(driver, 30, 700);
         String homeUrl = "http://staging.eservia.com/auth/sign-in";
-        JournalElementsLocators locators = new JournalElementsLocators();
-        JournalPageCode test= new JournalPageCode(driver,wait);
-
+        LoginPageCode login  = new LoginPageCode(driver,wait);
         @BeforeClass
         public void BeforeClass() {
             driver.get(homeUrl);
@@ -27,9 +25,10 @@ public class LoginPageTests {
 
         @Test
         public void CheckLogin() throws InterruptedException {
-            test.checkElementsVisibility(locators.getJournalButton());
-            test.checkElementsVisibility(locators.getJournalTitle());
-            test.checkElementsVisibility(locators.getJournalActualTab());
+            login.typeUsername();
+            login.typePassword();
+            login.pressSubmit();
+            login.checkSuccessLogin();
         }
 
         @AfterClass
