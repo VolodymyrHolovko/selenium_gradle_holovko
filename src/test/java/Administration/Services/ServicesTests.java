@@ -29,11 +29,12 @@ public class ServicesTests {
         login.typePassword();
         login.pressSubmit();
         login.checkSuccessLogin();
-        managment.clickAtPoslugy();
+        //managment.clickAtPoslugy();
+        driver.get(servicesURL);
     }
     @Test
     public void  checkElements() {
-        test.addServiceGroupe(nameServiceGroupe);
+        test.addServicesGroupe(nameServiceGroupe);
     }
     @AfterClass
     public void closeDriver() {

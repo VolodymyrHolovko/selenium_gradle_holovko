@@ -5,7 +5,7 @@ public class ServicesLocators {
     String menuAdministrationButton = "/html/body/app/ui-view/business-left-bar/div/nav/ul/li[4]/a/span";
     String addServiceGroupeButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/button/span";
     String addNameServiceGroupe = "//*[@id=\"service_group_name\"]";
-    String addGroupeButtonOnModal = "btn";
+    String addGroupeButtonOnModal = "/html/body/div[5]/md-dialog/form/md-dialog-actions/button";
 
     public String getAddGroupeButtonOnModal() {
         return addGroupeButtonOnModal;

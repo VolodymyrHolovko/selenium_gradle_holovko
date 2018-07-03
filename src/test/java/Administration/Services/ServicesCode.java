@@ -23,10 +23,12 @@ public class ServicesCode {
     public void checkElementsOfPage() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.headerTabCaption)));
     }
-    public void addServiceGroupe(String nameServiceGroupe) {
+    public void addServicesGroupe(String nameServiceGroupe) {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addServiceGroupeButton))).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addNameServiceGroupe))).clear();
         driver.findElement(By.xpath(locators.addNameServiceGroupe)).sendKeys(nameServiceGroupe);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.addGroupeButtonOnModal))).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addGroupeButtonOnModal)));
+        driver.findElement(By.xpath(locators.addGroupeButtonOnModal)).click();
+
     }
 }
