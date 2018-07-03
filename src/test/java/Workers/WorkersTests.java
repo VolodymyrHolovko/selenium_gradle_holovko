@@ -5,6 +5,7 @@ import Managment.ManagementPageCode;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -27,7 +28,8 @@ LoginPageCode login  = new LoginPageCode(driver,wait);
 }
 
 @Test
-public void checkWorkersCreate() {
+public void A_checkWorkersCreate() {
+    worker.makeHoverAtElement();
     worker.pressAddMainButton();
     worker.writeFirstName();
     worker.writelastName();
@@ -35,10 +37,29 @@ public void checkWorkersCreate() {
     worker.writePhone();
     worker.writeDescription();
     worker.addWorkerButton();
+    Assert.assertEquals(true, worker.successMessagePresents());
 }
 
+@Test
+public void B_checkWorkerInformation(){
+        worker.expandWorkerInfo();
+        Assert.assertEquals("Aтестовий",worker.getFirstName());
+        Assert.assertEquals("целафан",worker.getLastName());
+        Assert.assertEquals("671285351",worker.getPhone());
+        Assert.assertEquals("виносить",worker.getPosada());
+        Assert.assertEquals("Працює краще всіх",worker.getDescription());
+}
+
+@Test
+public void C_checkWorkersDelete(){
+    worker.deleteWorker();
+    Assert.assertEquals(true, worker.successMessagePresents());
+}
+
+
+
 @AfterClass
-    public void afterClass(){
-        driver.quit();
+public void afterClass(){
+    driver.quit();
 }
 }
