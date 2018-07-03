@@ -16,6 +16,7 @@ public class JournalTests {
     String homeUrl = "http://staging.eservia.com/auth/sign-in";
     JournalElementsLocators locators = new JournalElementsLocators();
     LoginPageCode login  = new LoginPageCode(driver,wait);
+    ManagementPageCode managementPageCode = new ManagementPageCode(driver,wait);
     @BeforeClass
     public void BeforeClass() {
         driver.get(homeUrl);
@@ -38,6 +39,9 @@ public class JournalTests {
         journal.checkElementsVisibilityClassName(locators.getJournalPeriodFilter());
         journal.checkElementsVisibilityClassName(locators.getJournalSearchFilter());
         journal.checkElementsVisibilityCssSelector(locators.getJournalSearch());
+        managementPageCode.clickAtPoslugy();
+        managementPageCode.clickAtPersonal();
+        managementPageCode.clickAtSchedules();
     }
 
     @AfterClass
