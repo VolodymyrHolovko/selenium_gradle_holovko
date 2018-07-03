@@ -4,6 +4,7 @@ public class ManagmentElementsLocators {
     String managementButton = "management";
     String poslugyButton = "послуги";
     String personalButton = "персонал";
+    String schedules = "графік роботи";
 
     public String getPersonalButton() {
         return personalButton;
@@ -17,4 +18,7 @@ public class ManagmentElementsLocators {
         return managementButton;
     }
 
+    public String getSchedules() {
+        return schedules;
+    }
 }

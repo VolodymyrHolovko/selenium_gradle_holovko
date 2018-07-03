@@ -16,6 +16,7 @@ public class ManagementPageCode {
     By managementButton = By.className(management.getManagementButton());
     By poslugyButton = By.linkText(management.getPoslugyButton());
     By personalButton  = By.linkText(management.getPersonalButton());
+    By schedulesButton = By.linkText(management.schedules);
 
     public void clickAtPoslugy (){
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButton));
@@ -29,5 +30,12 @@ public class ManagementPageCode {
         driver.findElement(managementButton).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(personalButton));
         driver.findElement(personalButton).click();
+    }
+
+    public void clickAtSchedules(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(managementButton));
+        driver.findElement(managementButton).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(schedulesButton));
+        driver.findElement(schedulesButton).click();
     }
 }
