@@ -1,6 +1,7 @@
 package Administration.Services;
 
 import LoginTests.LoginPageCode;
+import Managment.ManagementPageCode;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -18,6 +19,7 @@ public class ServicesTests {
     String servicesURL = "http://staging.eservia.com/business/settings/services";
     LoginPageCode login = new LoginPageCode(driver, wait);
     ServicesCode test = new ServicesCode(driver, wait);
+    ManagementPageCode managment = new ManagementPageCode(driver, wait);
 
     @BeforeClass
     public  void Before() {
@@ -27,7 +29,7 @@ public class ServicesTests {
         login.typePassword();
         login.pressSubmit();
         login.checkSuccessLogin();
-        driver.get(servicesURL);
+        managment.clickAtPoslugy();
     }
     @Test
     public void  checkElements() {
