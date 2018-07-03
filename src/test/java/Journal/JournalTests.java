@@ -17,6 +17,8 @@ public class JournalTests {
     JournalElementsLocators locators = new JournalElementsLocators();
     LoginPageCode login  = new LoginPageCode(driver,wait);
     ManagementPageCode managementPageCode = new ManagementPageCode(driver,wait);
+    JournalPageCode journal= new JournalPageCode(driver,wait);
+
     @BeforeClass
     public void BeforeClass() {
         driver.get(homeUrl);
@@ -24,8 +26,6 @@ public class JournalTests {
         login.typePassword();
         login.pressSubmit();
     }
-    JournalPageCode journal= new JournalPageCode(driver,wait);
-
 
     @Test
     public void checkElementspresents() {
@@ -40,8 +40,6 @@ public class JournalTests {
         journal.checkElementsVisibilityClassName(locators.getJournalSearchFilter());
         journal.checkElementsVisibilityCssSelector(locators.getJournalSearch());
         managementPageCode.clickAtPoslugy();
-        managementPageCode.clickAtPersonal();
-        managementPageCode.clickAtSchedules();
     }
 
     @AfterClass
