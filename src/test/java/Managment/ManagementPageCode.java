@@ -15,37 +15,38 @@ public class ManagementPageCode {
         this.wait = wait;
     }
     ManagmentElementsLocators management = new ManagmentElementsLocators();
-    By managementButton = By.className(management.getManagementButton());
+    By managementButtonSmall = By.xpath(management.getManagementButtonSmall());
+    By managementButtonBig = By.xpath(management.getManagementButtonBig());
     By poslugyButton = By.linkText(management.getPoslugyButton());
     By personalButton  = By.linkText(management.getPersonalButton());
     By schedulesButton = By.linkText(management.schedules);
 
     public void makeHoverAtElement(){
-        WebElement element = driver.findElement(managementButton);
+        WebElement element = driver.findElement(managementButtonSmall);
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
 
     public void clickAtPoslugy (){
-        wait.until(ExpectedConditions.presenceOfElementLocated(managementButton));
+        wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
-        driver.findElement(managementButton).click();
+        driver.findElement(managementButtonBig).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(poslugyButton));
         driver.findElement(poslugyButton).click();
     }
 
     public void clickAtPersonal(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(managementButton));
+        wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
-        driver.findElement(managementButton).click();
+        driver.findElement(managementButtonBig).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(personalButton));
         driver.findElement(personalButton).click();
     }
 
     public void clickAtSchedules(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(managementButton));
+        wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
-        driver.findElement(managementButton).click();
+        driver.findElement(managementButtonBig).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(schedulesButton));
         driver.findElement(schedulesButton).click();
     }
