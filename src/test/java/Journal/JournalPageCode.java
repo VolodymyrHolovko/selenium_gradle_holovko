@@ -40,8 +40,4 @@ public class JournalPageCode {
                 wait.until(ExpectedConditions.presenceOfElementLocated(journalButton));
                 driver.findElement(journalButton).click();
         }
-
-
-
-
 }
