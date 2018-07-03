@@ -2,6 +2,8 @@ package Managment;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,8 +20,15 @@ public class ManagementPageCode {
     By personalButton  = By.linkText(management.getPersonalButton());
     By schedulesButton = By.linkText(management.schedules);
 
+    public void makeHoverAtElement(){
+        WebElement element = driver.findElement(managementButton);
+        Actions builder = new Actions(driver);
+        builder.moveToElement(element).build().perform();
+    }
+
     public void clickAtPoslugy (){
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButton));
+        makeHoverAtElement();
         driver.findElement(managementButton).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(poslugyButton));
         driver.findElement(poslugyButton).click();
@@ -27,6 +36,7 @@ public class ManagementPageCode {
 
     public void clickAtPersonal(){
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButton));
+        makeHoverAtElement();
         driver.findElement(managementButton).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(personalButton));
         driver.findElement(personalButton).click();
@@ -34,6 +44,7 @@ public class ManagementPageCode {
 
     public void clickAtSchedules(){
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButton));
+        makeHoverAtElement();
         driver.findElement(managementButton).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(schedulesButton));
         driver.findElement(schedulesButton).click();
