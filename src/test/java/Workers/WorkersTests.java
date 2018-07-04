@@ -8,11 +8,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class WorkersTests {
 WebDriver driver = new FirefoxDriver();
-WebDriverWait wait = new WebDriverWait(driver,30,70);
+WebDriverWait wait = new WebDriverWait(driver,30,700);
 String homeUrl = "http://staging.eservia.com/auth/sign-in";
 WorkersPageCode worker = new WorkersPageCode(driver,wait);
 ManagementPageCode management = new ManagementPageCode(driver,wait);
@@ -24,6 +25,10 @@ LoginPageCode login  = new LoginPageCode(driver,wait);
     login.typeUsername();
     login.typePassword();
     login.pressSubmit();
+}
+
+@BeforeMethod
+public void directToPage(){
     management.clickAtPersonal();
 }
 
@@ -41,22 +46,32 @@ public void A_checkWorkersCreate() {
 }
 
 @Test
-public void B_checkWorkerInformation(){
-        worker.expandWorkerInfo();
-        Assert.assertEquals("Aтестовий",worker.getFirstName());
-        Assert.assertEquals("целафан",worker.getLastName());
-        Assert.assertEquals("671285351",worker.getPhone());
-        Assert.assertEquals("виносить",worker.getPosada());
-        Assert.assertEquals("Працює краще всіх",worker.getDescription());
-}
-
-@Test
-public void C_checkWorkersDelete(){
-    worker.deleteWorker();
+public void B_updateWorkes(){
+    worker.makeHoverAtElement();
+    worker.expandWorkerInfoAfterCreate();
+    worker.updateFirstName();
+    worker.updateLastName();
+    worker.updateDescription();
+    worker.updatePosade();
+    worker.addWorkerButtonAfterCreate();
     Assert.assertEquals(true, worker.successMessagePresents());
 }
 
+@Test
+public void C_checkWorkerInformation(){
+    worker.makeHoverAtElement();
+    worker.expandWorkerInfoAfterCreate();
+    Assert.assertEquals("Максік",worker.getFirstName());
+    Assert.assertEquals("Литковець",worker.getLastName());
+    Assert.assertEquals("посада",worker.getPosada());
+    Assert.assertEquals("курча",worker.getDescription());
+}
 
+@Test
+public void D_checkWorkersDelete(){
+    worker.deleteWorker();
+    Assert.assertEquals(true, worker.successMessagePresents());
+}
 
 @AfterClass
 public void afterClass(){

@@ -2,7 +2,7 @@ package Managment;
 
 public class ManagmentElementsLocators {
     String managementButtonSmall = "/html/body/app/ui-view/business-left-bar/div/nav/ul/li[4]/a/i[1]";
-    String managementButtonBig = "/html/body/app/ui-view/business-left-bar/div/nav/ul/li[4]/a/span";
+    String managementButtonBig = "/html/body/app/ui-view/business-left-bar/div/nav/ul/li[4]/a/i[2]";
     String poslugyButton = "послуги";
     String personalButton = "персонал";
     String schedules = "графік роботи";

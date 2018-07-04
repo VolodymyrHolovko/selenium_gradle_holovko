@@ -40,10 +40,10 @@ import static org.testng.AssertJUnit.assertEquals;
             driver.findElement(pressSubmitLoginButoonlocator).click();
         }
 
-        public void checkSuccessLogin(){
+        public String checkSuccessLogin(){
             wait.until(ExpectedConditions.presenceOfElementLocated(bookingButton));
             String currentUrl =  driver.getCurrentUrl();
-            //assertEquals(currentUrl,urlAfterLogin);
+            return  currentUrl;
         }
 
     }
