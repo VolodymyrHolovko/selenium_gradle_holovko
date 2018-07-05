@@ -36,8 +36,9 @@ import static org.testng.AssertJUnit.assertEquals;
             driver.findElement(passwordFieldLocator).sendKeys(password);
         }
 
-        public void pressSubmit() {
+        public void pressSubmit() throws InterruptedException {
             driver.findElement(pressSubmitLoginButoonlocator).click();
+            Thread.sleep(1500);
         }
 
         public String checkSuccessLogin(){

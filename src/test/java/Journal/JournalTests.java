@@ -20,7 +20,7 @@ public class JournalTests {
     JournalPageCode journal= new JournalPageCode(driver,wait);
 
     @BeforeClass
-    public void BeforeClass() {
+    public void BeforeClass() throws InterruptedException{
         driver.get(homeUrl);
         login.typeUsername();
         login.typePassword();

@@ -3,6 +3,7 @@ package LoginTests;
 import Journal.JournalElementsLocators;
 import Journal.JournalPageCode;
 
+import Workers.WorkersPageCode;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,6 +19,7 @@ public class LoginPageTests {
         WebDriverWait wait = new WebDriverWait(driver, 30, 700);
         String homeUrl = "http://staging.eservia.com/auth/sign-in";
         LoginPageCode login  = new LoginPageCode(driver,wait);
+        WorkersPageCode worker  = new WorkersPageCode(driver,wait);
         @BeforeClass
         public void BeforeClass() {
             driver.get(homeUrl);
@@ -28,6 +30,7 @@ public class LoginPageTests {
             login.typeUsername();
             login.typePassword();
             login.pressSubmit();
+            worker.makeHoverAtElement();
             Assert.assertEquals("http://staging.eservia.com/business/calendar/day",login.checkSuccessLogin());
         }
 

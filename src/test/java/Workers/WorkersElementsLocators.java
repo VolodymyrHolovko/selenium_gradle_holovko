@@ -15,10 +15,10 @@ public class WorkersElementsLocators {
     String workersAddButtonAfterCreate = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/div[1]/base-accordion-item-content/div/div[6]/div[2]/button/span";
     String workersDeactivateButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/div[1]/base-accordion-item-title/div/div[3]/div[1]/md-checkbox/div[1]/div";
     String workersSuccessMessage = "/html/body/md-toast/div/span";
-    String workersDeleteButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/div[1]/base-accordion-item-title/div/div[3]/div[2]/i";
+    String workersDeleteButton = "icon-close";
     String workersSuccessDeleteMessage = "/html/body/md-toast/div/span";
     String workersExpandInformation = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/div[1]/base-accordion-item-title/div/div[1]/i[1]";
-    String workersExpandInformationAfterLogin = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/div[1]/base-accordion-item-title/div/business-profile-staffs-title/div/h4";
+    String workersExpandInformationAfterLogin = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/div/base-accordion-item-title/div/div[1]/i[1]";
     String createBookingButton = "/html/body/app/ui-view/business-header/nav/div[2]/ul/li[1]/a/button";
     String deleteWorkersSubmit = "/html/body/div[4]/md-dialog/md-dialog-actions/button[2]";
 

@@ -20,21 +20,22 @@ ManagementPageCode management = new ManagementPageCode(driver,wait);
 LoginPageCode login  = new LoginPageCode(driver,wait);
 
 @BeforeClass
-    public void beforeClass(){
+    public void beforeClass() throws InterruptedException{
     driver.get(homeUrl);
     login.typeUsername();
     login.typePassword();
     login.pressSubmit();
+    driver.manage().window().maximize();
 }
 
 @BeforeMethod
 public void directToPage(){
     management.clickAtPersonal();
+    worker.makeHoverAtElement();
 }
 
 @Test
 public void A_checkWorkersCreate() {
-    worker.makeHoverAtElement();
     worker.pressAddMainButton();
     worker.writeFirstName();
     worker.writelastName();
@@ -47,7 +48,6 @@ public void A_checkWorkersCreate() {
 
 @Test
 public void B_updateWorkes(){
-    worker.makeHoverAtElement();
     worker.expandWorkerInfoAfterCreate();
     worker.updateFirstName();
     worker.updateLastName();
@@ -59,7 +59,6 @@ public void B_updateWorkes(){
 
 @Test
 public void C_checkWorkerInformation(){
-    worker.makeHoverAtElement();
     worker.expandWorkerInfoAfterCreate();
     Assert.assertEquals("Максік",worker.getFirstName());
     Assert.assertEquals("Литковець",worker.getLastName());
@@ -67,7 +66,7 @@ public void C_checkWorkerInformation(){
     Assert.assertEquals("курча",worker.getDescription());
 }
 
-@Test
+//@Test
 public void D_checkWorkersDelete(){
     worker.deleteWorker();
     Assert.assertEquals(true, worker.successMessagePresents());

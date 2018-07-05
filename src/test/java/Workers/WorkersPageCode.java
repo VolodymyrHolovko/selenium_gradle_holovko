@@ -28,7 +28,7 @@ public class WorkersPageCode {
     By workersAddButtonAfterCreate = By.xpath(worker.workersAddButtonAfterCreate);
     By workersDeactivateButton = By.xpath(worker.workersDeactivateButton);
     By workersSuccessCreateMessageLocator = By.xpath(worker.workersSuccessMessage);
-    By workersDeleteButton = By.xpath(worker.workersDeleteButton);
+    By workersDeleteButton = By.className(worker.workersDeleteButton);
     By workersExpandInfo = By.xpath(worker.workersExpandInformation);
     By workersExpandInfoAfterCreate = By.xpath(worker.workersExpandInformationAfterLogin);
     By createBookingButton = By.xpath(worker.createBookingButton);
@@ -87,7 +87,8 @@ public class WorkersPageCode {
     }
 
     public void deleteWorker(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(workersDeleteButton)).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(workersDeleteButton));
+        driver.findElement(workersDeleteButton).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(deleteWorkersSubmit)).click();
     }
 
