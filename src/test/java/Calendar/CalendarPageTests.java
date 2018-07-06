@@ -32,7 +32,6 @@ public class CalendarPageTests {
         driver.navigate().refresh();
         test.checkCalendarButtons();
         driver.navigate().back();
-       // test.checkStaff();
         test.checkCalendarGrid();
         test.checkProfileIcon();
     }

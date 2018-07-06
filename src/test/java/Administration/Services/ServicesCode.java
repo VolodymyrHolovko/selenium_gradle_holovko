@@ -17,18 +17,24 @@ public class ServicesCode {
         this.driver = driver;
         this.wait = wait;
     }
-    public void checkMenuElement() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.menuAdministrationButton)));
+
+    public void checkHeaderNavigationTab() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locators.headerTabCaption)));
     }
-    public void checkElementsOfPage() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.headerTabCaption)));
-    }
+
     public void addServicesGroupe(String nameServiceGroupe) {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addServiceGroupeButton))).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addNameServiceGroupe))).clear();
         driver.findElement(By.xpath(locators.addNameServiceGroupe)).sendKeys(nameServiceGroupe);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addGroupeButtonOnModal)));
-        driver.findElement(By.xpath(locators.addGroupeButtonOnModal)).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locators.addGroupeButtonOnModal)));
+        driver.findElement(By.cssSelector(locators.addGroupeButtonOnModal)).click();
+    }
 
+    public boolean getServiceGroupeName(String nameServiceGroupe) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.listOfSrvicesGroupe)));
+        List<WebElement> servicesGroupe = driver.findElement(By.xpath(locators.listOfSrvicesGroupe)).findElements(By.className(locators.serviceGroupeNamefields));
+        if (servicesGroupe.toString().contains(nameServiceGroupe)){return true;}
+        else {return false;}
     }
 }
+
