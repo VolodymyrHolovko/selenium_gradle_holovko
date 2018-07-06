@@ -29,8 +29,8 @@ public class ServicesTests {
         login.typePassword();
         login.pressSubmit();
         login.checkSuccessLogin();
-        //managment.clickAtPoslugy();
-        driver.get(servicesURL);
+        managment.clickAtPoslugy();
+        //driver.get(servicesURL);
     }
     @Test
     public void  checkElements() {
