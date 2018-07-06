@@ -36,14 +36,15 @@ import static org.testng.AssertJUnit.assertEquals;
             driver.findElement(passwordFieldLocator).sendKeys(password);
         }
 
-        public void pressSubmit() {
+        public void pressSubmit() throws InterruptedException {
             driver.findElement(pressSubmitLoginButoonlocator).click();
+            Thread.sleep(1500);
         }
 
-        public void checkSuccessLogin(){
+        public String checkSuccessLogin(){
             wait.until(ExpectedConditions.presenceOfElementLocated(bookingButton));
             String currentUrl =  driver.getCurrentUrl();
-            //assertEquals(currentUrl,urlAfterLogin);
+            return  currentUrl;
         }
 
     }

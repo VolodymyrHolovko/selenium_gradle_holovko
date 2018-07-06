@@ -16,7 +16,7 @@ public class CalendarPageTests {
     CalendarCode test = new CalendarCode(driver, wait);
 
     @BeforeClass
-    public  void Before() {
+    public  void Before() throws InterruptedException{
         driver.manage().window().maximize();
         driver.get(homeUrl);
         login.typeUsername();
@@ -32,7 +32,7 @@ public class CalendarPageTests {
         driver.navigate().refresh();
         test.checkCalendarButtons();
         driver.navigate().back();
-        test.checkStaff();
+       // test.checkStaff();
         test.checkCalendarGrid();
         test.checkProfileIcon();
     }

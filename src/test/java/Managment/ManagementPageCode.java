@@ -30,24 +30,24 @@ public class ManagementPageCode {
     public void clickAtPoslugy (){
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
-        driver.findElement(managementButtonBig).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(poslugyButton));
-        driver.findElement(poslugyButton).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(poslugyButton)).click();
+
     }
 
     public void clickAtPersonal(){
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
-        driver.findElement(managementButtonBig).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(personalButton));
-        driver.findElement(personalButton).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(personalButton)).click();
     }
 
     public void clickAtSchedules(){
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
-        driver.findElement(managementButtonBig).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(schedulesButton));
-        driver.findElement(schedulesButton).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(schedulesButton)).click();
+
+
     }
 }
