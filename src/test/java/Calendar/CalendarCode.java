@@ -32,13 +32,15 @@ public class CalendarCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addBookingPageHeader)));
 
     }
-
+    public void checkStaff() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.staffHeader)));
+    }
     public void checkCalendarGrid() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentTimeLine)));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarGrid)));
     }
     public  void checkProfileIcon() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.profileIcon))).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locators.profileIcon))).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.closeProfileModal)));
     }
 }

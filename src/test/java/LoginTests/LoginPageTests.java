@@ -31,7 +31,7 @@ public class LoginPageTests {
             login.typePassword();
             login.pressSubmit();
             worker.makeHoverAtElement();
-            Assert.assertEquals("http://staging.eservia.com/business/calendar/day",login.checkSuccessLogin());
+            Assert.assertEquals("https://staging.eservia.com/business/calendar/day",login.checkSuccessLogin());
         }
 
         @AfterClass
