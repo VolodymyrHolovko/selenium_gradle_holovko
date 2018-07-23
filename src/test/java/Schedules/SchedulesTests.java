@@ -2,7 +2,7 @@ package Schedules;
 
 import LoginTests.LoginPageCode;
 import Managment.ManagementPageCode;
-import Settings.BaseUrls;
+import Routes.BaseUrls;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
