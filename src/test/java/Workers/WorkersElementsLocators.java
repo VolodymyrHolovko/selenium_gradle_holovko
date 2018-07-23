@@ -11,7 +11,7 @@ public class WorkersElementsLocators {
     String workersPhone = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/base-accordion-item-content/div/div[2]/div[2]/md-input-container/phone/div/div/input";
     String workersDescriptionAfterCreate = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/div/base-accordion-item-content/div/div[3]/div/md-input-container/div[1]/textarea";
     String workersDescription = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/base-accordion-item-content/div/div[3]/div[2]/md-input-container/div[1]/textarea";
-    String workersAddButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/base-accordion-item-content/div/div[5]/div[2]/button";
+    String workersAddButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/base-accordion-item-content/div/div[5]/div[2]/button/span";
     String workersAddButtonAfterCreate = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/div[1]/base-accordion-item-content/div/div[6]/div[2]/button/span";
     String workersDeactivateButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-staffs/div/div/div[1]/div[1]/base-accordion-item-title/div/div[3]/div[1]/md-checkbox/div[1]/div";
     String workersSuccessMessage = "/html/body/md-toast/div/span";

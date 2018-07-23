@@ -40,7 +40,7 @@ public class CalendarCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarGrid)));
     }
     public  void checkProfileIcon() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.profileIcon))).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locators.profileIcon))).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.closeProfileModal)));
     }
 }
