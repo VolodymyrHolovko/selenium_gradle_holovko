@@ -20,9 +20,16 @@ public class ManagementPageCode {
     By poslugyButton = By.linkText(management.getPoslugyButton());
     By personalButton  = By.linkText(management.getPersonalButton());
     By schedulesButton = By.linkText(management.schedules);
+    By addBookingButton = By.xpath(management.bookingButton);
 
     public void makeHoverAtElement(){
         WebElement element = driver.findElement(managementButtonSmall);
+        Actions builder = new Actions(driver);
+        builder.moveToElement(element).build().perform();
+    }
+
+    public void makeHoverAtBooking(){
+        WebElement element = driver.findElement(addBookingButton);
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
@@ -32,7 +39,7 @@ public class ManagementPageCode {
         makeHoverAtElement();
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(poslugyButton)).click();
-
+        makeHoverAtBooking();
     }
 
     public void clickAtPersonal(){
@@ -40,6 +47,7 @@ public class ManagementPageCode {
         makeHoverAtElement();
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(personalButton)).click();
+        makeHoverAtBooking();
     }
 
     public void clickAtSchedules(){
@@ -47,7 +55,7 @@ public class ManagementPageCode {
         makeHoverAtElement();
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(schedulesButton)).click();
-
+        makeHoverAtBooking();
 
     }
 }

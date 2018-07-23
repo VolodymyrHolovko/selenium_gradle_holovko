@@ -6,6 +6,7 @@ public class ManagmentElementsLocators {
     String poslugyButton = "послуги";
     String personalButton = "персонал";
     String schedules = "графік роботи";
+    String bookingButton = "/html/body/app/ui-view/business-header/nav/div[2]/ul/li[1]/a/button";
 
     public String getPersonalButton() {
         return personalButton;
