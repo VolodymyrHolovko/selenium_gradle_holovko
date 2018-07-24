@@ -64,7 +64,7 @@ public class WorkersPageCode {
     }
 
     public void writePhone(){
-        int num = 364 + random.nextInt(4000 - 3666);
+        int num = 364 + random.nextInt(9000 - 3666);
         wait.until(ExpectedConditions.presenceOfElementLocated(workersPhone)).sendKeys("671284"+num);
     }
 
