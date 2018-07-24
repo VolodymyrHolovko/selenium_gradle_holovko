@@ -28,7 +28,7 @@ public class CalendarCode {
 
     public void checkModalCalendar() throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
-        Thread.sleep(250);
+        Thread.sleep(500);
         driver.findElement(By.xpath(locators.currentDate)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
         driver.findElement(By.xpath(locators.headerCalendar)).click();
