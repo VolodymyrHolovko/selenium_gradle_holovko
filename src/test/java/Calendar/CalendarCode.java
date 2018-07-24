@@ -19,23 +19,19 @@ public class CalendarCode {
         this.driver = driver;
         this.wait = wait;
     }
-    public void makeHoverOnBody() {
-        WebElement element = driver.findElement(By.xpath(locators.body));
-        Actions builder = new Actions(driver);
-        builder.click(element).build().perform();
-    }
 
-    public  void checkAddresField() {
+    public  void checkAddresField() throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addresField)));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addresFieldTitle)));
+        Thread.sleep(250);
     }
 
-    public void checkModalCalendar() {
+    public void checkModalCalendar() throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
+        Thread.sleep(250);
         driver.findElement(By.xpath(locators.currentDate)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
-        makeHoverOnBody();
-
+        driver.findElement(By.xpath(locators.headerCalendar)).click();
     }
     public void checkCalendarButtons() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarButton)));

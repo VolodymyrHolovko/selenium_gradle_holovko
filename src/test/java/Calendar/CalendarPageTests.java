@@ -26,7 +26,7 @@ public class CalendarPageTests {
 
     }
     @Test
-    public void CheckCalendarPageElements() {
+    public void CheckCalendarPageElements() throws InterruptedException {
         test.checkAddresField();
         test.checkModalCalendar();
         test.checkCalendarButtons();

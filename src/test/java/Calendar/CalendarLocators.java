@@ -16,14 +16,14 @@ public class CalendarLocators {
     String addBookingPageHeader = "/html/body/app/ui-view/div/ui-view/add-booking-beauty/div/div/div[2]";
     String profileIcon = "md-icon-button";
     String closeProfileModal = "icon-close";
-    String body = "/html/body";
+    String headerCalendar = "/html/body/div[4]";
 
-    public String getBody() {
-        return body;
+    public String getHeaderCalendar() {
+        return headerCalendar;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setHeaderCalendar(String headerCalendar) {
+        this.headerCalendar = headerCalendar;
     }
 
     public String getCloseProfileModal() {
