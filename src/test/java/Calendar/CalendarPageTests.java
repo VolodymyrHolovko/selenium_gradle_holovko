@@ -10,13 +10,13 @@ import org.testng.annotations.Test;
 
 public class CalendarPageTests {
     WebDriver driver = new FirefoxDriver();
-    WebDriverWait wait = new WebDriverWait(driver, 30, 700);
+    WebDriverWait wait = new WebDriverWait(driver, 90, 1700);
     String homeUrl = "http://staging.eservia.com/auth/sign-in";
     LoginPageCode login = new LoginPageCode(driver, wait);
     CalendarCode test = new CalendarCode(driver, wait);
 
     @BeforeClass
-    public  void Before() throws InterruptedException{
+    public  void Before() throws InterruptedException {
         driver.manage().window().maximize();
         driver.get(homeUrl);
         login.typeUsername();
@@ -29,7 +29,6 @@ public class CalendarPageTests {
     public void CheckCalendarPageElements() {
         test.checkAddresField();
         test.checkModalCalendar();
-        driver.navigate().refresh();
         test.checkCalendarButtons();
         driver.navigate().back();
         test.checkCalendarGrid();
