@@ -2,6 +2,7 @@ package Journal;
 
 import LoginTests.LoginPageCode;
 import Managment.ManagementPageCode;
+import Routes.BaseUrls;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,7 +14,7 @@ import org.testng.annotations.Test;
 public class JournalTests {
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver, 30, 700);
-    String homeUrl = "http://staging.eservia.com/auth/sign-in";
+    BaseUrls baseUrls = new BaseUrls();
     JournalElementsLocators locators = new JournalElementsLocators();
     LoginPageCode login  = new LoginPageCode(driver,wait);
     ManagementPageCode managementPageCode = new ManagementPageCode(driver,wait);
@@ -21,7 +22,7 @@ public class JournalTests {
 
     @BeforeClass
     public void BeforeClass() throws InterruptedException{
-        driver.get(homeUrl);
+        driver.get(baseUrls.getHomeUrl());
         login.typeUsername();
         login.typePassword();
         login.pressSubmit();

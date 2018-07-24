@@ -2,6 +2,7 @@ package Workers;
 
 import LoginTests.LoginPageCode;
 import Managment.ManagementPageCode;
+import Routes.BaseUrls;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,14 +15,14 @@ import org.testng.annotations.Test;
 public class WorkersTests {
 WebDriver driver = new FirefoxDriver();
 WebDriverWait wait = new WebDriverWait(driver,30,700);
-String homeUrl = "http://staging.eservia.com/auth/sign-in";
+    BaseUrls baseUrls = new BaseUrls();
 WorkersPageCode worker = new WorkersPageCode(driver,wait);
 ManagementPageCode management = new ManagementPageCode(driver,wait);
 LoginPageCode login  = new LoginPageCode(driver,wait);
 
 @BeforeClass
     public void beforeClass() throws InterruptedException{
-    driver.get(homeUrl);
+    driver.get(baseUrls.getHomeUrl());
     login.typeUsername();
     login.typePassword();
     login.pressSubmit();

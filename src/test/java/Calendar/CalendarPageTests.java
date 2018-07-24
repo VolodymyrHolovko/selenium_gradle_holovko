@@ -1,6 +1,7 @@
 package Calendar;
 
 import LoginTests.LoginPageCode;
+import Routes.BaseUrls;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,14 +12,14 @@ import org.testng.annotations.Test;
 public class CalendarPageTests {
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver, 30, 700);
-    String homeUrl = "http://staging.eservia.com/auth/sign-in";
+    BaseUrls baseUrls = new BaseUrls();
     LoginPageCode login = new LoginPageCode(driver, wait);
     CalendarCode test = new CalendarCode(driver, wait);
 
     @BeforeClass
     public  void Before() throws InterruptedException{
         driver.manage().window().maximize();
-        driver.get(homeUrl);
+        driver.get(baseUrls.getHomeUrl());
         login.typeUsername();
         login.typePassword();
         login.pressSubmit();

@@ -2,6 +2,7 @@ package Administration.Services;
 
 import LoginTests.LoginPageCode;
 import Managment.ManagementPageCode;
+import Routes.BaseUrls;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,8 +17,7 @@ public class ServicesTests {
     WebDriverWait wait = new WebDriverWait(driver, 30, 700);
     Faker faker = new Faker();
     String nameServiceGroupe = faker.artist().name();
-    String homeUrl = "http://staging.eservia.com/auth/sign-in";
-    String servicesURL = "http://staging.eservia.com/business/settings/services";
+    BaseUrls baseUrls = new BaseUrls();
     LoginPageCode login = new LoginPageCode(driver, wait);
     ServicesCode test = new ServicesCode(driver, wait);
     ManagementPageCode managment = new ManagementPageCode(driver, wait);
@@ -25,7 +25,7 @@ public class ServicesTests {
     @BeforeClass
     public  void Before() throws InterruptedException {
         driver.manage().window().maximize();
-        driver.get(homeUrl);
+        driver.get(baseUrls.getHomeUrl());
         login.typeUsername();
         login.typePassword();
         login.pressSubmit();
