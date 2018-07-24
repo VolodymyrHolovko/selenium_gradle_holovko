@@ -1,18 +1,16 @@
 package LoginTests;
 
+import Routes.BaseUrls;
+
 public class LoginPageElementsLocators {
-    String urlAfterLogin = "http://stage.eservia.com/business/calendar/day";
+    BaseUrls baseUrls = new BaseUrls();
     String usernameOnLoginFieldLocator = "login";
     String passwordOnLoginFieldLocator = "password";
     String submitLoginButoonlocator = "login-btn";
     String bookingCreateButton = "/html/body/app/ui-view/business-header/nav/div[2]/ul/li[1]/a/button";
 
     public String getUrlAfterLogin() {
-        return urlAfterLogin;
-    }
-
-    public void setUrlAfterLogin(String urlAfterLogin) {
-        this.urlAfterLogin = urlAfterLogin;
+        return baseUrls.getUrlAfterLogin();
     }
 
     public String getUsernameOnLoginFieldLocator() {

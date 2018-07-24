@@ -1,5 +1,6 @@
 package LoginTests;
 
+import Routes.BaseUrls;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,7 +13,7 @@ import static org.testng.AssertJUnit.assertEquals;
         WebDriverWait wait;
         LoginPageElementsLocators loginPageElementsLocators = new LoginPageElementsLocators();
         LoginPageElementsLocators elementsLocators = new LoginPageElementsLocators();
-        String urlAfterLogin = "http://staging.eservia.com/business/calendar/day";
+        BaseUrls baseUrls = new BaseUrls();
         String username = "JohnstonLouie@mail.com";
         String password = "12345678";
         By usernameFieldLocator = By.id(loginPageElementsLocators.getUsernameOnLoginFieldLocator());

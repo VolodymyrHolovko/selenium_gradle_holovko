@@ -6,11 +6,13 @@ import Routes.BaseUrls;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class SchedulesTests {
+    String date;
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver,30,500);
     BaseUrls baseUrls = new BaseUrls();
@@ -27,10 +29,41 @@ public class SchedulesTests {
         login.checkSuccessLogin();
         managementPageCode.clickAtSchedules();
     }
+
     @Test
-    public void createStaffSchedules(){
+    public void chooseFirstStaffSchedules() {
         schedulesPageCode.clickAtStaffSchedules();
+        schedulesPageCode.clickAtStaffSchedulesType();
+        schedulesPageCode.clickAtCertainSchedule(0);
+        Assert.assertEquals("Змінний робочий графік",schedulesPageCode.checkSelectedStaffScheduleText());
     }
+
+    @Test
+    public void chooseSecondStaffSchedules(){
+        schedulesPageCode.clickAtStaffSchedules();
+        schedulesPageCode.clickAtStaffSchedulesType();
+        schedulesPageCode.clickAtCertainSchedule(1);
+        Assert.assertEquals("Регулярний робочий графік",schedulesPageCode.checkSelectedStaffScheduleText());
+    }
+
+    @Test
+    public void chooseThirdStaffSchedules() {
+        schedulesPageCode.clickAtStaffSchedules();
+        schedulesPageCode.clickAtStaffSchedulesType();
+        schedulesPageCode.clickAtCertainSchedule(2);
+        Assert.assertEquals("Довільний графік", schedulesPageCode.checkSelectedStaffScheduleText());
+    }
+
+    @Test
+    public void setZminnuyGrafik(){
+        schedulesPageCode.clickAtStaffSchedules();
+        schedulesPageCode.clickAtStaffSchedulesType();
+        schedulesPageCode.clickAtCertainSchedule(0);
+        schedulesPageCode.openCalendar();
+        schedulesPageCode.chooseFirstWorkingDay();
+        schedulesPageCode.saveZminnuyGrafik();
+    }
+
     @AfterClass
     public void closeDriver() {
         driver.quit();

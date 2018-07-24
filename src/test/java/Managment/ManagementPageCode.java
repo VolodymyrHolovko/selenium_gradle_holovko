@@ -56,6 +56,5 @@ public class ManagementPageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(schedulesButton)).click();
         makeHoverAtBooking();
-
     }
 }

@@ -1,12 +1,12 @@
 package Managment;
 
 public class ManagmentElementsLocators {
-    String managementButtonSmall = "/html/body/app/ui-view/div/business-left-bar/div/ul/li[3]/a";
-    String managementButtonBig = "/html/body/app/ui-view/div/business-left-bar/div/ul/li[3]/ul/li[3]/a/span";
+    String managementButtonSmall = "//*/div/business-left-bar/div/ul/li[3]/a";
+    String managementButtonBig = "//*/div/business-left-bar/div/ul/li[3]/ul/li[3]/a/span";
     String poslugyButton = "послуги";
     String personalButton = "персонал";
     String schedules = "графік роботи";
-    String bookingButton = "/html/body/app/ui-view/business-header/nav/div[2]/ul/li[1]/a/button";
+    String bookingButton = "//*/ui-view/business-header/nav/div[2]/ul/li[1]/a/button";
 
     public String getPersonalButton() {
         return personalButton;
