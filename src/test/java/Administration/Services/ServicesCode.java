@@ -55,5 +55,19 @@ public class ServicesCode {
             return   results;
     }
 
+    public void updateServiceGroupeName(String nameService, String serviceCost) throws InterruptedException {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.dropdownIconSrevicesGrouope))).click();
+        Thread.sleep(300);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addServicesButton))).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.addServicesModalTab)));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.nameServiceField))).clear();
+        driver.findElement(By.xpath(locators.nameServiceField)).sendKeys(nameService);
+        driver.findElement(By.xpath(locators.serviceCostFField)).click();
+        driver.findElement(By.xpath(locators.serviceCostFField)).clear();
+        driver.findElement(By.xpath(locators.serviceCostFField)).sendKeys(serviceCost);
+
+
+    }
+
 }
 
