@@ -1,6 +1,7 @@
 package Calendar;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,8 +23,12 @@ public class CalendarCode {
 
     public void checkModalCalendar() throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
-        Thread.sleep(550);
-        driver.findElement(By.xpath(locators.currentDate)).click();
+        try {
+            driver.findElement(By.xpath(locators.currentDate)).click();
+        }
+        catch (ElementClickInterceptedException e){
+            driver.findElement(By.xpath(locators.currentDate)).click();
+        }
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
         driver.findElement(By.xpath(locators.modalCalendarHeader)).click();
     }
