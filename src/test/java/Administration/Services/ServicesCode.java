@@ -36,5 +36,6 @@ public class ServicesCode {
         if (servicesGroupe.toString().contains(nameServiceGroupe)){return true;}
         else {return false;}
     }
+
 }
 
