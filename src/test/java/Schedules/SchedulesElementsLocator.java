@@ -10,5 +10,6 @@ public class SchedulesElementsLocator {
     String currentCalendarDay = "//*/div/div/div[2]/working-days-settings-recurrence/div/div[1]/md-datepicker/div/input";
     String countWorkDay = "//*/div/div/div[2]/working-days-settings-recurrence/div/div[2]/div/md-select/md-select-value/span[2]";
     String workingDaysDropDown = "//*/working-days-settings-recurrence/div/div[2]/div/md-select/md-select-value/span[2]";
-    String chooseHowMatchWorkDays = "//*/md-select-menu/md-content/md-option";
+    String chooseHowMatchWorkDays = "//md-option[@value='6']";
+    String checkHowMatchWorkingDaysSelected = "#select_value_label_95 > span:nth-child(1)";
 }

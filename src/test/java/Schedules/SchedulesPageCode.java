@@ -15,6 +15,7 @@ public class SchedulesPageCode {
         this.wait = wait;
     }
     String date;
+    String workDaysCount;
     SchedulesElementsLocator schedulesElementsLocator = new SchedulesElementsLocator();
     ManagmentElementsLocators management = new ManagmentElementsLocators();
     By staffSchedules = By.xpath(schedulesElementsLocator.workersSchedules);
@@ -27,6 +28,7 @@ public class SchedulesPageCode {
     By currentCalendarDay = By.xpath(schedulesElementsLocator.currentCalendarDay);
     By workingDaysDropDown = By.xpath(schedulesElementsLocator.workingDaysDropDown);
     By chooseHowMatchWorkDays = By.xpath(schedulesElementsLocator.chooseHowMatchWorkDays);
+    By checkHowMatchWorkingDaysSelected = By.cssSelector(schedulesElementsLocator.checkHowMatchWorkingDaysSelected);
 
 
     public void clickAtStaffSchedules() throws StaleElementReferenceException {
@@ -88,13 +90,24 @@ public class SchedulesPageCode {
         try {
             wait.until(ExpectedConditions.presenceOfElementLocated(workingDaysDropDown)).click();
             List<WebElement> days = driver.findElement(workingDaysDropDown).findElements(chooseHowMatchWorkDays);
-            days.get(4).click();
+            this.workDaysCount = days.get(1).getText();
+            days.get(1).click();
         }
         catch (ElementNotInteractableException e){
             wait.until(ExpectedConditions.presenceOfElementLocated(workingDaysDropDown)).click();
             List<WebElement> days = driver.findElement(workingDaysDropDown).findElements(chooseHowMatchWorkDays);
-            days.get(4).click();
+            this.workDaysCount = days.get(1).getText();
+            days.get(6).click();
         }
+    }
+
+    public String chosenWorkDaysCount(){
+        return workDaysCount;
+    }
+
+    public String checkHowMatchWorkingDaysSelected(){
+       String howMatchDays =  wait.until(ExpectedConditions.presenceOfElementLocated(checkHowMatchWorkingDaysSelected)).getText();
+       return  howMatchDays;
     }
 
 }

@@ -71,6 +71,7 @@ public class  SchedulesTests {
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
         schedulesPageCode.chooseHowMutchWorkDays();
+        Assert.assertEquals(schedulesPageCode.chosenWorkDaysCount(),schedulesPageCode.checkHowMatchWorkingDaysSelected());
     }
 
     @AfterClass
