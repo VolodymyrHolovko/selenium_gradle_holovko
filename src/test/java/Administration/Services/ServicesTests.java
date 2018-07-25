@@ -35,11 +35,18 @@ public class ServicesTests {
     @Test
     public void checkElementsOfPage() {
         test.checkHeaderNavigationTab();
+        test.checkAddServicesButtons();
+        test.checkEditServicesGroupeButton();
+        test.checkDeleteServicesGroupeButton();
+        test.checkDropDownButtonGroupes();
     }
     @Test
     public void  addServicesGroupe() {
         test.addServicesGroupe(nameServiceGroupe);
-       Assert.assertEquals(false, test.getServiceGroupeName(nameServiceGroupe));
+       //Assert.assertEquals(nameServiceGroupe, test.getServiceGroupeName(nameServiceGroupe));
+        //test.getServiceGroupeName();
+        Assert.assertEquals(true,test.getServiceGroupeName().contains(nameServiceGroupe));
+
     }
     @AfterClass
     public void closeDriver() {

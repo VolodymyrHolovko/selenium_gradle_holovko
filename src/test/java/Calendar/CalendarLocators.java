@@ -16,6 +16,15 @@ public class CalendarLocators {
     String addBookingPageHeader = "/html/body/app/ui-view/div/ui-view/add-booking-beauty/div/div/div[2]";
     String profileIcon = "md-icon-button";
     String closeProfileModal = "icon-close";
+    String modalCalendarHeader = "/html/body/div[4]";
+
+    public String getModalCalendarHeader() {
+        return modalCalendarHeader;
+    }
+
+    public void setModalCalendarHeader(String modalCalendarHeader) {
+        this.modalCalendarHeader = modalCalendarHeader;
+    }
 
     public String getCloseProfileModal() {
         return closeProfileModal;

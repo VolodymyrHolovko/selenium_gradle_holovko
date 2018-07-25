@@ -20,9 +20,12 @@ public class CalendarCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addresFieldTitle)));
     }
 
-    public void checkModalCalendar(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate))).click();
+    public void checkModalCalendar() throws InterruptedException {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
+        Thread.sleep(550);
+        driver.findElement(By.xpath(locators.currentDate)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
+        driver.findElement(By.xpath(locators.modalCalendarHeader)).click();
     }
     public void checkCalendarButtons() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarButton)));
