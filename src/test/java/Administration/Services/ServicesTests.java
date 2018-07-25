@@ -39,7 +39,7 @@ public class ServicesTests {
     @Test
     public void  addServicesGroupe() {
         test.addServicesGroupe(nameServiceGroupe);
-        Assert.assertEquals(true, test.getServiceGroupeName(nameServiceGroupe));
+       Assert.assertEquals(false, test.getServiceGroupeName(nameServiceGroupe));
     }
     @AfterClass
     public void closeDriver() {
