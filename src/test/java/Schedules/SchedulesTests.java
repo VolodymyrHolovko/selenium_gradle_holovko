@@ -65,6 +65,14 @@ public class  SchedulesTests {
         Assert.assertEquals(true,schedulesPageCode.checkCurrentCalendarDay().contains(schedulesPageCode.returnDate()));
     }
 
+    @Test
+    public void setZminnuySchedule(){
+        schedulesPageCode.clickAtStaffSchedules();
+        schedulesPageCode.clickAtStaffSchedulesType();
+        schedulesPageCode.clickAtCertainSchedule(0);
+        schedulesPageCode.chooseHowMutchWorkDays();
+    }
+
     @AfterClass
     public void closeDriver() {
         driver.quit();

@@ -8,4 +8,7 @@ public class SchedulesElementsLocator {
     String chooseFirstDay = "//*/tbody[4]/tr[4]/td[3]";
     String saveButtonZminnuy = "//*/div/div/div[2]/div/div[2]/button/span";
     String currentCalendarDay = "//*/div/div/div[2]/working-days-settings-recurrence/div/div[1]/md-datepicker/div/input";
+    String countWorkDay = "//*/div/div/div[2]/working-days-settings-recurrence/div/div[2]/div/md-select/md-select-value/span[2]";
+    String workingDaysDropDown = "//*/working-days-settings-recurrence/div/div[2]/div/md-select/md-select-value/span[2]";
+    String chooseHowMatchWorkDays = "//*/md-select-menu/md-content/md-option";
 }

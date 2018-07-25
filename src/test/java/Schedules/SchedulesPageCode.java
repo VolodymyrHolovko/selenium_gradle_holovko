@@ -1,10 +1,7 @@
 package Schedules;
 
 import Managment.ManagmentElementsLocators;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,12 +18,15 @@ public class SchedulesPageCode {
     SchedulesElementsLocator schedulesElementsLocator = new SchedulesElementsLocator();
     ManagmentElementsLocators management = new ManagmentElementsLocators();
     By staffSchedules = By.xpath(schedulesElementsLocator.workersSchedules);
+    By countWorkDay= By.xpath(schedulesElementsLocator.countWorkDay);
     By staffScheduleType = By.xpath(schedulesElementsLocator.selectWorkersScheduleType);
     By schedulesDropDown = By.xpath(schedulesElementsLocator.schedulesDropDown);
     By openCalendar = By.xpath(schedulesElementsLocator.openCalendar);
     By chooseFirstDay = By.xpath(schedulesElementsLocator.chooseFirstDay);
     By saveButtonZminnuy = By.xpath(schedulesElementsLocator.saveButtonZminnuy);
     By currentCalendarDay = By.xpath(schedulesElementsLocator.currentCalendarDay);
+    By workingDaysDropDown = By.xpath(schedulesElementsLocator.workingDaysDropDown);
+    By chooseHowMatchWorkDays = By.xpath(schedulesElementsLocator.chooseHowMatchWorkDays);
 
 
     public void clickAtStaffSchedules() throws StaleElementReferenceException {
@@ -82,6 +82,19 @@ public class SchedulesPageCode {
     }
     public String returnDate(){
         return date;
+    }
+
+    public void chooseHowMutchWorkDays (){
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(workingDaysDropDown)).click();
+            List<WebElement> days = driver.findElement(workingDaysDropDown).findElements(chooseHowMatchWorkDays);
+            days.get(4).click();
+        }
+        catch (ElementNotInteractableException e){
+            wait.until(ExpectedConditions.presenceOfElementLocated(workingDaysDropDown)).click();
+            List<WebElement> days = driver.findElement(workingDaysDropDown).findElements(chooseHowMatchWorkDays);
+            days.get(4).click();
+        }
     }
 
 }
