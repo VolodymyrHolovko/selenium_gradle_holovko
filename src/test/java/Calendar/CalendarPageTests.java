@@ -27,10 +27,9 @@ public class CalendarPageTests {
 
     }
     @Test
-    public void CheckCalendarPageElements() {
+    public void CheckCalendarPageElements() throws InterruptedException {
         test.checkAddresField();
         test.checkModalCalendar();
-        driver.navigate().refresh();
         test.checkCalendarButtons();
         driver.navigate().back();
         test.checkCalendarGrid();

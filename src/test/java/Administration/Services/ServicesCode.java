@@ -22,6 +22,20 @@ public class ServicesCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locators.headerTabCaption)));
     }
 
+    public void checkAddServicesButtons() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addServiceGroupeButton)));
+    }
+
+    public void checkEditServicesGroupeButton() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.editServicesGroupIcon)));
+    }
+    public void checkDeleteServicesGroupeButton() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.deleteServicesGroupeIcon)));
+    }
+    public void checkDropDownButtonGroupes() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.dropdownIconSrevicesGrouope)));
+    }
+
     public void addServicesGroupe(String nameServiceGroupe) {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addServiceGroupeButton))).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addNameServiceGroupe))).clear();
@@ -30,11 +44,15 @@ public class ServicesCode {
         driver.findElement(By.cssSelector(locators.addGroupeButtonOnModal)).click();
     }
 
-    public boolean getServiceGroupeName(String nameServiceGroupe) {
+    public String getServiceGroupeName() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.listOfSrvicesGroupe)));
-        List<WebElement> servicesGroupe = driver.findElement(By.xpath(locators.listOfSrvicesGroupe)).findElements(By.className(locators.serviceGroupeNamefields));
-        if (servicesGroupe.toString().contains(nameServiceGroupe)){return true;}
-        else {return false;}
+        List<WebElement> groupsNames = driver.findElement(By.xpath(locators.listOfSrvicesGroupe)).findElements(By.xpath(locators.serviceGroupeNamefields));
+        int size = groupsNames.size();
+        String results = "";
+        for (int i = 0; i <size ; i ++){
+            results += groupsNames.get(i).getText();
+        }
+            return   results;
     }
 
 }
