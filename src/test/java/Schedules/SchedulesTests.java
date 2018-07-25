@@ -11,7 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class SchedulesTests {
+public class  SchedulesTests {
     String date;
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver,20);

@@ -46,11 +46,19 @@ public class SchedulesPageCode {
         schedulesType.get(t).click();
     }
 
-    public String checkSelectedStaffScheduleText() throws StaleElementReferenceException{
-        wait.until(ExpectedConditions.presenceOfElementLocated(staffScheduleType));
-        WebElement element = driver.findElement(staffScheduleType);
-        String schedulesType = element.getText();
-        return schedulesType;
+    public String checkSelectedStaffScheduleText() {
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(staffScheduleType));
+            WebElement element = driver.findElement(staffScheduleType);
+            String schedulesType = element.getText();
+            return schedulesType;
+        }
+        catch (StaleElementReferenceException e){
+            wait.until(ExpectedConditions.presenceOfElementLocated(staffScheduleType));
+            WebElement element = driver.findElement(staffScheduleType);
+            String schedulesType = element.getText();
+            return schedulesType;
+        }
     }
 
     public void openCalendar(){

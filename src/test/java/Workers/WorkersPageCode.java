@@ -113,6 +113,7 @@ public class WorkersPageCode {
     }
 
     public String getFirstName (){
+
         wait.until(ExpectedConditions.presenceOfElementLocated(workersNameAfterCreate));
         return  driver.findElement(workersNameAfterCreate).getAttribute("value");
     }
