@@ -6,7 +6,7 @@ public class ServicesLocators {
     String addServiceGroupeButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/button/span";
     String addNameServiceGroupe = "//*[@id=\"service_group_name\"]";
     String addGroupeButtonOnModal = "body > div.md-dialog-container.ng-scope > md-dialog > form > md-dialog-actions > button";
-    String serviceGroupeNamefields = "base-accordion-item-title";
+    String serviceGroupeNamefields = "layout-nowrap";
     String listOfSrvicesGroupe = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div";
 
     public String getServiceGroupeNamefields() {
