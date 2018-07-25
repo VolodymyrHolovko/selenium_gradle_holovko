@@ -1,6 +1,7 @@
 package Workers;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -112,10 +113,16 @@ public class WorkersPageCode {
         driver.findElement(workersDescriptionAfterCreate).sendKeys("курча");
     }
 
-    public String getFirstName (){
-
-        wait.until(ExpectedConditions.presenceOfElementLocated(workersNameAfterCreate));
-        return  driver.findElement(workersNameAfterCreate).getAttribute("value");
+    public String getFirstName ()
+    {
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(workersNameAfterCreate));
+            return driver.findElement(workersNameAfterCreate).getAttribute("value");
+        }
+        catch (ElementClickInterceptedException e){
+            wait.until(ExpectedConditions.presenceOfElementLocated(workersNameAfterCreate));
+            return driver.findElement(workersNameAfterCreate).getAttribute("value");
+        }
     }
 
     public String getLastName (){
