@@ -1,6 +1,7 @@
 package Managment;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -50,11 +51,13 @@ public class ManagementPageCode {
         makeHoverAtBooking();
     }
 
-    public void clickAtSchedules(){
+    public void clickAtSchedules() throws StaleElementReferenceException {
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
-        wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(schedulesButton)).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig));
+        driver.findElement(managementButtonBig).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(schedulesButton));
+        driver.findElement(schedulesButton).click();
         makeHoverAtBooking();
     }
 }

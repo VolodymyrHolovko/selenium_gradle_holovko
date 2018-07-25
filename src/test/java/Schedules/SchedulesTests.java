@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 public class SchedulesTests {
     String date;
     WebDriver driver = new FirefoxDriver();
-    WebDriverWait wait = new WebDriverWait(driver,30,500);
+    WebDriverWait wait = new WebDriverWait(driver,20);
     BaseUrls baseUrls = new BaseUrls();
     LoginPageCode login =new LoginPageCode(driver,wait);
     SchedulesPageCode schedulesPageCode = new SchedulesPageCode(driver,wait);
@@ -62,6 +62,7 @@ public class SchedulesTests {
         schedulesPageCode.openCalendar();
         schedulesPageCode.chooseFirstWorkingDay();
         schedulesPageCode.saveZminnuyGrafik();
+        Assert.assertEquals(true,schedulesPageCode.checkCurrentCalendarDay().contains(schedulesPageCode.returnDate()));
     }
 
     @AfterClass

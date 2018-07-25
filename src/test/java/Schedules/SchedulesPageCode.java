@@ -2,6 +2,7 @@ package Schedules;
 
 import Managment.ManagmentElementsLocators;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,7 +17,7 @@ public class SchedulesPageCode {
         this.driver = driver;
         this.wait = wait;
     }
-
+    String date;
     SchedulesElementsLocator schedulesElementsLocator = new SchedulesElementsLocator();
     ManagmentElementsLocators management = new ManagmentElementsLocators();
     By staffSchedules = By.xpath(schedulesElementsLocator.workersSchedules);
@@ -28,7 +29,7 @@ public class SchedulesPageCode {
     By currentCalendarDay = By.xpath(schedulesElementsLocator.currentCalendarDay);
 
 
-    public void clickAtStaffSchedules() {
+    public void clickAtStaffSchedules() throws StaleElementReferenceException {
         wait.until(ExpectedConditions.presenceOfElementLocated(staffSchedules)).click();
     }
 
@@ -40,13 +41,15 @@ public class SchedulesPageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(schedulesDropDown)).click();
     }
 
-    public void clickAtCertainSchedule (int t){
+    public void clickAtCertainSchedule (int t) throws StaleElementReferenceException{
         List<WebElement> schedulesType = driver.findElement(schedulesDropDown).findElements(By.className("md-ink-ripple"));
         schedulesType.get(t).click();
     }
 
-    public String checkSelectedStaffScheduleText(){
-        String schedulesType = wait.until(ExpectedConditions.presenceOfElementLocated(staffScheduleType)).getText();
+    public String checkSelectedStaffScheduleText() throws StaleElementReferenceException{
+        wait.until(ExpectedConditions.presenceOfElementLocated(staffScheduleType));
+        WebElement element = driver.findElement(staffScheduleType);
+        String schedulesType = element.getText();
         return schedulesType;
     }
 
@@ -56,8 +59,9 @@ public class SchedulesPageCode {
 
     public void chooseFirstWorkingDay(){
         wait.until(ExpectedConditions.presenceOfElementLocated(chooseFirstDay));
-        String date = driver.findElement(chooseFirstDay).getAttribute("value");
+        String date = driver.findElement(chooseFirstDay).getText();
         driver.findElement(chooseFirstDay).click();
+        this.date = date;
     }
 
     public void saveZminnuyGrafik(){
@@ -68,4 +72,8 @@ public class SchedulesPageCode {
         String currentCalendar = wait.until(ExpectedConditions.presenceOfElementLocated(currentCalendarDay)).getAttribute("value");
         return  currentCalendar;
     }
+    public String returnDate(){
+        return date;
+    }
+
 }

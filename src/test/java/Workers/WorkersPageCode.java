@@ -28,7 +28,7 @@ public class WorkersPageCode {
     By workersAddButtonAfterCreate = By.xpath(worker.workersAddButtonAfterCreate);
     By workersDeactivateButton = By.xpath(worker.workersDeactivateButton);
     By workersSuccessCreateMessageLocator = By.xpath(worker.workersSuccessMessage);
-    By workersDeleteButton = By.className(worker.workersDeleteButton);
+    By workersDeleteButton = By.xpath(worker.workersDeleteButton);
     By workersExpandInfo = By.xpath(worker.workersExpandInformation);
     By workersExpandInfoAfterCreate = By.xpath(worker.workersExpandInformationAfterLogin);
     By createBookingButton = By.xpath(worker.createBookingButton);
