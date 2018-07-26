@@ -1,10 +1,7 @@
 package Schedules;
 
 import Managment.ManagmentElementsLocators;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,15 +15,23 @@ public class SchedulesPageCode {
         this.wait = wait;
     }
     String date;
+    String workDaysCount;
+    String freeDaysCount;
     SchedulesElementsLocator schedulesElementsLocator = new SchedulesElementsLocator();
-    ManagmentElementsLocators management = new ManagmentElementsLocators();
     By staffSchedules = By.xpath(schedulesElementsLocator.workersSchedules);
+    By freeDaysDropDown= By.xpath(schedulesElementsLocator.freeDaysDropDown);
     By staffScheduleType = By.xpath(schedulesElementsLocator.selectWorkersScheduleType);
     By schedulesDropDown = By.xpath(schedulesElementsLocator.schedulesDropDown);
     By openCalendar = By.xpath(schedulesElementsLocator.openCalendar);
     By chooseFirstDay = By.xpath(schedulesElementsLocator.chooseFirstDay);
     By saveButtonZminnuy = By.xpath(schedulesElementsLocator.saveButtonZminnuy);
     By currentCalendarDay = By.xpath(schedulesElementsLocator.currentCalendarDay);
+    By workingDaysDropDown = By.xpath(schedulesElementsLocator.workingDaysDropDown);
+    By chooseHowMatchWorkDays = By.xpath(schedulesElementsLocator.chooseHowMatchWorkDays);
+    By checkHowMatchWorkingDaysSelected = By.xpath(schedulesElementsLocator.checkHowMatchWorkingDaysSelected);
+    By checkHowMatchFreeDaysSelected = By.xpath(schedulesElementsLocator.checkHowMatchFreeDaysSelected);
+    By checkSaturdayOnCalendarIsFree = By.xpath(schedulesElementsLocator.checkSaturdayOnCalendarIsFree);
+    By checkSandayOnCalendarIsFree = By.xpath(schedulesElementsLocator.checkSandayOnCalendarIsFree);
 
 
     public void clickAtStaffSchedules() throws StaleElementReferenceException {
@@ -82,6 +87,67 @@ public class SchedulesPageCode {
     }
     public String returnDate(){
         return date;
+    }
+
+    public void chooseHowMutchWorkDays (){
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(workingDaysDropDown)).click();
+            List<WebElement> days = driver.findElement(workingDaysDropDown).findElements(chooseHowMatchWorkDays);
+            this.workDaysCount = days.get(1).getText();
+            days.get(1).click();
+        }
+        catch (ElementNotInteractableException e){
+            wait.until(ExpectedConditions.presenceOfElementLocated(workingDaysDropDown)).click();
+            List<WebElement> days = driver.findElement(workingDaysDropDown).findElements(chooseHowMatchWorkDays);
+            this.workDaysCount = days.get(1).getText();
+            days.get(1).click();
+        }
+    }
+
+    public void chooseHowMutchFreeDays (){
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(freeDaysDropDown)).click();
+            List<WebElement> days = driver.findElement(freeDaysDropDown).findElements(chooseHowMatchWorkDays);
+            this.freeDaysCount = days.get(1).getText();
+            days.get(1).click();
+        }
+        catch (ElementNotInteractableException e){
+            wait.until(ExpectedConditions.presenceOfElementLocated(freeDaysDropDown)).click();
+            List<WebElement> days = driver.findElement(freeDaysDropDown).findElements(chooseHowMatchWorkDays);
+            this.freeDaysCount = days.get(1).getText();
+            days.get(1).click();
+        }
+    }
+
+    public String chosenWorkDaysCount(){
+        return workDaysCount;
+    }
+
+    public String chosenFreeDays(){
+        return freeDaysCount;
+    }
+
+    public String checkHowMatchWorkingDaysSelected(){
+       String howMatchDays =  wait.until(ExpectedConditions.presenceOfElementLocated(checkHowMatchWorkingDaysSelected)).getText();
+       return  howMatchDays;
+    }
+
+    public String checkHowMatchFreeDaysSelected(){
+        String howMatchDays =  wait.until(ExpectedConditions.presenceOfElementLocated(checkHowMatchFreeDaysSelected)).getText();
+        return  howMatchDays;
+    }
+
+    public String checkIfDaysCheckedOnCalendar(){
+        try {
+            String className1 = wait.until(ExpectedConditions.presenceOfElementLocated(checkSaturdayOnCalendarIsFree)).getAttribute("class");
+            String className2 = wait.until(ExpectedConditions.presenceOfElementLocated(checkSandayOnCalendarIsFree)).getAttribute("class");
+            return className1 + className2;
+        }
+        catch (ElementNotInteractableException e){
+            String className1 = wait.until(ExpectedConditions.presenceOfElementLocated(checkSaturdayOnCalendarIsFree)).getAttribute("class");
+            String className2 = wait.until(ExpectedConditions.presenceOfElementLocated(checkSandayOnCalendarIsFree)).getAttribute("class");
+            return className1 + className2;
+        }
     }
 
 }
