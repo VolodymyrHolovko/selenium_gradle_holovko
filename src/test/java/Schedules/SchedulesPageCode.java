@@ -23,6 +23,7 @@ public class SchedulesPageCode {
     By staffScheduleType = By.xpath(schedulesElementsLocator.selectWorkersScheduleType);
     By schedulesDropDown = By.xpath(schedulesElementsLocator.schedulesDropDown);
     By openCalendar = By.xpath(schedulesElementsLocator.openCalendar);
+    By successMessageZminnuy = By.xpath(schedulesElementsLocator.successMessageZminnuy);
     By chooseFirstDay = By.xpath(schedulesElementsLocator.chooseFirstDay);
     By saveButtonZminnuy = By.xpath(schedulesElementsLocator.saveButtonZminnuy);
     By currentCalendarDay = By.xpath(schedulesElementsLocator.currentCalendarDay);
@@ -32,7 +33,10 @@ public class SchedulesPageCode {
     By checkHowMatchFreeDaysSelected = By.xpath(schedulesElementsLocator.checkHowMatchFreeDaysSelected);
     By checkSaturdayOnCalendarIsFree = By.xpath(schedulesElementsLocator.checkSaturdayOnCalendarIsFree);
     By checkSandayOnCalendarIsFree = By.xpath(schedulesElementsLocator.checkSandayOnCalendarIsFree);
-
+    By swicherAtRegularSchedule = By.xpath(schedulesElementsLocator.swicherAtRegularSchedule);
+    By saveRegularGrafikButton = By.xpath(schedulesElementsLocator.saveRegularGrafikButton);
+    By successRegularSaveMessage = By.xpath(schedulesElementsLocator.successRegularSaveMessage);
+    By swicherClass = By.xpath(schedulesElementsLocator.swicherClass);
 
     public void clickAtStaffSchedules() throws StaleElementReferenceException {
         wait.until(ExpectedConditions.presenceOfElementLocated(staffSchedules)).click();
@@ -47,8 +51,10 @@ public class SchedulesPageCode {
     }
 
     public void clickAtCertainSchedule (int t) throws StaleElementReferenceException{
-        List<WebElement> schedulesType = driver.findElement(schedulesDropDown).findElements(By.className("md-ink-ripple"));
-        schedulesType.get(t).click();
+
+            List<WebElement> schedulesType = driver.findElement(schedulesDropDown).findElements(By.className("md-ink-ripple"));
+            schedulesType.get(t).click();
+
     }
 
     public String checkSelectedStaffScheduleText() {
@@ -66,19 +72,37 @@ public class SchedulesPageCode {
         }
     }
 
-    public void openCalendar(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(openCalendar)).click();
+    public void openCalendar()throws  ElementNotInteractableException{
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(openCalendar)).click();
+        }
+        catch (ElementNotInteractableException e){
+            wait.until(ExpectedConditions.presenceOfElementLocated(openCalendar)).click();
+        }
     }
 
     public void chooseFirstWorkingDay(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(chooseFirstDay));
-        String date = driver.findElement(chooseFirstDay).getText();
-        driver.findElement(chooseFirstDay).click();
-        this.date = date;
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(chooseFirstDay));
+            String date = driver.findElement(chooseFirstDay).getText();
+            driver.findElement(chooseFirstDay).click();
+            this.date = date;
+        }
+        catch (ElementClickInterceptedException e){
+            wait.until(ExpectedConditions.presenceOfElementLocated(chooseFirstDay));
+            String date = driver.findElement(chooseFirstDay).getText();
+            driver.findElement(chooseFirstDay).click();
+            this.date = date;
+        }
     }
 
     public void saveZminnuyGrafik(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(saveButtonZminnuy)).click();
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(saveButtonZminnuy)).click();
+        }
+        catch (ElementClickInterceptedException e){
+            wait.until(ExpectedConditions.presenceOfElementLocated(saveButtonZminnuy)).click();
+        }
     }
 
     public String checkCurrentCalendarDay(){
@@ -96,7 +120,7 @@ public class SchedulesPageCode {
             this.workDaysCount = days.get(1).getText();
             days.get(1).click();
         }
-        catch (ElementNotInteractableException e){
+        catch (ElementClickInterceptedException e){
             wait.until(ExpectedConditions.presenceOfElementLocated(workingDaysDropDown)).click();
             List<WebElement> days = driver.findElement(workingDaysDropDown).findElements(chooseHowMatchWorkDays);
             this.workDaysCount = days.get(1).getText();
@@ -148,6 +172,27 @@ public class SchedulesPageCode {
             String className2 = wait.until(ExpectedConditions.presenceOfElementLocated(checkSandayOnCalendarIsFree)).getAttribute("class");
             return className1 + className2;
         }
+    }
+
+    public void choseeDayAsWorkRegular(){
+            wait.until(ExpectedConditions.presenceOfElementLocated(swicherAtRegularSchedule)).click();
+
+    }
+
+    public void saveRegularSchedule(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(saveRegularGrafikButton)).click();
+    }
+
+    public void successRegularSaveMessageInvisible(){
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(successRegularSaveMessage));
+    }
+    public void successZminnuySaveMessageInvisible(){
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(successMessageZminnuy));
+    }
+
+    public String choseeDayAsWorkRegularGetClass(){
+       String cheked= wait.until(ExpectedConditions.presenceOfElementLocated(swicherClass)).getAttribute("class");
+       return cheked;
     }
 
 }

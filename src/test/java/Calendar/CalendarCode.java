@@ -1,6 +1,7 @@
 package Calendar;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,12 +21,19 @@ public class CalendarCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addresFieldTitle)));
     }
 
-    public void checkModalCalendar() throws InterruptedException {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
-        Thread.sleep(550);
-        driver.findElement(By.xpath(locators.currentDate)).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
-        driver.findElement(By.xpath(locators.modalCalendarHeader)).click();
+    public void checkModalCalendar() {
+        try  {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
+            driver.findElement(By.xpath(locators.currentDate)).click();
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
+            driver.findElement(By.xpath(locators.modalCalendarHeader)).click();
+        }
+        catch (ElementClickInterceptedException e){
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
+            driver.findElement(By.xpath(locators.currentDate)).click();
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
+            driver.findElement(By.xpath(locators.modalCalendarHeader)).click();
+        }
     }
     public void checkCalendarButtons() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarButton)));
