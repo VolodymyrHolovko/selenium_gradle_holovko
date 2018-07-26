@@ -39,11 +39,15 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void C_chooseSecondStaffSchedules(){
+    public void C_setRegularSchedule(){
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(1);
         Assert.assertEquals("Регулярний робочий графік",schedulesPageCode.checkSelectedStaffScheduleText());
+        schedulesPageCode.choseeDayAsWorkRegular();
+        schedulesPageCode.saveRegularSchedule();
+        schedulesPageCode.successRegularSaveMessageInvisible();
+        Assert.assertEquals(true,schedulesPageCode.choseeDayAsWorkRegularGetClass().contains("checked"));
     }
 
     @Test
@@ -55,10 +59,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void E_setZminnuyGrafik(){
-        schedulesPageCode.clickAtStaffSchedules();
-        schedulesPageCode.clickAtStaffSchedulesType();
-        schedulesPageCode.clickAtCertainSchedule(0);
+    public void F_setZminnuyGrafik(){
         schedulesPageCode.openCalendar();
         schedulesPageCode.chooseFirstWorkingDay();
         schedulesPageCode.saveZminnuyGrafik();
@@ -66,7 +67,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void F_setZminnuySchedule(){
+    public void E_setZminnuySchedule(){
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
@@ -75,6 +76,7 @@ public class  SchedulesTests {
         schedulesPageCode.chooseHowMutchFreeDays();
         Assert.assertEquals(schedulesPageCode.chosenFreeDays(),schedulesPageCode.checkHowMatchFreeDaysSelected());
         schedulesPageCode.saveZminnuyGrafik();
+       schedulesPageCode.successZminnuySaveMessageInvisible();
     }
 
     @Test
