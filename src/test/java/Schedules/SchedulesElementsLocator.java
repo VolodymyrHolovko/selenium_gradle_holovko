@@ -10,6 +10,10 @@ public class SchedulesElementsLocator {
     String currentCalendarDay = "//*/div/div/div[2]/working-days-settings-recurrence/div/div[1]/md-datepicker/div/input";
     String countWorkDay = "//*/div/div/div[2]/working-days-settings-recurrence/div/div[2]/div/md-select/md-select-value/span[2]";
     String workingDaysDropDown = "//*/working-days-settings-recurrence/div/div[2]/div/md-select/md-select-value/span[2]";
+    String freeDaysDropDown = "//*/working-days-settings-recurrence/div/div[2]/div/md-select[2]/md-select-value/span[2]";
     String chooseHowMatchWorkDays = "//md-option[@value='6']";
-    String checkHowMatchWorkingDaysSelected = "#select_value_label_95 > span:nth-child(1)";
+    String checkHowMatchWorkingDaysSelected = "//*/md-tabs-content-wrapper/md-tab-content[2]/div/div/div[2]/working-days-settings-recurrence/div/div[2]/div/md-select[1]/md-select-value/span[1]";
+    String checkHowMatchFreeDaysSelected =   "//*/md-tabs-content-wrapper/md-tab-content[2]/div/div/div[2]/working-days-settings-recurrence/div/div[2]/div/md-select[2]/md-select-value/span[1]";
+    String checkSaturdayOnCalendarIsFree= "//*/working-days-settings-recurrence/working-days-settings-recurrence-calendar/div[2]/div/div[3]/div[6]";
+    String checkSandayOnCalendarIsFree= "//*/working-days-settings-recurrence/working-days-settings-recurrence-calendar/div[2]/div/div[3]/div[7]";
 }

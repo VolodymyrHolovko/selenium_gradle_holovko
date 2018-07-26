@@ -31,7 +31,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void chooseFirstStaffSchedules() {
+    public void B_chooseFirstStaffSchedules() {
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
@@ -39,7 +39,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void chooseSecondStaffSchedules(){
+    public void C_chooseSecondStaffSchedules(){
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(1);
@@ -47,7 +47,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void chooseThirdStaffSchedules() {
+    public void D_chooseThirdStaffSchedules() {
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(2);
@@ -55,7 +55,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void setZminnuyGrafik(){
+    public void E_setZminnuyGrafik(){
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
@@ -66,12 +66,23 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void setZminnuySchedule(){
+    public void F_setZminnuySchedule(){
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
         schedulesPageCode.chooseHowMutchWorkDays();
         Assert.assertEquals(schedulesPageCode.chosenWorkDaysCount(),schedulesPageCode.checkHowMatchWorkingDaysSelected());
+        schedulesPageCode.chooseHowMutchFreeDays();
+        Assert.assertEquals(schedulesPageCode.chosenFreeDays(),schedulesPageCode.checkHowMatchFreeDaysSelected());
+        schedulesPageCode.saveZminnuyGrafik();
+    }
+
+    @Test
+    public void A_checkDaysOfOnCalendar(){
+        schedulesPageCode.clickAtStaffSchedules();
+        schedulesPageCode.clickAtStaffSchedulesType();
+        schedulesPageCode.clickAtCertainSchedule(0);
+        Assert.assertEquals(false,schedulesPageCode.checkIfDaysCheckedOnCalendar().contains("active"));
     }
 
     @AfterClass
