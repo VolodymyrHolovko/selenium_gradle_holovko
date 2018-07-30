@@ -107,11 +107,20 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void workWhenAdressIsDayOf(){
+    public void H_workWhenAdressIsDayOf(){
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(2);
         schedulesPageCode.checkWorkWhenAdressIsNotWork();
+    }
+
+    @Test
+    public void I_setBreakForWorker(){
+        schedulesPageCode.clickAtStaffSchedules();
+        schedulesPageCode.clickAtStaffSchedulesType();
+        schedulesPageCode.clickAtCertainSchedule(0);
+        schedulesPageCode.clickAtzminnuyCertainDaySchedule();
+        schedulesPageCode.clickAtBreakCheckBox();
     }
 
     @AfterClass

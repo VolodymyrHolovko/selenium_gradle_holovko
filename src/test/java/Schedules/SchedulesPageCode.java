@@ -42,6 +42,8 @@ public class SchedulesPageCode {
     By choseeDovilnuyDay = By.xpath(schedulesElementsLocator.choseeDovilnuyDay);
     By dovilnuyDayOf = By.xpath(schedulesElementsLocator.dovilnuyDayOf);
     By whenAddessInThisDayNotWork = By.xpath(schedulesElementsLocator.whenAddessInThisDayNotWork);
+    By zminnuyCertainDaySchedule = By.xpath(schedulesElementsLocator.zminnuyCertainDaySchedule);
+    By breakCheckBox = By.xpath(schedulesElementsLocator.breakCheckBox);
 
     public void clickAtStaffSchedules() throws StaleElementReferenceException {
         wait.until(ExpectedConditions.presenceOfElementLocated(staffSchedules)).click();
@@ -225,6 +227,14 @@ public class SchedulesPageCode {
     public void checkWorkWhenAdressIsNotWork(){
         wait.until(ExpectedConditions.presenceOfElementLocated(dovilnuyDayOf)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(whenAddessInThisDayNotWork));
+    }
+
+    public void clickAtzminnuyCertainDaySchedule(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(zminnuyCertainDaySchedule)).click();
+    }
+
+    public void clickAtBreakCheckBox(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(breakCheckBox)).click();
     }
 
 }

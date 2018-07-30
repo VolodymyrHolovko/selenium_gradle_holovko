@@ -26,4 +26,7 @@ public class SchedulesElementsLocator {
     String choseeDovilnuyDay = "//*/div/div/div[2]/working-days-settings-custom/working-days-settings-custom-calendar/div[2]/div/div[4]/div[2]";
     String dovilnuyDayOf = "//*/div/div/div[2]/working-days-settings-custom/working-days-settings-custom-calendar/div[2]/div/div[3]/div[7]";
     String whenAddessInThisDayNotWork = "/html/body/div[5]/md-dialog";
-    }
+    String zminnuyCertainDaySchedule = "/html/body/app/ui-view/div/ui-view/working-days/div/md-tabs/md-tabs-content-wrapper/md-tab-content[2]/div/div/div[2]/working-days-settings-recurrence/working-days-settings-recurrence-calendar/div[2]/div/div[1]/div[2]/div/button";
+    String breakCheckBox = "/html/body/div[4]/md-dialog/form/md-dialog-content/div/div[2]/md-checkbox/div[1]/div";
+
+}
