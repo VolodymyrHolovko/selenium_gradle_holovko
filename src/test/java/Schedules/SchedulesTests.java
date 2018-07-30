@@ -92,9 +92,12 @@ public class  SchedulesTests {
         schedulesPageCode.clickAtAddressScheduleHeader();
         if (!schedulesPageCode.chooseAddressWorkingDays().contains("checked")) {
             schedulesPageCode.makeFirstAddressDayAsWorked();
+            Assert.assertEquals(true, schedulesPageCode.chooseAddressWorkingDays().contains("checked"));
         }
-        schedulesPageCode.makeFirstAddressDayAsWorked();
-        Assert.assertEquals(true, !schedulesPageCode.chooseAddressWorkingDays().contains("checked"));
+        else if (schedulesPageCode.chooseAddressWorkingDays().contains("checked")) {
+            schedulesPageCode.makeFirstAddressDayAsWorked();
+            Assert.assertEquals(true, !schedulesPageCode.chooseAddressWorkingDays().contains("checked"));
+        }
     }
 
     @AfterClass
