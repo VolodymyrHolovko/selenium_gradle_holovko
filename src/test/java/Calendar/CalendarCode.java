@@ -21,23 +21,9 @@ public class CalendarCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addresFieldTitle)));
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public void checkModalCalendar() throws InterruptedException {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
-        try {
-            driver.findElement(By.xpath(locators.currentDate)).click();
-        }
-        catch (ElementClickInterceptedException e){
-            driver.findElement(By.xpath(locators.currentDate)).click();
-        }
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
-        driver.findElement(By.xpath(locators.modalCalendarHeader)).click();
-=======
-    public void checkModalCalendar() {
-=======
+   
+
     public void checkModalCalendar() throws ElementClickInterceptedException {
->>>>>>> maksLutkovec
         try  {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
             driver.findElement(By.xpath(locators.currentDate)).click();
@@ -50,7 +36,6 @@ public class CalendarCode {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
             driver.findElement(By.xpath(locators.modalCalendarHeader)).click();
         }
->>>>>>> maksLutkovec
     }
     public void checkCalendarButtons() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarButton)));
