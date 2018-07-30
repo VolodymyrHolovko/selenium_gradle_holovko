@@ -23,4 +23,7 @@ public class SchedulesElementsLocator {
     String successRegularSaveMessage = "/html/body/md-toast/div/span";
     String addressWorkongDaysSwitcher = "//*/div/div/ul/li[6]/working-day-slot/div[1]/div/div/md-switch";
     String addressTabInHeader = "/html/body/app/ui-view/div/ui-view/working-days/div/md-tabs/md-tabs-wrapper/md-tabs-canvas/md-pagination-wrapper/md-tab-item[1]/span";
-}
+    String choseeDovilnuyDay = "//*/div/div/div[2]/working-days-settings-custom/working-days-settings-custom-calendar/div[2]/div/div[4]/div[2]";
+    String dovilnuyDayOf = "//*/div/div/div[2]/working-days-settings-custom/working-days-settings-custom-calendar/div[2]/div/div[3]/div[7]";
+    String whenAddessInThisDayNotWork = "/html/body/div[5]/md-dialog";
+    }

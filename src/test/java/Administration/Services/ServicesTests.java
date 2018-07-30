@@ -32,6 +32,7 @@ public class ServicesTests {
         login.checkSuccessLogin();
         managment.clickAtPoslugy();
     }
+
     @Test
     public void checkElementsOfPage() {
         test.checkHeaderNavigationTab();
@@ -40,6 +41,7 @@ public class ServicesTests {
         test.checkDeleteServicesGroupeButton();
         test.checkDropDownButtonGroupes();
     }
+
     @Test
     public void  addServicesGroupe() {
         test.addServicesGroupe(nameServiceGroupe);

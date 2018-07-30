@@ -56,6 +56,12 @@ public class  SchedulesTests {
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(2);
         Assert.assertEquals("Довільний графік", schedulesPageCode.checkSelectedStaffScheduleText());
+        schedulesPageCode.clickAtDovilnuyDay();
+        schedulesPageCode.saveZminnuyGrafik();
+        schedulesPageCode.successZminnuySaveMessageInvisible();
+        Assert.assertEquals(true,schedulesPageCode.checkIsDovilnuyDayChecked().contains("active"));
+        schedulesPageCode.clickAtDovilnuyDay();
+        schedulesPageCode.saveZminnuyGrafik();
     }
 
     @Test
@@ -98,6 +104,14 @@ public class  SchedulesTests {
             schedulesPageCode.makeFirstAddressDayAsWorked();
             Assert.assertEquals(true, !schedulesPageCode.chooseAddressWorkingDays().contains("checked"));
         }
+    }
+
+    @Test
+    public void workWhenAdressIsDayOf(){
+        schedulesPageCode.clickAtStaffSchedules();
+        schedulesPageCode.clickAtStaffSchedulesType();
+        schedulesPageCode.clickAtCertainSchedule(2);
+        schedulesPageCode.checkWorkWhenAdressIsNotWork();
     }
 
     @AfterClass
