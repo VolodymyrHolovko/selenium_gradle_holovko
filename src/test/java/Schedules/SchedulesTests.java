@@ -88,14 +88,13 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void G_setAddressWorkingDays(){
+    public void G_setAddressWorkingDays() {
         schedulesPageCode.clickAtAddressScheduleHeader();
-        if(!schedulesPageCode.chooseAddressWorkingDays().contains("checked")){
+        if (!schedulesPageCode.chooseAddressWorkingDays().contains("checked")) {
             schedulesPageCode.makeFirstAddressDayAsWorked();
         }
         schedulesPageCode.makeFirstAddressDayAsWorked();
-        Assert.assertEquals(true,!schedulesPageCode.chooseAddressWorkingDays().contains("checked"));
-
+        Assert.assertEquals(true, !schedulesPageCode.chooseAddressWorkingDays().contains("checked"));
     }
 
     @AfterClass
