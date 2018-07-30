@@ -21,7 +21,7 @@ public class CalendarCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addresFieldTitle)));
     }
 
-   
+
 
     public void checkModalCalendar() throws ElementClickInterceptedException {
         try  {
