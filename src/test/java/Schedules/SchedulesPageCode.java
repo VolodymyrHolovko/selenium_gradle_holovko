@@ -37,6 +37,9 @@ public class SchedulesPageCode {
     By saveRegularGrafikButton = By.xpath(schedulesElementsLocator.saveRegularGrafikButton);
     By successRegularSaveMessage = By.xpath(schedulesElementsLocator.successRegularSaveMessage);
     By swicherClass = By.xpath(schedulesElementsLocator.swicherClass);
+    By addressWorkongDaysSwitcher = By.xpath(schedulesElementsLocator.addressWorkongDaysSwitcher);
+    By addressTabInHeader = By.xpath(schedulesElementsLocator.addressTabInHeader);
+
 
     public void clickAtStaffSchedules() throws StaleElementReferenceException {
         wait.until(ExpectedConditions.presenceOfElementLocated(staffSchedules)).click();
@@ -193,6 +196,19 @@ public class SchedulesPageCode {
     public String choseeDayAsWorkRegularGetClass(){
        String cheked= wait.until(ExpectedConditions.presenceOfElementLocated(swicherClass)).getAttribute("class");
        return cheked;
+    }
+
+    public String chooseAddressWorkingDays(){
+        String cheked = wait.until(ExpectedConditions.presenceOfElementLocated(addressWorkongDaysSwitcher)).getAttribute("class");
+        return cheked;
+    }
+
+    public void makeFirstAddressDayAsWorked(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(addressWorkongDaysSwitcher)).click();
+    }
+
+    public void clickAtAddressScheduleHeader (){
+        wait.until(ExpectedConditions.presenceOfElementLocated(addressTabInHeader)).click();
     }
 
 }
