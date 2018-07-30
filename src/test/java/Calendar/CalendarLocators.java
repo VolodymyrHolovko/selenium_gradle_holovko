@@ -2,7 +2,7 @@ package Calendar;
 
 public class CalendarLocators {
     String addresField = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[1]/div";
-    String dateButton = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[2]/div[1]/div";
+    String dateButton = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[2]/div[2]/md-datepicker/div[1]/button";
     String currentDate = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[2]/div[2]";
     String addresFieldTitle = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[1]/div/span[1]";
     String modalCalendarTab = "md-datepicker-calendar-pane";

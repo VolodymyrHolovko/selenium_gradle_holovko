@@ -22,6 +22,7 @@ public class CalendarCode {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void checkModalCalendar() throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
         try {
@@ -34,6 +35,9 @@ public class CalendarCode {
         driver.findElement(By.xpath(locators.modalCalendarHeader)).click();
 =======
     public void checkModalCalendar() {
+=======
+    public void checkModalCalendar() throws ElementClickInterceptedException {
+>>>>>>> maksLutkovec
         try  {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
             driver.findElement(By.xpath(locators.currentDate)).click();

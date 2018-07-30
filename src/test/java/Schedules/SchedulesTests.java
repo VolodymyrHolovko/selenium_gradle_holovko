@@ -87,6 +87,17 @@ public class  SchedulesTests {
         Assert.assertEquals(false,schedulesPageCode.checkIfDaysCheckedOnCalendar().contains("active"));
     }
 
+    @Test
+    public void G_setAddressWorkingDays(){
+        schedulesPageCode.clickAtAddressScheduleHeader();
+        if(!schedulesPageCode.chooseAddressWorkingDays().contains("checked")){
+            schedulesPageCode.makeFirstAddressDayAsWorked();
+        }
+        schedulesPageCode.makeFirstAddressDayAsWorked();
+        Assert.assertEquals(true,!schedulesPageCode.chooseAddressWorkingDays().contains("checked"));
+
+    }
+
     @AfterClass
     public void closeDriver() {
         driver.quit();
