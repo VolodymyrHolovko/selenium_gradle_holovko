@@ -31,7 +31,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void chooseFirstStaffSchedules() {
+    public void B_chooseFirstStaffSchedules() {
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
@@ -39,15 +39,19 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void chooseSecondStaffSchedules(){
+    public void C_setRegularSchedule(){
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(1);
         Assert.assertEquals("Регулярний робочий графік",schedulesPageCode.checkSelectedStaffScheduleText());
+        schedulesPageCode.choseeDayAsWorkRegular();
+        schedulesPageCode.saveRegularSchedule();
+        schedulesPageCode.successRegularSaveMessageInvisible();
+        Assert.assertEquals(true,schedulesPageCode.choseeDayAsWorkRegularGetClass().contains("checked"));
     }
 
     @Test
-    public void chooseThirdStaffSchedules() {
+    public void D_chooseThirdStaffSchedules() {
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(2);
@@ -55,14 +59,45 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void setZminnuyGrafik(){
-        schedulesPageCode.clickAtStaffSchedules();
-        schedulesPageCode.clickAtStaffSchedulesType();
-        schedulesPageCode.clickAtCertainSchedule(0);
+    public void F_setZminnuyGrafik(){
         schedulesPageCode.openCalendar();
         schedulesPageCode.chooseFirstWorkingDay();
         schedulesPageCode.saveZminnuyGrafik();
         Assert.assertEquals(true,schedulesPageCode.checkCurrentCalendarDay().contains(schedulesPageCode.returnDate()));
+    }
+
+    @Test
+    public void E_setZminnuySchedule(){
+        schedulesPageCode.clickAtStaffSchedules();
+        schedulesPageCode.clickAtStaffSchedulesType();
+        schedulesPageCode.clickAtCertainSchedule(0);
+        schedulesPageCode.chooseHowMutchWorkDays();
+        Assert.assertEquals(schedulesPageCode.chosenWorkDaysCount(),schedulesPageCode.checkHowMatchWorkingDaysSelected());
+        schedulesPageCode.chooseHowMutchFreeDays();
+        Assert.assertEquals(schedulesPageCode.chosenFreeDays(),schedulesPageCode.checkHowMatchFreeDaysSelected());
+        schedulesPageCode.saveZminnuyGrafik();
+       schedulesPageCode.successZminnuySaveMessageInvisible();
+    }
+
+    @Test
+    public void A_checkDaysOfOnCalendar(){
+        schedulesPageCode.clickAtStaffSchedules();
+        schedulesPageCode.clickAtStaffSchedulesType();
+        schedulesPageCode.clickAtCertainSchedule(0);
+        Assert.assertEquals(false,schedulesPageCode.checkIfDaysCheckedOnCalendar().contains("active"));
+    }
+
+    @Test
+    public void G_setAddressWorkingDays() {
+        schedulesPageCode.clickAtAddressScheduleHeader();
+        if (!schedulesPageCode.chooseAddressWorkingDays().contains("checked")) {
+            schedulesPageCode.makeFirstAddressDayAsWorked();
+            Assert.assertEquals(true, schedulesPageCode.chooseAddressWorkingDays().contains("checked"));
+        }
+        else if (schedulesPageCode.chooseAddressWorkingDays().contains("checked")) {
+            schedulesPageCode.makeFirstAddressDayAsWorked();
+            Assert.assertEquals(true, !schedulesPageCode.chooseAddressWorkingDays().contains("checked"));
+        }
     }
 
     @AfterClass
