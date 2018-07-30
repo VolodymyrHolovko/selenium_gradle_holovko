@@ -22,5 +22,5 @@ public class SchedulesElementsLocator {
     String saveRegularGrafikButton = "//*/div/div/div[2]/div/div[2]/button/span";
     String successRegularSaveMessage = "/html/body/md-toast/div/span";
     String addressWorkongDaysSwitcher = "//*/div/div/ul/li[6]/working-day-slot/div[1]/div/div/md-switch/div[1]/div[1]";
-    String addressTabInHeader = "/html/body/app/ui-view/div/ui-view/working-days/div/md-tabs/md-tabs-wrapper/md-tabs-canvas/md-pagination-wrapper/md-tab-item[6]/span";
+    String addressTabInHeader = "/html/body/app/ui-view/div/ui-view/working-days/div/md-tabs/md-tabs-wrapper/md-tabs-canvas/md-pagination-wrapper/md-tab-item[1]/span";
 }
