@@ -13,8 +13,8 @@ public class ServicesLocators {
     String deleteServicesGroupeIcon = "icon-close";
     String dropdownIconSrevicesGrouope = "icon-dropdown";
     String addServicesModalTab = "add-service-modal-wrapper";
-    String nameServiceField = "//*[@id=\"service_service\"]";
-    String serviceCostFField = "//*[@id=\"dialogContent_80\"]/div/div[1]/div/md-input-container[1]";
+    String nameServiceField = "service_service";
+    String serviceCostFField = "ng-isolate-scope";
 
     public String getServiceCostFField() {
         return serviceCostFField;

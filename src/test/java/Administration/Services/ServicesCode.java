@@ -57,12 +57,13 @@ public class ServicesCode {
 
     public void updateServiceGroupeName(String nameService, String serviceCost) throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.dropdownIconSrevicesGrouope))).click();
-        Thread.sleep(300);
+        Thread.sleep(1700);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addServicesButton))).click();
+        Thread.sleep(300);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.addServicesModalTab)));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.nameServiceField))).clear();
-        driver.findElement(By.xpath(locators.nameServiceField)).sendKeys(nameService);
-        driver.findElement(By.xpath(locators.serviceCostFField)).click();
+        driver.findElement(By.id(locators.nameServiceField)).sendKeys(nameService);
+        driver.findElement(By.xpath(locators.serviceCostFField));
         driver.findElement(By.xpath(locators.serviceCostFField)).clear();
         driver.findElement(By.xpath(locators.serviceCostFField)).sendKeys(serviceCost);
 
