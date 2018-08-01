@@ -8,10 +8,45 @@ public class ServicesLocators {
     String addGroupeButtonOnModal = "body > div.md-dialog-container.ng-scope > md-dialog > form > md-dialog-actions > button";
     String serviceGroupeNamefields = "//*/ui-view/business-profile-services/div/md-card/div/base-accordion-item-title/div/div/h4/span";
     String listOfSrvicesGroupe = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div";
-
+    String addServicesButton = "//*/div/button";
     String editServicesGroupIcon = "icon-edit";
     String deleteServicesGroupeIcon = "icon-close";
     String dropdownIconSrevicesGrouope = "icon-dropdown";
+    String addServicesModalTab = "add-service-modal-wrapper";
+    String nameServiceField = "service_service";
+    String serviceCostFField = "ng-isolate-scope";
+
+    public String getServiceCostFField() {
+        return serviceCostFField;
+    }
+
+    public void setServiceCostFField(String serviceCostFField) {
+        this.serviceCostFField = serviceCostFField;
+    }
+
+    public String getNameServiceField() {
+        return nameServiceField;
+    }
+
+    public void setNameServiceField(String nameServiceField) {
+        this.nameServiceField = nameServiceField;
+    }
+
+    public String getAddServicesModalTab() {
+        return addServicesModalTab;
+    }
+
+    public void setAddServicesModalTab(String addServicesModalTab) {
+        this.addServicesModalTab = addServicesModalTab;
+    }
+
+    public String getAddServicesButton() {
+        return addServicesButton;
+    }
+
+    public void setAddServicesButton(String addServicesButton) {
+        this.addServicesButton = addServicesButton;
+    }
 
     public String getDropdownIconSrevicesGrouope() {
         return dropdownIconSrevicesGrouope;

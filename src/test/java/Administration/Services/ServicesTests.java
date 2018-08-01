@@ -17,6 +17,8 @@ public class ServicesTests {
     WebDriverWait wait = new WebDriverWait(driver, 30, 700);
     Faker faker = new Faker();
     String nameServiceGroupe = faker.artist().name();
+    String nameService = faker.job().seniority();
+    String serviceCost = String.valueOf(faker.number().randomDigitNotZero());
     BaseUrls baseUrls = new BaseUrls();
     LoginPageCode login = new LoginPageCode(driver, wait);
     ServicesCode test = new ServicesCode(driver, wait);
@@ -45,10 +47,11 @@ public class ServicesTests {
     @Test
     public void  addServicesGroupe() {
         test.addServicesGroupe(nameServiceGroupe);
-       //Assert.assertEquals(nameServiceGroupe, test.getServiceGroupeName(nameServiceGroupe));
-        //test.getServiceGroupeName();
         Assert.assertEquals(true,test.getServiceGroupeName().contains(nameServiceGroupe));
-
+    }
+    @Test
+    public void updateServicesGroupe() throws InterruptedException {
+        test.updateServiceGroupeName(nameService, serviceCost);
     }
     @AfterClass
     public void closeDriver() {
