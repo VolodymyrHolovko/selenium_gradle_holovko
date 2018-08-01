@@ -45,7 +45,7 @@ public class ServicesTests {
     }
 
     @Test
-    public void  addServicesGroupe() {
+    public void  addServicesGroupe() throws InterruptedException {
         test.addServicesGroupe(nameServiceGroupe);
         Assert.assertEquals(true,test.getServiceGroupeName().contains(nameServiceGroupe));
     }

@@ -14,7 +14,7 @@ public class ServicesLocators {
     String dropdownIconSrevicesGrouope = "icon-dropdown";
     String addServicesModalTab = "add-service-modal-wrapper";
     String nameServiceField = "service_service";
-    String serviceCostFField = "ng-isolate-scope";
+    String serviceCostFField = "input_32";
 
     public String getServiceCostFField() {
         return serviceCostFField;
