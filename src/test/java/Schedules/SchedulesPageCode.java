@@ -42,8 +42,14 @@ public class SchedulesPageCode {
     By choseeDovilnuyDay = By.xpath(schedulesElementsLocator.choseeDovilnuyDay);
     By dovilnuyDayOf = By.xpath(schedulesElementsLocator.dovilnuyDayOf);
     By whenAddessInThisDayNotWork = By.xpath(schedulesElementsLocator.whenAddessInThisDayNotWork);
+    By dayOfOk = By.xpath(schedulesElementsLocator.dayOfOk);
     By zminnuyCertainDaySchedule = By.xpath(schedulesElementsLocator.zminnuyCertainDaySchedule);
-    By breakCheckBox = By.xpath(schedulesElementsLocator.breakCheckBox);
+    By breakCheckBox = By.className(schedulesElementsLocator.breakCheckBox);
+    By breakStartDropDown = By.xpath(schedulesElementsLocator.breakStartDropDown);
+    By breakEndDropDown = By.xpath(schedulesElementsLocator.breakEndDropDown);
+    By breakStartChoose = By.xpath(schedulesElementsLocator.breakStartChoose);
+    By breakEndChoose = By.xpath(schedulesElementsLocator.breakEndChoose);
+
 
     public void clickAtStaffSchedules() throws StaleElementReferenceException {
         wait.until(ExpectedConditions.presenceOfElementLocated(staffSchedules)).click();
@@ -51,10 +57,6 @@ public class SchedulesPageCode {
 
     public void clickAtStaffSchedulesType(){
         wait.until(ExpectedConditions.presenceOfElementLocated(staffScheduleType)).click();
-    }
-
-    public void openSchedulesDropDown(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(schedulesDropDown)).click();
     }
 
     public void clickAtCertainSchedule (int t) throws StaleElementReferenceException{
@@ -224,6 +226,10 @@ public class SchedulesPageCode {
         return active;
     }
 
+    public void clickDayOfOk(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(dayOfOk)).click();
+    }
+
     public void checkWorkWhenAdressIsNotWork(){
         wait.until(ExpectedConditions.presenceOfElementLocated(dovilnuyDayOf)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(whenAddessInThisDayNotWork));
@@ -233,8 +239,25 @@ public class SchedulesPageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(zminnuyCertainDaySchedule)).click();
     }
 
-    public void clickAtBreakCheckBox(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(breakCheckBox)).click();
+    public void clickAtBreakCheckBox() throws  ElementClickInterceptedException {
+            wait.until(ExpectedConditions.presenceOfElementLocated(breakCheckBox)).click();
     }
 
+    public void openBreakStartDropDown(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(breakStartDropDown)).click();
+    }
+
+    public void breakStartChoose()   {
+        wait.until(ExpectedConditions.presenceOfElementLocated(breakStartChoose));
+         List <WebElement> times=driver.findElement(breakStartChoose).findElements(By.tagName("md-option"));
+         times.get(2).click();
+        }
+
+    public void breakEndChoose (){
+        wait.until(ExpectedConditions.presenceOfElementLocated(breakEndChoose)).click();
+    }
+
+    public void openBreakEndDropDown(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(breakEndDropDown)).click();
+    }
 }

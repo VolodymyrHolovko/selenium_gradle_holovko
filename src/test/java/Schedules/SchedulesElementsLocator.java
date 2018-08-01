@@ -9,7 +9,6 @@ public class SchedulesElementsLocator {
     String saveButtonZminnuy = "//*/div/div/div[2]/div/div[2]/button/span";
     String successMessageZminnuy = "/html/body/md-toast/div/span";
     String currentCalendarDay = "//*/div/div/div[2]/working-days-settings-recurrence/div/div[1]/md-datepicker/div/input";
-    String countWorkDay = "//*/div/div/div[2]/working-days-settings-recurrence/div/div[2]/div/md-select/md-select-value/span[2]";
     String workingDaysDropDown = "/html/body/app/ui-view/div/ui-view/working-days/div/md-tabs/md-tabs-content-wrapper/md-tab-content[2]/div/div/div[2]/working-days-settings-recurrence/div/div[2]/div/md-select[1]";
     String freeDaysDropDown = "/html/body/app/ui-view/div/ui-view/working-days/div/md-tabs/md-tabs-content-wrapper/md-tab-content[2]/div/div/div[2]/working-days-settings-recurrence/div/div[2]/div/md-select[2]";
     String chooseHowMatchWorkDays = "//md-option[@value='6']";
@@ -26,7 +25,12 @@ public class SchedulesElementsLocator {
     String choseeDovilnuyDay = "//*/div/div/div[2]/working-days-settings-custom/working-days-settings-custom-calendar/div[2]/div/div[4]/div[2]";
     String dovilnuyDayOf = "//*/div/div/div[2]/working-days-settings-custom/working-days-settings-custom-calendar/div[2]/div/div[3]/div[7]";
     String whenAddessInThisDayNotWork = "/html/body/div[5]/md-dialog";
+    String dayOfOk = "/html/body/div[5]/md-dialog/md-dialog-actions/button";
     String zminnuyCertainDaySchedule = "/html/body/app/ui-view/div/ui-view/working-days/div/md-tabs/md-tabs-content-wrapper/md-tab-content[2]/div/div/div[2]/working-days-settings-recurrence/working-days-settings-recurrence-calendar/div[2]/div/div[1]/div[2]/div/button";
-    String breakCheckBox = "/html/body/div[4]/md-dialog/form/md-dialog-content/div/div[2]/md-checkbox/div[1]/div";
+    String breakCheckBox = "md-container";
+    String breakStartDropDown = "//*/md-input-container[1]/md-select/md-select-value";
+    String breakEndDropDown = "//*/md-input-container[2]/md-select/md-select-value";
+    String breakStartChoose = "//*/div[1]/md-select-menu/md-content";
+    String breakEndChoose = "//*/div[2]/md-select-menu/md-content";
 
 }

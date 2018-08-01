@@ -112,6 +112,7 @@ public class  SchedulesTests {
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(2);
         schedulesPageCode.checkWorkWhenAdressIsNotWork();
+        schedulesPageCode.clickDayOfOk();
     }
 
     @Test
@@ -121,6 +122,10 @@ public class  SchedulesTests {
         schedulesPageCode.clickAtCertainSchedule(0);
         schedulesPageCode.clickAtzminnuyCertainDaySchedule();
         schedulesPageCode.clickAtBreakCheckBox();
+        schedulesPageCode.openBreakStartDropDown();
+        schedulesPageCode.breakStartChoose();
+        schedulesPageCode.openBreakEndDropDown();
+        schedulesPageCode.breakEndChoose();
     }
 
     @AfterClass
