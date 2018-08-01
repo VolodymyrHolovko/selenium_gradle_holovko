@@ -29,7 +29,7 @@ public class JournalTests {
     }
 
     @Test
-    public void checkElementspresents() {
+    public void checkElementspresents() throws InterruptedException {
         journal.clickAtJournal();
         journal.checkElementsVisibilityXpath(locators.getJournalButton());
         journal.checkElementsVisibilityXpath(locators.getJournalTitle());

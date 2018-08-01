@@ -15,6 +15,60 @@ public class ServicesLocators {
     String addServicesModalTab = "add-service-modal-wrapper";
     String nameServiceField = "service_service";
     String serviceCostFField = "input_32";
+    String selectCurrencyDropDown = "//*[@id=\"select_33\"]";
+    String currencyListModalTab = "/html/body/div[5]/md-select-menu";
+    String usdCurrency = "select_option_39";
+    String durationField = "select_35";
+    String durationFieldFromList = "md-option";
+    String durationsListTAb = "/html/body/div[6]/md-select-menu/md-content";
+
+    public String getDurationFieldFromList() {
+        return durationFieldFromList;
+    }
+
+    public void setDurationFieldFromList(String durationFieldFromList) {
+        this.durationFieldFromList = durationFieldFromList;
+    }
+
+    public String getDurationsListTAb() {
+        return durationsListTAb;
+    }
+
+    public void setDurationsListTAb(String durationsListTAb) {
+        this.durationsListTAb = durationsListTAb;
+    }
+
+    public String getDurationField() {
+        return durationField;
+    }
+
+    public void setDurationField(String durationField) {
+        this.durationField = durationField;
+    }
+
+    public String getUsdCurrency() {
+        return usdCurrency;
+    }
+
+    public void setUsdCurrency(String usdCurrency) {
+        this.usdCurrency = usdCurrency;
+    }
+
+    public String getCurrencyListModalTab() {
+        return currencyListModalTab;
+    }
+
+    public void setCurrencyListModalTab(String currencyListModalTab) {
+        this.currencyListModalTab = currencyListModalTab;
+    }
+
+    public String getSelectCurrencyDropDown() {
+        return selectCurrencyDropDown;
+    }
+
+    public void setSelectCurrencyDropDown(String selectCurrencyDropDown) {
+        this.selectCurrencyDropDown = selectCurrencyDropDown;
+    }
 
     public String getServiceCostFField() {
         return serviceCostFField;
