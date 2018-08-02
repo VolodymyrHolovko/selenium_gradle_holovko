@@ -17,10 +17,45 @@ public class ServicesLocators {
     String serviceCostFField = "input_32";
     String selectCurrencyDropDown = "//*[@id=\"select_33\"]";
     String currencyListModalTab = "/html/body/div[5]/md-select-menu";
-    String usdCurrency = "select_option_39";
+    String currency = "md-option";
     String durationField = "select_35";
     String durationFieldFromList = "md-option";
     String durationsListTAb = "/html/body/div[6]/md-select-menu/md-content";
+    String addresCheckBoxesForService = "/html/body/div[4]/md-dialog/form/md-dialog-content/div/div[2]";
+    String addresCheckboxService = "md-checkbox";
+    String saveServiceButton = "/html/body/div[4]/md-dialog/form/md-dialog-actions/button";
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public String getSaveServiceButton() {
+        return saveServiceButton;
+    }
+
+    public void setSaveServiceButton(String saveServiceButton) {
+        this.saveServiceButton = saveServiceButton;
+    }
+
+    public String getAddresCheckboxService() {
+        return addresCheckboxService;
+    }
+
+    public void setAddresCheckboxService(String addresCheckboxService) {
+        this.addresCheckboxService = addresCheckboxService;
+    }
+
+    public String getAddresCheckBoxesForService() {
+        return addresCheckBoxesForService;
+    }
+
+    public void setAddresCheckBoxesForService(String addresCheckBoxesForService) {
+        this.addresCheckBoxesForService = addresCheckBoxesForService;
+    }
 
     public String getDurationFieldFromList() {
         return durationFieldFromList;
@@ -46,13 +81,6 @@ public class ServicesLocators {
         this.durationField = durationField;
     }
 
-    public String getUsdCurrency() {
-        return usdCurrency;
-    }
-
-    public void setUsdCurrency(String usdCurrency) {
-        this.usdCurrency = usdCurrency;
-    }
 
     public String getCurrencyListModalTab() {
         return currencyListModalTab;

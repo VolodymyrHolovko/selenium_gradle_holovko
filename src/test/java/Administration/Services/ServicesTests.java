@@ -51,7 +51,7 @@ public class ServicesTests {
     }
     @Test
     public void updateServicesGroupe() throws InterruptedException {
-        test.updateServiceGroupeName(nameService, serviceCost);
+        test.addServices(nameService, serviceCost);
     }
     @AfterClass
     public void closeDriver() {
