@@ -43,9 +43,10 @@ public class ManagementPageCode {
         builder.moveToElement(element).build().perform();
     }
 
-    public void clickAtPoslugy (){
+    public void clickAtPoslugy () throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
+        Thread.sleep(1000);
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(poslugyButton)).click();
         makeHoverAtBooking();

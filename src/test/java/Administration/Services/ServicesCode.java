@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.util.Random;
 
 public class ServicesCode {
     WebDriver driver;
@@ -44,7 +45,7 @@ public class ServicesCode {
         driver.findElement(By.cssSelector(locators.addGroupeButtonOnModal)).click();
     }
 
-    public String getServiceGroupeName() {
+    public String getServiceGroupeName() throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.listOfSrvicesGroupe)));
         List<WebElement> groupsNames = driver.findElement(By.xpath(locators.listOfSrvicesGroupe)).findElements(By.xpath(locators.serviceGroupeNamefields));
         int size = groupsNames.size();
@@ -52,7 +53,37 @@ public class ServicesCode {
         for (int i = 0; i <size ; i ++){
             results += groupsNames.get(i).getText();
         }
+        Thread.sleep(2000);
             return   results;
+    }
+
+    public void setServicesDuration() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locators.durationField))).click();
+        List<WebElement> durations = driver.findElement(By.xpath(locators.durationsListTAb)).findElements(By.tagName(locators.durationFieldFromList));
+        Random random = new Random();
+        int randomDuration = random.nextInt(durations.size());
+        durations.get(randomDuration).click();
+        }
+
+
+    public void updateServiceGroupeName(String nameService, String serviceCost) throws InterruptedException {
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.dropdownIconSrevicesGrouope))).click();
+        Thread.sleep(1700);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addServicesButton)));
+        driver.findElement(By.xpath(locators.addServicesButton)).click();
+        Thread.sleep(300);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.addServicesModalTab)));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locators.nameServiceField))).click();
+        driver.findElement(By.id(locators.nameServiceField)).sendKeys(nameService);
+        driver.findElement(By.id(locators.serviceCostFField));
+        driver.findElement(By.id(locators.serviceCostFField)).clear();
+        driver.findElement(By.id(locators.serviceCostFField)).sendKeys(serviceCost);
+        driver.findElement(By.xpath(locators.selectCurrencyDropDown)).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currencyListModalTab)));
+        driver.findElement(By.id(locators.usdCurrency)).click();
+        setServicesDuration();
+
     }
 
 }
