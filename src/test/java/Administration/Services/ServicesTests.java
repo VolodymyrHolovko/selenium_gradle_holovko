@@ -17,6 +17,7 @@ public class ServicesTests {
     WebDriverWait wait = new WebDriverWait(driver, 30, 700);
     Faker faker = new Faker();
     String nameServiceGroupe = faker.artist().name();
+    String updatedNameServicesGroupe = faker.name().title();
     String nameService = faker.job().seniority();
     String serviceCost = String.valueOf(faker.number().randomDigitNotZero());
     BaseUrls baseUrls = new BaseUrls();
@@ -36,7 +37,7 @@ public class ServicesTests {
     }
 
     @Test
-    public void checkElementsOfPage() {
+    public void A_checkElementsOfPage() {
         test.checkHeaderNavigationTab();
         test.checkAddServicesButtons();
         test.checkEditServicesGroupeButton();
@@ -45,12 +46,16 @@ public class ServicesTests {
     }
 
     @Test
-    public void  addServicesGroupe() throws InterruptedException {
+    public void  B_addServicesGroupe() throws InterruptedException {
         test.addServicesGroupe(nameServiceGroupe);
         Assert.assertEquals(true,test.getServiceGroupeName().contains(nameServiceGroupe));
     }
     @Test
-    public void updateServicesGroupe() throws InterruptedException {
+    public void C_updateServicesGroupe() throws InterruptedException {
+        test.updateServicesGroupe(updatedNameServicesGroupe);
+    }
+    @Test
+    public void D_addServices() throws InterruptedException {
         test.addServices(nameService, serviceCost);
     }
     @AfterClass
