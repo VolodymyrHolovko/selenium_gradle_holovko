@@ -9,5 +9,6 @@ public class SalarySchemeLocators {
     String pogodunnaStavka = "//*/div/div[2]/div/div/md-radio-group/div[1]/div/div[1]/md-input-container/input";
     String saveSchemeButton = "/html/body/div[4]/md-dialog/form/md-dialog-actions/button";
     String salarySchemesList = "/html/body/app/ui-view/div/ui-view/business-accounting-scheme-payroll/div/div[2]/table/tbody";
-
+    String deleteSalarySchemeButton = "/html/body/div[4]/md-dialog/form/md-dialog-actions/button[1]";
+    String deleteSalarySchemeSubmit = "/html/body/div[5]/md-dialog/md-dialog-actions/button[2]";
 }

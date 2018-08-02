@@ -49,6 +49,7 @@ public class SchedulesPageCode {
     By breakEndDropDown = By.xpath(schedulesElementsLocator.breakEndDropDown);
     By breakStartChoose = By.xpath(schedulesElementsLocator.breakStartChoose);
     By breakEndChoose = By.xpath(schedulesElementsLocator.breakEndChoose);
+    By schedulesOk = By.className(schedulesElementsLocator.schedulesOd);
 
 
     public void clickAtStaffSchedules() throws StaleElementReferenceException {
@@ -228,6 +229,7 @@ public class SchedulesPageCode {
 
     public void clickDayOfOk(){
         wait.until(ExpectedConditions.presenceOfElementLocated(dayOfOk)).click();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(schedulesOk));
     }
 
     public void checkWorkWhenAdressIsNotWork(){

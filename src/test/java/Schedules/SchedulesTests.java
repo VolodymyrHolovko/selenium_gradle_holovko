@@ -106,12 +106,13 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void H_workWhenAdressIsDayOf(){
+    public void H_workWhenAdressIsDayOf() throws InterruptedException{
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(2);
         schedulesPageCode.checkWorkWhenAdressIsNotWork();
         schedulesPageCode.clickDayOfOk();
+        Thread.sleep(2000);
     }
 
     @Test

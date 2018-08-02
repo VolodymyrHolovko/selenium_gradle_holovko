@@ -32,4 +32,5 @@ public class SchedulesElementsLocator {
     String breakEndDropDown = "//*/md-input-container[2]/md-select/md-select-value";
     String breakStartChoose = "//*/md-select-menu/md-content/md-option[1]";
     String breakEndChoose = "//*/div/[contains(text(), '10:30')]";
+    String schedulesOd = "md-dialog-focus-trap";
 }

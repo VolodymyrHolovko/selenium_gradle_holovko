@@ -41,14 +41,23 @@ public class SalarySchemeTests {
     }
 
     @Test
-    public void B_checkSchemeCreatedAtList(){
+    public void B_checkSchemeCreatedAtList() throws InterruptedException{
         Assert.assertEquals(code.checkSchemesListCreates(),"фіксована схема");
+        Thread.sleep(2000);
     }
+
 
     @Test
     public void C_checkSchemeAfterCreate(){
         code.openSchemeAfterCreate();
         Assert.assertEquals(true,code.checkPogodunnaStavka().contains("checked"));
+    }
+
+    @Test
+    public void D_deleteSalaryScheme() throws InterruptedException{
+        code.clickOnDeleteSalarySchemeButton();
+        code.clickDeleteSalarySchemeSubmit();
+        Assert.assertEquals(code.countBeforeDelete()-1,code.checkCountAfterDelete());
     }
 
 
