@@ -12,7 +12,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class  SchedulesTests {
-    String date;
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver,20);
     BaseUrls baseUrls = new BaseUrls();
@@ -121,11 +120,11 @@ public class  SchedulesTests {
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
         schedulesPageCode.clickAtzminnuyCertainDaySchedule();
-        schedulesPageCode.clickAtBreakCheckBox();
-        schedulesPageCode.openBreakStartDropDown();
-        schedulesPageCode.breakStartChoose();
-        schedulesPageCode.openBreakEndDropDown();
-        schedulesPageCode.breakEndChoose();
+//        schedulesPageCode.clickAtBreakCheckBox();
+//        schedulesPageCode.openBreakStartDropDown();
+//        schedulesPageCode.breakStartChoose();
+//        schedulesPageCode.openBreakEndDropDown();
+//        schedulesPageCode.breakEndChoose();
     }
 
     @AfterClass

@@ -248,10 +248,8 @@ public class SchedulesPageCode {
     }
 
     public void breakStartChoose()   {
-        wait.until(ExpectedConditions.presenceOfElementLocated(breakStartChoose));
-         List <WebElement> times=driver.findElement(breakStartChoose).findElements(By.tagName("md-option"));
-         times.get(2).click();
-        }
+        wait.until(ExpectedConditions.presenceOfElementLocated(breakStartChoose)).click();
+    }
 
     public void breakEndChoose (){
         wait.until(ExpectedConditions.presenceOfElementLocated(breakEndChoose)).click();

@@ -30,7 +30,6 @@ public class SchedulesElementsLocator {
     String breakCheckBox = "md-container";
     String breakStartDropDown = "//*/md-input-container[1]/md-select/md-select-value";
     String breakEndDropDown = "//*/md-input-container[2]/md-select/md-select-value";
-    String breakStartChoose = "//*/div[1]/md-select-menu/md-content";
-    String breakEndChoose = "//*/div[2]/md-select-menu/md-content";
-
+    String breakStartChoose = "//*/md-select-menu/md-content/md-option[1]";
+    String breakEndChoose = "//*/div/[contains(text(), '10:30')]";
 }

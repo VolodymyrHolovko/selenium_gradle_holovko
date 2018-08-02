@@ -22,9 +22,17 @@ public class ManagementPageCode {
     By personalButton  = By.linkText(management.getPersonalButton());
     By schedulesButton = By.linkText(management.schedules);
     By addBookingButton = By.xpath(management.bookingButton);
+    By salarySchemeSmallButton = By.xpath(management.salarySchemeSmallButton);
+    By salarySchemeCountingButton = By.xpath(management.salarySchemeCountingButton);
 
     public void makeHoverAtElement(){
         WebElement element = driver.findElement(managementButtonSmall);
+        Actions builder = new Actions(driver);
+        builder.moveToElement(element).build().perform();
+    }
+
+    public void makeHoverAtSalary(){
+        WebElement element = driver.findElement(salarySchemeSmallButton);
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
@@ -59,5 +67,11 @@ public class ManagementPageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(schedulesButton));
         driver.findElement(schedulesButton).click();
         makeHoverAtBooking();
+    }
+
+    public void clickAtSalaryScheme () throws StaleElementReferenceException{
+        wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemeSmallButton));
+        makeHoverAtSalary();
+        wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemeCountingButton)).click();
     }
 }
