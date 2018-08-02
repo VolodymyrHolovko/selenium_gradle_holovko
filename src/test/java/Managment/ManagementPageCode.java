@@ -38,7 +38,7 @@ public class ManagementPageCode {
     public void clickAtPoslugy () throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
-        Thread.sleep(1000);
+        Thread.sleep(450);
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(poslugyButton)).click();
         makeHoverAtBooking();

@@ -63,10 +63,25 @@ public class ServicesCode {
         Random random = new Random();
         int randomDuration = random.nextInt(durations.size());
         durations.get(randomDuration).click();
-        }
+    }
+    public void setServicesAddress() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addresCheckBoxesForService)));
+        List<WebElement> address = driver.findElement(By.xpath(locators.addresCheckBoxesForService)).findElements(By.tagName(locators.addresCheckboxService));
+        Random random = new Random();
+        int randomAddress = random.nextInt(address.size());
+        address.get(randomAddress).click();
+    }
+
+    public void setServicesCurrency() {
+        driver.findElement(By.xpath(locators.selectCurrencyDropDown)).click();
+        List<WebElement> currency = driver.findElement(By.xpath(locators.currencyListModalTab)).findElements(By.tagName(locators.currency));
+        Random random = new Random();
+        int randomCurrency = random.nextInt(currency.size());
+        currency.get(randomCurrency).click();
+    }
 
 
-    public void updateServiceGroupeName(String nameService, String serviceCost) throws InterruptedException {
+    public void addServices(String nameService, String serviceCost) throws InterruptedException {
         Thread.sleep(2000);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.dropdownIconSrevicesGrouope))).click();
         Thread.sleep(1700);
@@ -79,11 +94,10 @@ public class ServicesCode {
         driver.findElement(By.id(locators.serviceCostFField));
         driver.findElement(By.id(locators.serviceCostFField)).clear();
         driver.findElement(By.id(locators.serviceCostFField)).sendKeys(serviceCost);
-        driver.findElement(By.xpath(locators.selectCurrencyDropDown)).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currencyListModalTab)));
-        driver.findElement(By.id(locators.usdCurrency)).click();
+        setServicesCurrency();
         setServicesDuration();
-
+        setServicesAddress();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.saveServiceButton))).click();
     }
 
 }
