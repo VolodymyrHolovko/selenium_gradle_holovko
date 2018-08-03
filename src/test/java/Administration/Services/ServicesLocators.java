@@ -8,7 +8,7 @@ public class ServicesLocators {
     String addGroupeButtonOnModal = "body > div.md-dialog-container.ng-scope > md-dialog > form > md-dialog-actions > button";
     String serviceGroupeNamefields = "//*/ui-view/business-profile-services/div/md-card/div/base-accordion-item-title/div/div/h4/span";
     String listOfSrvicesGroupe = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div";
-    String addServicesButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[3]/div/base-accordion-item-content/div/ul/li/div/button/i";
+    String addServicesButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[2]/div/base-accordion-item-content/div/ul/li[5]/div/button";
     String editServicesGroupIcon = "icon-edit";
     String deleteServicesGroupeIcon = "icon-close";
     String dropdownIconSrevicesGrouope = "icon-dropdown";
