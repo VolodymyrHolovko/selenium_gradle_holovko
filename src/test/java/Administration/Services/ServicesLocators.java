@@ -8,7 +8,7 @@ public class ServicesLocators {
     String addGroupeButtonOnModal = "body > div.md-dialog-container.ng-scope > md-dialog > form > md-dialog-actions > button";
     String serviceGroupeNamefields = "//*/ui-view/business-profile-services/div/md-card/div/base-accordion-item-title/div/div/h4/span";
     String listOfSrvicesGroupe = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div";
-    String addServicesButton = "//*/div/button";
+    String addServicesButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[2]/div/base-accordion-item-content/div/ul/li[5]/div/button";
     String editServicesGroupIcon = "icon-edit";
     String deleteServicesGroupeIcon = "icon-close";
     String dropdownIconSrevicesGrouope = "icon-dropdown";
@@ -24,6 +24,24 @@ public class ServicesLocators {
     String addresCheckBoxesForService = "/html/body/div[4]/md-dialog/form/md-dialog-content/div/div[2]";
     String addresCheckboxService = "md-checkbox";
     String saveServiceButton = "/html/body/div[4]/md-dialog/form/md-dialog-actions/button";
+    String servicesGroupeLists = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div";
+    String editGroupeIcon = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[1]/div/base-accordion-item-title/div/div/div/div[1]";
+
+    public String getEditGroupeIcon() {
+        return editGroupeIcon;
+    }
+
+    public void setEditGroupeIcon(String editGroupeIcon) {
+        this.editGroupeIcon = editGroupeIcon;
+    }
+
+    public String getServicesGroupeLists() {
+        return servicesGroupeLists;
+    }
+
+    public void setServicesGroupeLists(String servicesGroupeLists) {
+        this.servicesGroupeLists = servicesGroupeLists;
+    }
 
     public String getCurrency() {
         return currency;
