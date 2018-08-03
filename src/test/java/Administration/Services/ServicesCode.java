@@ -72,7 +72,7 @@ public class ServicesCode {
     }
 
     public void setServicesDuration() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locators.durationField))).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.durationField))).click();
         List<WebElement> durations = driver.findElement(By.xpath(locators.durationsListTAb)).findElements(By.tagName(locators.durationFieldFromList));
         Random random = new Random();
         int randomDuration = random.nextInt(durations.size());
@@ -97,14 +97,12 @@ public class ServicesCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.servicesGroupeLists)));
         List<WebElement> listServicesGroups = driver.findElement(By.xpath(locators.servicesGroupeLists)).findElements(By.className(locators.dropdownIconSrevicesGrouope));
         Random random = new Random();
-        int randomGroupe = random.nextInt(listServicesGroups.size());
+        int randomGroupe = 0;/*random.nextInt(listServicesGroups.size());*/
         listServicesGroups.get(randomGroupe).click();
         Thread.sleep(1000);
-       /* WebElement element = driver.findElement(By.className(locators.addServicesButton));
-        Actions actions = new Actions(driver);
-        actions.doubleClick(element).click().perform();*/
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addServicesButton)));
-        driver.findElement(By.xpath(locators.addServicesButton)).click();
+       WebElement element = driver.findElement(By.id(locators.addServicesButton));
+      Actions actions = new Actions(driver);
+        actions.doubleClick(element).click().perform();
     }
 
     public void addServices(String nameService, String serviceCost) throws InterruptedException {
@@ -113,9 +111,8 @@ public class ServicesCode {
         Thread.sleep(1700);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locators.nameServiceField))).click();
         driver.findElement(By.id(locators.nameServiceField)).sendKeys(nameService);
-        driver.findElement(By.id(locators.serviceCostFField));
-        driver.findElement(By.id(locators.serviceCostFField)).clear();
-        driver.findElement(By.id(locators.serviceCostFField)).sendKeys(serviceCost);
+        driver.findElement(By.xpath(locators.serviceCostFField)).clear();
+        driver.findElement(By.xpath(locators.serviceCostFField)).sendKeys(serviceCost);
         setServicesCurrency();
         setServicesDuration();
         setServicesAddress();
