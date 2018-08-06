@@ -1,4 +1,4 @@
-package SalarySchemes;
+package SalarySchemes.SalaryScheme;
 
 public class SalarySchemeLocators {
     String createSalaryButton = "/html/body/app/ui-view/div/ui-view/business-accounting-scheme-payroll/div/div[1]/button";
@@ -7,7 +7,7 @@ public class SalarySchemeLocators {
     String chooseFiksovanaSchemeRadio = "//*/div/div[2]/ul/li[1]/md-checkbox";
     String arrowFiksovanaScheme = "//*/div/div[2]/ul/li[1]/div/i";
     String pogodunnaStavka = "//*/div/div[2]/div/div/md-radio-group/div[1]/div/div[1]/md-input-container/input";
-    String saveSchemeButton = "/html/body/div[2]/md-dialog/form/md-dialog-actions/button";
+    String saveSchemeButton = "//*/md-dialog/form/md-dialog-actions/button";
     String salarySchemesList = "/html/body/app/ui-view/div/ui-view/business-accounting-scheme-payroll/div/div[2]/table/tbody";
     String deleteSalarySchemeButton = "/html/body/div[4]/md-dialog/form/md-dialog-actions/button[1]";
     String deleteSalarySchemeSubmit = "/html/body/div[5]/md-dialog/md-dialog-actions/button[2]";

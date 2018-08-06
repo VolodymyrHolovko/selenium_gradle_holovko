@@ -28,6 +28,7 @@ public class LoginPageTests {
 
         @Test
         public void CheckLogin() throws InterruptedException {
+            //Перевірка успішного логіну в особистий кабінет
             login.typeUsername();
             login.typePassword();
             login.pressSubmit();

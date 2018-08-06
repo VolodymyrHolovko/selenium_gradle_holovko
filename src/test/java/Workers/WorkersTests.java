@@ -37,6 +37,7 @@ public void directToPage(){
 
 @Test
 public void A_checkWorkersCreate() {
+    //Перевірка успішного створенння праціника з валідними даними
     worker.pressAddMainButton();
     worker.writeFirstName();
     worker.writelastName();
@@ -49,6 +50,7 @@ public void A_checkWorkersCreate() {
 
 @Test
 public void B_updateWorkes(){
+    //Перевірка успішної зміни даних праціника з валідними даними
     worker.expandWorkerInfoAfterCreate();
     worker.updateFirstName();
     worker.updateLastName();
@@ -60,6 +62,7 @@ public void B_updateWorkes(){
 
 @Test
 public void C_checkWorkerInformation(){
+    //Перевірка збереження змінених даних працівника
     worker.expandWorkerInfoAfterCreate();
     Assert.assertEquals("Максік",worker.getFirstName());
     Assert.assertEquals("Литковець",worker.getLastName());
@@ -67,11 +70,6 @@ public void C_checkWorkerInformation(){
     Assert.assertEquals("курча",worker.getDescription());
 }
 
-//@Test
-public void D_checkWorkersDelete(){
-    worker.deleteWorker();
-    Assert.assertEquals(true, worker.successMessagePresents());
-}
 
 @AfterClass
 public void afterClass(){

@@ -100,11 +100,10 @@ public class ServicesCode {
         int randomGroupe = random.nextInt(listServicesGroups.size());
         listServicesGroups.get(randomGroupe).click();
         Thread.sleep(1000);
-       /* WebElement element = driver.findElement(By.className(locators.addServicesButton));
-        Actions actions = new Actions(driver);
-        actions.doubleClick(element).click().perform();*/
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addServicesButton)));
-        driver.findElement(By.xpath(locators.addServicesButton)).click();
+        String xpath = "//*/md-card["+randomGroupe+"]/div/base-accordion-item-content/div/ul/li/div/button";
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+        driver.findElement(By.xpath(xpath)).click();
+
     }
 
     public void addServices(String nameService, String serviceCost) throws InterruptedException {

@@ -39,6 +39,8 @@ public class  SchedulesTests {
 
     @Test
     public void C_setRegularSchedule(){
+        //Перевірка встановлення регулярного графіку відділенню, на основі одного робочого дня
+        //та подальша перевірка чи дані відносно дня збереглися
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(1);
@@ -51,6 +53,8 @@ public class  SchedulesTests {
 
     @Test
     public void D_chooseThirdStaffSchedules() {
+        //Перевірка встановлення довільного робочого дня на основі встановлення довільного дня
+        //робочим - збереження - та перевірка чи день є робочим
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(2);
@@ -65,6 +69,8 @@ public class  SchedulesTests {
 
     @Test
     public void F_setZminnuyGrafik(){
+        //Перевірка встановлення першого робочого дня відділення при змінному графіку, його
+        //збереження та подальше відображення
         schedulesPageCode.openCalendar();
         schedulesPageCode.chooseFirstWorkingDay();
         schedulesPageCode.saveZminnuyGrafik();
@@ -73,6 +79,8 @@ public class  SchedulesTests {
 
     @Test
     public void E_setZminnuySchedule(){
+        //Перевірка встановлення робочого графіку при змінному розкладі роботи робочих/неробочих
+        //та подальшого їх сечення на календарі
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
@@ -86,6 +94,7 @@ public class  SchedulesTests {
 
     @Test
     public void A_checkDaysOfOnCalendar(){
+        //Перевірка того що вихідні дні є вихідними)
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
@@ -94,6 +103,7 @@ public class  SchedulesTests {
 
     @Test
     public void G_setAddressWorkingDays() {
+        //Встановлення робочих днів адреси, якщо день неробочий то сетимо робочим
         schedulesPageCode.clickAtAddressScheduleHeader();
         if (!schedulesPageCode.chooseAddressWorkingDays().contains("checked")) {
             schedulesPageCode.makeFirstAddressDayAsWorked();
@@ -107,6 +117,7 @@ public class  SchedulesTests {
 
     @Test
     public void H_workWhenAdressIsDayOf() throws InterruptedException{
+        //Перевірка вихідних днів при довільному графіку
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(2);
@@ -117,15 +128,12 @@ public class  SchedulesTests {
 
     @Test
     public void I_setBreakForWorker(){
+        //Перевірка встановлення годин обіду і їх подальшого відображення
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
         schedulesPageCode.clickAtzminnuyCertainDaySchedule();
-//        schedulesPageCode.clickAtBreakCheckBox();
-//        schedulesPageCode.openBreakStartDropDown();
-//        schedulesPageCode.breakStartChoose();
-//        schedulesPageCode.openBreakEndDropDown();
-//        schedulesPageCode.breakEndChoose();
+
     }
 
     @AfterClass
