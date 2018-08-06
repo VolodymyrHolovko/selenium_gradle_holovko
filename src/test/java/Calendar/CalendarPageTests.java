@@ -27,6 +27,7 @@ public class CalendarPageTests {
 
     }
     @Test
+    //Перевірка відповідності UI елементів сторінки, наявності навігаційних кнопок та хедера сторінки
     public void CheckCalendarPageElements() throws InterruptedException {
         test.checkAddresField();
         test.checkModalCalendar();
