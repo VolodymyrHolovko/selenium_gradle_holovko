@@ -102,7 +102,7 @@ public class ServicesCode {
         Thread.sleep(1000);
        WebElement element = driver.findElement(By.id(locators.addServicesButton));
       Actions actions = new Actions(driver);
-        actions.doubleClick(element).click().perform();
+        actions.moveToElement(element).click().perform();
     }
 
     public void addServices(String nameService, String serviceCost) throws InterruptedException {

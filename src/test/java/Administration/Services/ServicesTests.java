@@ -37,6 +37,7 @@ public class ServicesTests {
     }
 
     @Test
+    //Перевірка відповідності UI елементів сторінки, наявності навігаційних кнопок та хедера сторінки
     public void A_checkElementsOfPage() {
         test.checkHeaderNavigationTab();
         test.checkAddServicesButtons();
@@ -46,15 +47,19 @@ public class ServicesTests {
     }
 
     @Test
+    //Додання <Групи послуг> та перевірка наявності щойноствореної групи у списку
     public void  B_addServicesGroupe() throws InterruptedException {
         test.addServicesGroupe(nameServiceGroupe);
         Assert.assertEquals(true,test.getServiceGroupeName().contains(nameServiceGroupe));
     }
     @Test
+    //Редагування <Групи послуг> та перевірка наявності проредагованої групи у списку
     public void C_updateServicesGroupe() throws InterruptedException {
         test.updateServicesGroupe(updatedNameServicesGroupe);
+        Assert.assertEquals(true, test.getServiceGroupeName().contains(updatedNameServicesGroupe));
     }
     @Test
+    //Додання <Послуги> до <Групи послуг>
     public void D_addServices() throws InterruptedException {
         test.addServices(nameService, serviceCost);
     }
