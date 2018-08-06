@@ -99,9 +99,8 @@ public class ServicesCode {
         Random random = new Random();
         int randomGroupe = 0;/*random.nextInt(listServicesGroups.size());*/
         listServicesGroups.get(randomGroupe).click();
-        Thread.sleep(1000);
-       WebElement element = driver.findElement(By.id(locators.addServicesButton));
-      Actions actions = new Actions(driver);
+        Thread.sleep(1000);WebElement element = driver.findElement(By.xpath(locators.addServicesButton));
+        Actions actions = new Actions(driver);
         actions.moveToElement(element).click().perform();
     }
 
