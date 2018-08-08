@@ -29,16 +29,16 @@ public class  SchedulesTests {
         managementPageCode.clickAtSchedules();
     }
 
-    @Test
-    public void B_chooseFirstStaffSchedules() {
+    @Test (priority = 1)
+    public void chooseFirstStaffSchedules() {
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
         Assert.assertEquals("Змінний робочий графік",schedulesPageCode.checkSelectedStaffScheduleText());
     }
 
-    @Test
-    public void C_setRegularSchedule(){
+    @Test (priority = 2)
+    public void setRegularSchedule(){
         //Перевірка встановлення регулярного графіку відділенню, на основі одного робочого дня
         //та подальша перевірка чи дані відносно дня збереглися
         schedulesPageCode.clickAtStaffSchedules();
@@ -51,8 +51,8 @@ public class  SchedulesTests {
         Assert.assertEquals(true,schedulesPageCode.choseeDayAsWorkRegularGetClass().contains("checked"));
     }
 
-    @Test
-    public void D_chooseThirdStaffSchedules() {
+    @Test(priority = 3)
+    public void chooseThirdStaffSchedules() {
         //Перевірка встановлення довільного робочого дня на основі встановлення довільного дня
         //робочим - збереження - та перевірка чи день є робочим
         schedulesPageCode.clickAtStaffSchedules();
@@ -67,8 +67,8 @@ public class  SchedulesTests {
         schedulesPageCode.saveZminnuyGrafik();
     }
 
-    @Test
-    public void F_setZminnuyGrafik(){
+    @Test (priority = 5)
+    public void setZminnuyGrafik(){
         //Перевірка встановлення першого робочого дня відділення при змінному графіку, його
         //збереження та подальше відображення
         schedulesPageCode.openCalendar();
@@ -77,8 +77,8 @@ public class  SchedulesTests {
         Assert.assertEquals(true,schedulesPageCode.checkCurrentCalendarDay().contains(schedulesPageCode.returnDate()));
     }
 
-    @Test
-    public void E_setZminnuySchedule(){
+    @Test (priority = 4)
+    public void setZminnuySchedule(){
         //Перевірка встановлення робочого графіку при змінному розкладі роботи робочих/неробочих
         //та подальшого їх сечення на календарі
         schedulesPageCode.clickAtStaffSchedules();
@@ -92,8 +92,8 @@ public class  SchedulesTests {
        schedulesPageCode.successZminnuySaveMessageInvisible();
     }
 
-    @Test
-    public void A_checkDaysOfOnCalendar(){
+    @Test(priority = 0)
+    public void checkDaysOfOnCalendar(){
         //Перевірка того що вихідні дні є вихідними)
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
@@ -101,8 +101,8 @@ public class  SchedulesTests {
         Assert.assertEquals(false,schedulesPageCode.checkIfDaysCheckedOnCalendar().contains("active"));
     }
 
-    @Test
-    public void G_setAddressWorkingDays() {
+    @Test (priority = 6)
+    public void setAddressWorkingDays() {
         //Встановлення робочих днів адреси, якщо день неробочий то сетимо робочим
         schedulesPageCode.clickAtAddressScheduleHeader();
         if (!schedulesPageCode.chooseAddressWorkingDays().contains("checked")) {
@@ -115,8 +115,8 @@ public class  SchedulesTests {
         }
     }
 
-    @Test
-    public void H_workWhenAdressIsDayOf() throws InterruptedException{
+    @Test (priority = 7)
+    public void workWhenAdressIsDayOf() throws InterruptedException{
         //Перевірка вихідних днів при довільному графіку
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
@@ -126,8 +126,8 @@ public class  SchedulesTests {
         Thread.sleep(2000);
     }
 
-    @Test
-    public void I_setBreakForWorker(){
+    @Test (priority = 8)
+    public void setBreakForWorker(){
         //Перевірка встановлення годин обіду і їх подальшого відображення
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
