@@ -53,12 +53,14 @@ public class ServicesTests {
     //Додання <Групи послуг> та перевірка наявності щойноствореної групи у списку
     public void  B_addServicesGroupe() throws InterruptedException {
         test.addServicesGroupe(nameServiceGroupe);
+        Assert.assertEquals(true, test.successMessagePresents());
         Assert.assertEquals(true,test.getServiceGroupeName().contains(nameServiceGroupe));
     }
     @Test
     //Редагування <Групи послуг> та перевірка наявності проредагованої групи у списку
     public void C_updateServicesGroupe() throws InterruptedException {
         test.updateServicesGroupe(updatedNameServicesGroupe);
+        Assert.assertEquals(true, test.successMessagePresents());
         Assert.assertEquals(true, test.getServiceGroupeName().contains(updatedNameServicesGroupe));
     }
     @Test
