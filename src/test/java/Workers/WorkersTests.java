@@ -12,6 +12,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class WorkersTests {
 WebDriver driver = new FirefoxDriver();
 WebDriverWait wait = new WebDriverWait(driver,30,700);
@@ -27,6 +29,7 @@ LoginPageCode login  = new LoginPageCode(driver,wait);
     login.typePassword();
     login.pressSubmit();
     driver.manage().window().maximize();
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 }
 
 @BeforeMethod
