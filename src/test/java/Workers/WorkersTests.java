@@ -35,8 +35,8 @@ public void directToPage(){
     worker.makeHoverAtElement();
 }
 
-@Test
-public void A_checkWorkersCreate() {
+@Test (priority = 0)
+public void checkWorkersCreate() {
     //Перевірка успішного створенння праціника з валідними даними
     worker.pressAddMainButton();
     worker.writeFirstName();
@@ -48,8 +48,8 @@ public void A_checkWorkersCreate() {
     Assert.assertEquals(true, worker.successMessagePresents());
 }
 
-@Test
-public void B_updateWorkes(){
+@Test (priority = 1)
+public void updateWorkes(){
     //Перевірка успішної зміни даних праціника з валідними даними
     worker.expandWorkerInfoAfterCreate();
     worker.updateFirstName();
@@ -60,8 +60,8 @@ public void B_updateWorkes(){
     Assert.assertEquals(true, worker.successMessagePresents());
 }
 
-@Test
-public void C_checkWorkerInformation(){
+@Test (priority = 2)
+public void checkWorkerInformation(){
     //Перевірка збереження змінених даних працівника
     worker.expandWorkerInfoAfterCreate();
     Assert.assertEquals("Максік",worker.getFirstName());
