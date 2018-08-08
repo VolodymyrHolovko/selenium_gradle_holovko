@@ -24,6 +24,10 @@ public class SalaryCountingPageCode {
     By awardsModalSumma = By.xpath(locators.awardsModalSumma);
     By awardsComment = By.xpath(locators.awardsComment);
     By awardsButtonCreate = By.xpath(locators.awardsButtonCreate);
+    By workersListCalculate = By.xpath(locators.workersListCalculate);
+    By workersCertainWorkerCalculate = By.xpath(locators.workersCertainWorkerCalculate);
+    By calculateButton = By.xpath(locators.calculateButton);
+    By calculatingView = By.xpath(locators.calculatingView);
 
     public void clickAtCreateAwardsButton(){
         wait.until(ExpectedConditions.presenceOfElementLocated(createAwardsButton)).click();
@@ -46,6 +50,19 @@ public class SalaryCountingPageCode {
         driver.findElement(awardsButtonCreate).click();
     }
 
+    public void openWorkersListToCalculte(){
+        driver.findElement(workersListCalculate).click();
+    }
 
+    public void chooseCertainWorkerToCalculate(){
+        driver.findElement(workersCertainWorkerCalculate).click();
+    }
 
+    public  void pressCalculateButton(){
+        driver.findElement(calculateButton).click();
+    }
+
+    public void checkCalculatingView(){
+        driver.findElement(calculatingView);
+    }
 }

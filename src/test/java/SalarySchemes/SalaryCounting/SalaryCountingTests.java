@@ -32,12 +32,20 @@ public class SalaryCountingTests {
     }
 
     @Test
-    public void createAwards(){
+    public void A_createAwards(){
         driver.navigate().refresh();
         code.clickAtCreateAwardsButton();
         code.chooseWorkers();
         code.writeSumma();
         code.writeComment();
         code.pressSaveAwardsButton();
+    }
+
+    @Test
+    public void B_checkThatCalculatingCreated(){
+        code.openWorkersListToCalculte();
+        code.chooseCertainWorkerToCalculate();
+        code.pressCalculateButton();
+        code.checkCalculatingView();
     }
 }
