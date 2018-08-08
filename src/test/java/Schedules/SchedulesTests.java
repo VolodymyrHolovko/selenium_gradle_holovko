@@ -15,8 +15,6 @@ import java.util.concurrent.TimeUnit;
 
 public class  SchedulesTests {
     WebDriver driver = new FirefoxDriver();
-   // driver.manage().timeouts().implicitlyWait(TimeOut, TimeUnit.SECONDS);
-
     WebDriverWait wait = new WebDriverWait(driver,20);
     BaseUrls baseUrls = new BaseUrls();
     LoginPageCode login =new LoginPageCode(driver,wait);
@@ -31,6 +29,7 @@ public class  SchedulesTests {
         login.pressSubmit();
         login.checkSuccessLogin();
         managementPageCode.clickAtSchedules();
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
     }
 
     @Test (priority = 1)
