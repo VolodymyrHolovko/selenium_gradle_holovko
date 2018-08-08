@@ -1,9 +1,6 @@
 package Administration.Services;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotInteractableException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -38,6 +35,11 @@ public class ServicesCode {
     }
     public void checkDropDownButtonGroupes() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.dropdownIconSrevicesGrouope)));
+    }
+
+    public boolean successMessagePresents(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(locators.succsessMessage));
+        return  driver.findElement(locators.succsessMessage).isDisplayed();
     }
 
     public void addServicesGroupe(String nameServiceGroupe) {
@@ -99,9 +101,11 @@ public class ServicesCode {
         Random random = new Random();
         int randomGroupe = 0;/*random.nextInt(listServicesGroups.size());*/
         listServicesGroups.get(randomGroupe).click();
-        Thread.sleep(1000);WebElement element = driver.findElement(By.xpath(locators.addServicesButton));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).click().perform();
+        Thread.sleep(1000);
+            WebElement element = driver.findElement(By.xpath(locators.addServicesButton));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);" + "window.scrollBy(0,-100);", element);
+            Actions actions = new Actions(driver);
+            actions.moveToElement(element).click().perform();
     }
 
     public void addServices(String nameService, String serviceCost) throws InterruptedException {

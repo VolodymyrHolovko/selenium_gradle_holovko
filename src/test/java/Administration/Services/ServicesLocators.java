@@ -13,6 +13,7 @@ public class ServicesLocators {
     String addServicesButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[1]/div/base-accordion-item-content/div/ul/li/div/button";
     String editServicesGroupIcon = "icon-edit";
     By deleteServicesGroupeIcon = By.className("icon-close");
+    By succsessMessage = By.xpath("/html/body/md-toast/div/span");
     String dropdownIconSrevicesGrouope = "icon-dropdown";
     String addServicesModalTab = "add-service-modal-wrapper";
     String nameServiceField = "service_service";
@@ -30,6 +31,14 @@ public class ServicesLocators {
     String editGroupeIcon = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[1]/div/base-accordion-item-title/div/div/div/div[1]";
     By yesButton = By.xpath( "//button[contains(text(),'так')]");
     By deleteServiceGroupeModalDialog = By.xpath("/html/body/div[4]/md-dialog/md-dialog-actions/button[2]");
+
+    public By getSuccsesMessage() {
+        return succsessMessage;
+    }
+
+    public void setSuccsesMessage(By succsesMessage) {
+        this.succsessMessage = succsesMessage;
+    }
 
     public By getDeleteServiceGroupeModalDialog() {
         return deleteServiceGroupeModalDialog;
