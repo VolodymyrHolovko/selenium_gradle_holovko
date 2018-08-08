@@ -36,8 +36,9 @@ public class ServicesTests {
         managment.clickAtPoslugy();
     }
 
-    @Test
-    public void A_checkElementsOfPage() {
+    @Test (priority = 0)
+    //Перевірка відповідності UI елементів сторінки, наявності навігаційних кнопок та хедера сторінки
+    public void checkElementsOfPage() {
         test.checkHeaderNavigationTab();
         test.checkAddServicesButtons();
         test.checkEditServicesGroupeButton();
@@ -45,18 +46,27 @@ public class ServicesTests {
         test.checkDropDownButtonGroupes();
     }
 
-    @Test
-    public void  B_addServicesGroupe() throws InterruptedException {
+    @Test (priority = 1)
+    //Додання <Групи послуг> та перевірка наявності щойноствореної групи у списку
+    public void  addServicesGroupe() throws InterruptedException {
         test.addServicesGroupe(nameServiceGroupe);
         Assert.assertEquals(true,test.getServiceGroupeName().contains(nameServiceGroupe));
     }
-    @Test
-    public void C_updateServicesGroupe() throws InterruptedException {
+    @Test (priority = 2)
+    //Редагування <Групи послуг> та перевірка наявності проредагованої групи у списку
+    public void updateServicesGroupe() throws InterruptedException {
         test.updateServicesGroupe(updatedNameServicesGroupe);
+        Assert.assertEquals(true, test.getServiceGroupeName().contains(updatedNameServicesGroupe));
     }
-    @Test
-    public void D_addServices() throws InterruptedException {
+    @Test (priority = 3)
+    //Додання <Послуги> до <Групи послуг>
+    public void addServices() throws InterruptedException {
         test.addServices(nameService, serviceCost);
+    }
+    @Test (priority = 4)
+    //Вдалення <Групи послуг>
+    public void deleteServiceGroupe() throws InterruptedException {
+        test.deleteServiceGroupe();
     }
     @AfterClass
     public void closeDriver() {

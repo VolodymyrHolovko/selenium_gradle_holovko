@@ -9,6 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+
 public class CalendarPageTests {
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver, 30, 700);
@@ -27,6 +28,7 @@ public class CalendarPageTests {
 
     }
     @Test
+    //Перевірка відповідності UI елементів сторінки, наявності навігаційних кнопок та хедера сторінки
     public void CheckCalendarPageElements() throws InterruptedException {
         test.checkAddresField();
         test.checkModalCalendar();

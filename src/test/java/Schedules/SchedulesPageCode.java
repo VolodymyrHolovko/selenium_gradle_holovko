@@ -2,6 +2,8 @@ package Schedules;
 
 import Managment.ManagmentElementsLocators;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -50,6 +52,8 @@ public class SchedulesPageCode {
     By breakStartChoose = By.xpath(schedulesElementsLocator.breakStartChoose);
     By breakEndChoose = By.xpath(schedulesElementsLocator.breakEndChoose);
     By schedulesOk = By.className(schedulesElementsLocator.schedulesOd);
+  /*  @FindBy(how =  How.CLASS_NAME, className = "sacac")
+    WebElement schedulesOk;*/
 
 
     public void clickAtStaffSchedules() throws StaleElementReferenceException {

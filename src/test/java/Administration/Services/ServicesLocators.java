@@ -1,5 +1,7 @@
 package Administration.Services;
 
+import org.openqa.selenium.By;
+
 public class ServicesLocators {
     String headerTabCaption = "body > app > ui-view > div > ui-view > business-profile > section > business-profile-tabs > div > md-tabs";
     String menuAdministrationButton = "/html/body/app/ui-view/business-left-bar/div/nav/ul/li[4]/a/span";
@@ -8,17 +10,17 @@ public class ServicesLocators {
     String addGroupeButtonOnModal = "body > div.md-dialog-container.ng-scope > md-dialog > form > md-dialog-actions > button";
     String serviceGroupeNamefields = "//*/ui-view/business-profile-services/div/md-card/div/base-accordion-item-title/div/div/h4/span";
     String listOfSrvicesGroupe = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div";
-    String addServicesButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[2]/div/base-accordion-item-content/div/ul/li[5]/div/button";
+    String addServicesButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[1]/div/base-accordion-item-content/div/ul/li/div/button";
     String editServicesGroupIcon = "icon-edit";
-    String deleteServicesGroupeIcon = "icon-close";
+    By deleteServicesGroupeIcon = By.className("icon-close");
     String dropdownIconSrevicesGrouope = "icon-dropdown";
     String addServicesModalTab = "add-service-modal-wrapper";
     String nameServiceField = "service_service";
-    String serviceCostFField = "input_32";
-    String selectCurrencyDropDown = "//*[@id=\"select_33\"]";
+    String serviceCostFField = "/html[1]/body[1]/div[4]/md-dialog[1]/form[1]/md-dialog-content[1]/div[1]/div[1]/div[1]/md-input-container[1]/input[1]";
+    String selectCurrencyDropDown = "/html[1]/body[1]/div[4]/md-dialog[1]/form[1]/md-dialog-content[1]/div[1]/div[1]/div[1]/md-input-container[2]/md-select[1]";
     String currencyListModalTab = "/html/body/div[5]/md-select-menu";
     String currency = "md-option";
-    String durationField = "select_35";
+    String durationField = "/html[1]/body[1]/div[4]/md-dialog[1]/form[1]/md-dialog-content[1]/div[1]/div[1]/md-input-container[1]/md-select[1]";
     String durationFieldFromList = "md-option";
     String durationsListTAb = "/html/body/div[6]/md-select-menu/md-content";
     String addresCheckBoxesForService = "/html/body/div[4]/md-dialog/form/md-dialog-content/div/div[2]";
@@ -26,6 +28,16 @@ public class ServicesLocators {
     String saveServiceButton = "/html/body/div[4]/md-dialog/form/md-dialog-actions/button";
     String servicesGroupeLists = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div";
     String editGroupeIcon = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[1]/div/base-accordion-item-title/div/div/div/div[1]";
+    By yesButton = By.xpath( "//button[contains(text(),'так')]");
+    By deleteServiceGroupeModalDialog = By.xpath("/html/body/div[4]/md-dialog/md-dialog-actions/button[2]");
+
+    public By getDeleteServiceGroupeModalDialog() {
+        return deleteServiceGroupeModalDialog;
+    }
+
+    public void setDeleteServiceGroupeModalDialog(By deleteServiceGroupeModalDialog) {
+        this.deleteServiceGroupeModalDialog = deleteServiceGroupeModalDialog;
+    }
 
     public String getEditGroupeIcon() {
         return editGroupeIcon;
@@ -156,13 +168,6 @@ public class ServicesLocators {
         this.dropdownIconSrevicesGrouope = dropdownIconSrevicesGrouope;
     }
 
-    public String getDeleteServicesGroupeIcon() {
-        return deleteServicesGroupeIcon;
-    }
-
-    public void setDeleteServicesGroupeIcon(String deleteServicesGroupeIcon) {
-        this.deleteServicesGroupeIcon = deleteServicesGroupeIcon;
-    }
 
     public String getEditServicesGroupIcon() {
         return editServicesGroupIcon;
