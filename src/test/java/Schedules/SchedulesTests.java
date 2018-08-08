@@ -11,8 +11,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class  SchedulesTests {
     WebDriver driver = new FirefoxDriver();
+   // driver.manage().timeouts().implicitlyWait(TimeOut, TimeUnit.SECONDS);
+
     WebDriverWait wait = new WebDriverWait(driver,20);
     BaseUrls baseUrls = new BaseUrls();
     LoginPageCode login =new LoginPageCode(driver,wait);

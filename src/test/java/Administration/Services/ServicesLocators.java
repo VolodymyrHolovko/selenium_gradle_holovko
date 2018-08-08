@@ -1,5 +1,7 @@
 package Administration.Services;
 
+import org.openqa.selenium.By;
+
 public class ServicesLocators {
     String headerTabCaption = "body > app > ui-view > div > ui-view > business-profile > section > business-profile-tabs > div > md-tabs";
     String menuAdministrationButton = "/html/body/app/ui-view/business-left-bar/div/nav/ul/li[4]/a/span";
@@ -10,7 +12,7 @@ public class ServicesLocators {
     String listOfSrvicesGroupe = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div";
     String addServicesButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[1]/div/base-accordion-item-content/div/ul/li/div/button";
     String editServicesGroupIcon = "icon-edit";
-    String deleteServicesGroupeIcon = "icon-close";
+    By deleteServicesGroupeIcon = By.className("icon-close");
     String dropdownIconSrevicesGrouope = "icon-dropdown";
     String addServicesModalTab = "add-service-modal-wrapper";
     String nameServiceField = "service_service";
@@ -26,6 +28,16 @@ public class ServicesLocators {
     String saveServiceButton = "/html/body/div[4]/md-dialog/form/md-dialog-actions/button";
     String servicesGroupeLists = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div";
     String editGroupeIcon = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[1]/div/base-accordion-item-title/div/div/div/div[1]";
+    By yesButton = By.xpath( "//button[contains(text(),'так')]");
+    By deleteServiceGroupeModalDialog = By.xpath("/html/body/div[4]/md-dialog/md-dialog-actions/button[2]");
+
+    public By getDeleteServiceGroupeModalDialog() {
+        return deleteServiceGroupeModalDialog;
+    }
+
+    public void setDeleteServiceGroupeModalDialog(By deleteServiceGroupeModalDialog) {
+        this.deleteServiceGroupeModalDialog = deleteServiceGroupeModalDialog;
+    }
 
     public String getEditGroupeIcon() {
         return editGroupeIcon;
@@ -156,13 +168,6 @@ public class ServicesLocators {
         this.dropdownIconSrevicesGrouope = dropdownIconSrevicesGrouope;
     }
 
-    public String getDeleteServicesGroupeIcon() {
-        return deleteServicesGroupeIcon;
-    }
-
-    public void setDeleteServicesGroupeIcon(String deleteServicesGroupeIcon) {
-        this.deleteServicesGroupeIcon = deleteServicesGroupeIcon;
-    }
 
     public String getEditServicesGroupIcon() {
         return editServicesGroupIcon;
