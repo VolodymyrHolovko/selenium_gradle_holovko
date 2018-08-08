@@ -9,12 +9,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class SalaryCountingTests {
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver, 20);
     LoginPageCode login =new LoginPageCode(driver,wait);
     BaseUrls baseUrls = new BaseUrls();
-    SalaryCountingPageCode code = new SalaryCountingPageCode();
+    SalaryCountingPageCode code = new SalaryCountingPageCode(driver,wait);
     ManagementPageCode managementPageCode = new ManagementPageCode(driver,wait);
 
     @BeforeClass
@@ -26,10 +28,16 @@ public class SalaryCountingTests {
         login.pressSubmit();
         login.checkSuccessLogin();
         managementPageCode.clickAtSalaryCounting();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test
     public void createAwards(){
-
+        driver.navigate().refresh();
+        code.clickAtCreateAwardsButton();
+        code.chooseWorkers();
+        code.writeSumma();
+        code.writeComment();
+        code.pressSaveAwardsButton();
     }
 }

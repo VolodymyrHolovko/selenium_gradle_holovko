@@ -34,7 +34,8 @@ public class SalarySchemePageCode {
     By deleteSalarySchemeButton = By.xpath(locators.deleteSalarySchemeButton);
     By deleteSalarySchemeSubmit = By.xpath(locators.deleteSalarySchemeSubmit);
 
-    public void clickAtCreateSchemeButton(){
+    public void clickAtCreateSchemeButton() throws InterruptedException {
+        Thread.sleep(2000);
         wait.until(ExpectedConditions.presenceOfElementLocated(createSalaryButton)).click();
     }
 

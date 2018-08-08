@@ -11,6 +11,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class SalarySchemeTests {
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver,20);
@@ -27,10 +29,11 @@ public class SalarySchemeTests {
         login.pressSubmit();
         login.checkSuccessLogin();
         managementPageCode.clickAtSalaryScheme();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test
-    public void A_createSalaryScheme(){
+    public void A_createSalaryScheme() throws InterruptedException {
         //Перевірка створення схеми наразування зп
         code.clickAtCreateSchemeButton();
         code.clickAtWorkerDropDowmn();
