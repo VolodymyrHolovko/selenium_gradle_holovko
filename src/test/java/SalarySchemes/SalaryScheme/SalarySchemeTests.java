@@ -29,8 +29,8 @@ public class SalarySchemeTests {
         managementPageCode.clickAtSalaryScheme();
     }
 
-    @Test (priority = 0)
-    public void createSalaryScheme(){
+    @Test
+    public void A_createSalaryScheme(){
         //Перевірка створення схеми наразування зп
         code.clickAtCreateSchemeButton();
         code.clickAtWorkerDropDowmn();
@@ -41,30 +41,30 @@ public class SalarySchemeTests {
         code.saveSchemeButtonPress();
     }
 
-    @Test (priority = 1)
-    public void checkSchemeCreatedAtList() throws InterruptedException{
+    @Test
+    public void B_checkSchemeCreatedAtList() throws InterruptedException{
         //Перевірка відобреження створеної в попердньому кроці схеми ЗП на списку
         Assert.assertEquals(code.checkSchemesListCreates(),"фіксована схема");
         Thread.sleep(2000);
     }
 
 
-    @Test (priority = 2)
-    public void checkSchemeAfterCreate(){
+    @Test
+    public void C_checkSchemeAfterCreate(){
         //Детальна перевірка полів схеми ЗП після створення
         code.openSchemeAfterCreate();
         Assert.assertEquals(true,code.checkPogodunnaStavka().contains("checked"));
     }
 
-    @Test (priority = 3)
-    public void deleteSalaryScheme() throws InterruptedException{
+    @Test
+    public void D_deleteSalaryScheme() throws InterruptedException{
         //Перевірка можливості видалення схемм ЗП
         code.clickOnDeleteSalarySchemeButton();
         code.clickDeleteSalarySchemeSubmit();
         Assert.assertEquals(code.countBeforeDelete()-1,code.checkCountAfterDelete());
     }
 
-    @Test (priority = 4)
+    @Test
     public void createAwards(){
 
     }

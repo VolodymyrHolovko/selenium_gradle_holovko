@@ -39,9 +39,9 @@ public class ServicesTests {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @Test (priority = 0)
+    @Test
     //Перевірка відповідності UI елементів сторінки, наявності навігаційних кнопок та хедера сторінки
-    public void checkElementsOfPage() {
+    public void A_checkElementsOfPage() {
         test.checkHeaderNavigationTab();
         test.checkAddServicesButtons();
         test.checkEditServicesGroupeButton();
@@ -49,26 +49,26 @@ public class ServicesTests {
         test.checkDropDownButtonGroupes();
     }
 
-    @Test (priority = 1)
+    @Test
     //Додання <Групи послуг> та перевірка наявності щойноствореної групи у списку
-    public void  addServicesGroupe() throws InterruptedException {
+    public void  B_addServicesGroupe() throws InterruptedException {
         test.addServicesGroupe(nameServiceGroupe);
         Assert.assertEquals(true,test.getServiceGroupeName().contains(nameServiceGroupe));
     }
-    @Test (priority = 2)
+    @Test
     //Редагування <Групи послуг> та перевірка наявності проредагованої групи у списку
-    public void updateServicesGroupe() throws InterruptedException {
+    public void C_updateServicesGroupe() throws InterruptedException {
         test.updateServicesGroupe(updatedNameServicesGroupe);
         Assert.assertEquals(true, test.getServiceGroupeName().contains(updatedNameServicesGroupe));
     }
-    @Test (priority = 3)
+    @Test
     //Додання <Послуги> до <Групи послуг>
-    public void addServices() throws InterruptedException {
+    public void D_addServices() throws InterruptedException {
         test.addServices(nameService, serviceCost);
     }
-    @Test (priority = 4)
+    @Test
     //Вдалення <Групи послуг>
-    public void deleteServiceGroupe() throws InterruptedException {
+    public void E_deleteServiceGroupe() throws InterruptedException {
         test.deleteServiceGroupe();
     }
     @AfterClass
