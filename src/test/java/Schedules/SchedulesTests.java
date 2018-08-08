@@ -137,7 +137,6 @@ public class  SchedulesTests {
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
         schedulesPageCode.clickAtzminnuyCertainDaySchedule();
-
     }
 
     @AfterClass
