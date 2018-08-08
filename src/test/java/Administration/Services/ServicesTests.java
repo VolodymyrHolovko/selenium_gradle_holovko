@@ -67,10 +67,18 @@ public class ServicesTests {
     //Додання <Послуги> до <Групи послуг>
     public void D_addServices() throws InterruptedException {
         test.addServices(nameService, serviceCost);
+        driver.navigate().refresh();
+    }
+    @Test
+    //Перевірка доданої <Послуги> у списку <Групи послуг>
+    public void E_getCreatedServices() throws InterruptedException {
+        test.getCreatedService();
+        Assert.assertEquals(true, test.getCreatedService().contains(nameService));
+
     }
     @Test
     //Вдалення <Групи послуг>
-    public void E_deleteServiceGroupe() throws InterruptedException {
+    public void F_deleteServiceGroupe() throws InterruptedException {
         test.deleteServiceGroupe();
     }
     @AfterClass
