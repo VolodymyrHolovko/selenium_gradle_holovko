@@ -25,6 +25,7 @@ public class ManagementPageCode {
     By salarySchemeSmallButton = By.xpath(management.salarySchemeSmallButton);
     By salarySchemeCountingButton = By.xpath(management.salarySchemeCountingButton);
     By salaryCounting = By.xpath(management.salaryCounting);
+    By salaryHistory = By.xpath(management.salaryHistory);
 
     public void makeHoverAtElement(){
         WebElement element = driver.findElement(managementButtonSmall);
@@ -81,5 +82,11 @@ public class ManagementPageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemeSmallButton));
         makeHoverAtSalary();
         wait.until(ExpectedConditions.presenceOfElementLocated(salaryCounting)).click();
+    }
+
+    public void clickAtSalaryHistory() throws StaleElementReferenceException{
+        wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemeSmallButton));
+        makeHoverAtSalary();
+        wait.until(ExpectedConditions.presenceOfElementLocated(salaryHistory)).click();
     }
 }

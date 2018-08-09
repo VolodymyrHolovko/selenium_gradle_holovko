@@ -24,10 +24,16 @@ public class SalaryCountingPageCode {
     By awardsModalSumma = By.xpath(locators.awardsModalSumma);
     By awardsComment = By.xpath(locators.awardsComment);
     By awardsButtonCreate = By.xpath(locators.awardsButtonCreate);
+    By awardsCreateSuccessToast = By.xpath(locators.awardsCreateSuccessToast);
     By workersListCalculate = By.xpath(locators.workersListCalculate);
     By workersCertainWorkerCalculate = By.xpath(locators.workersCertainWorkerCalculate);
     By calculateButton = By.xpath(locators.calculateButton);
     By calculatingView = By.xpath(locators.calculatingView);
+    By narahuvatuButton = By.xpath(locators.narahuvatuButton);
+    By rozrahovanaSuma = By.xpath(locators.rozrahovanaSuma);
+    By konfliktRozrahunkeModal = By.xpath(locators.konfliktRozrahunkeModal);
+    By konfliktRozrahunkyModalButton = By.xpath(locators.konfliktRozrahunkyModalButton);
+    By narahuvatuZpFromModal = By.xpath(locators.narahuvatuZpFromModal);
 
     public void clickAtCreateAwardsButton(){
         wait.until(ExpectedConditions.presenceOfElementLocated(createAwardsButton)).click();
@@ -50,6 +56,15 @@ public class SalaryCountingPageCode {
         driver.findElement(awardsButtonCreate).click();
     }
 
+    public boolean awardsSuccessMessagePresent (){
+        if( driver.findElement(awardsCreateSuccessToast).isDisplayed()){
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(awardsCreateSuccessToast));
+            return true;
+        }
+        else return false;
+    }
+
+
     public void openWorkersListToCalculte(){
         driver.findElement(workersListCalculate).click();
     }
@@ -62,7 +77,34 @@ public class SalaryCountingPageCode {
         driver.findElement(calculateButton).click();
     }
 
-    public void checkCalculatingView(){
-        driver.findElement(calculatingView);
+    public boolean checkCalculatingView(){
+        if (driver.findElement(calculatingView).isDisplayed()){
+            return true;
+        }
+        else return false;
+    }
+
+    public void rozrahuvatyBurronClick (){
+        driver.findElement(narahuvatuButton).click();
+    }
+
+    public String rozrahovanasuma(){
+        String rozrahovanaSume = driver.findElement(rozrahovanaSuma).getAttribute("value");
+        return rozrahovanaSume;
+    }
+
+    public boolean konfliktRozrahunkeModal(){
+        driver.findElement(konfliktRozrahunkeModal).isDisplayed();
+        return true;
+    }
+
+    public void konfliktRozrahunkyModalButton() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.findElement(konfliktRozrahunkyModalButton).click();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(konfliktRozrahunkyModalButton));
+    }
+
+    public void narahuvatuZpFromModalClick(){
+        driver.findElement(narahuvatuZpFromModal).click();
     }
 }

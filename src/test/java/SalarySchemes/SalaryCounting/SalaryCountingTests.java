@@ -6,6 +6,7 @@ import Routes.BaseUrls;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -39,6 +40,7 @@ public class SalaryCountingTests {
         code.writeSumma();
         code.writeComment();
         code.pressSaveAwardsButton();
+        Assert.assertEquals(true,code.awardsSuccessMessagePresent());
     }
 
     @Test
@@ -46,6 +48,19 @@ public class SalaryCountingTests {
         code.openWorkersListToCalculte();
         code.chooseCertainWorkerToCalculate();
         code.pressCalculateButton();
-        code.checkCalculatingView();
+        Assert.assertEquals(true,code.checkCalculatingView());
+    }
+
+    @Test
+    public void C_createRozrahunok() throws InterruptedException {
+        code.rozrahuvatyBurronClick();
+        String summa = code.rozrahovanasuma();
+        code.narahuvatuZpFromModalClick();
+        if (code.konfliktRozrahunkeModal()){
+            code.konfliktRozrahunkyModalButton();
+            managementPageCode.clickAtSalaryHistory();
+        }
+        else
+            managementPageCode.clickAtSalaryHistory();
     }
 }
