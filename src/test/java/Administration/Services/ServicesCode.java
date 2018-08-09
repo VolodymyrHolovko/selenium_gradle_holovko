@@ -140,6 +140,45 @@ public class ServicesCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.saveServiceButton))).click();
         Thread.sleep(3000);
     }
+    public void updateServices(String nameServiceUpdated, String serviceCostUpdated) throws InterruptedException {
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.servicesGroupeLists)));
+        List<WebElement> listServicesGroups = driver.findElement(By.xpath(locators.servicesGroupeLists)).findElements(By.className(locators.dropdownIconSrevicesGrouope));
+        Random random = new Random();
+        int randomGroupe = 0;/*random.nextInt(listServicesGroups.size());*/
+        listServicesGroups.get(randomGroupe).click();
+        Thread.sleep(1000);
+        List<WebElement> services = driver.findElement(locators.listOfServices).findElements(locators.editServiiceButton);
+        Random random1 = new Random();
+        int randomService = random.nextInt(services.size());
+        services.get(randomService).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locators.nameServiceField))).click();
+        driver.findElement(By.id(locators.nameServiceField)).sendKeys(nameServiceUpdated);
+        driver.findElement(By.xpath(locators.serviceCostFField)).clear();
+        driver.findElement(By.xpath(locators.serviceCostFField)).sendKeys(serviceCostUpdated);
+        setServicesCurrency();
+        setServicesDuration();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.saveServiceButton))).click();
+        Thread.sleep(3000);
+    }
+    public  void deleteServices() throws InterruptedException {
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.servicesGroupeLists)));
+        List<WebElement> listServicesGroups = driver.findElement(By.xpath(locators.servicesGroupeLists)).findElements(By.className(locators.dropdownIconSrevicesGrouope));
+        Random random = new Random();
+        int randomGroupe = 0;/*random.nextInt(listServicesGroups.size());*/
+        listServicesGroups.get(randomGroupe).click();
+        Thread.sleep(1000);
+        List<WebElement> services = driver.findElement(locators.listOfServices).findElements(locators.deleteServiceButton);
+        Random random1 = new Random();
+        int randomService = random.nextInt(services.size());
+        services.get(randomService).click();
+        Thread.sleep(2000);
+        Actions actions = new Actions(driver);
+        WebElement yesButton = driver.findElement(locators.deleteServicesYesButton);
+        actions.moveToElement(yesButton).click().perform();
+
+    }
     public void deleteServiceGroupe() throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.servicesGroupeLists)));
         List<WebElement> listServicesGroups = driver.findElement(By.xpath(locators.servicesGroupeLists)).findElements(locators.deleteServicesGroupeIcon);

@@ -18,10 +18,12 @@ public class ServicesTests {
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver, 30, 700);
     Faker faker = new Faker();
-    String nameServiceGroupe = faker.artist().name();
+    String nameServiceGroupe = faker.beer().name();
     String updatedNameServicesGroupe = faker.name().title();
     String nameService = faker.job().seniority();
+    String nameServiceUpdated = faker.cat().name();
     String serviceCost = String.valueOf(faker.number().randomDigitNotZero());
+    String serviceCostUpdated = String.valueOf(faker.number().randomDigitNotZero());
     BaseUrls baseUrls = new BaseUrls();
     LoginPageCode login = new LoginPageCode(driver, wait);
     ServicesCode test = new ServicesCode(driver, wait);
@@ -72,14 +74,37 @@ public class ServicesTests {
     @Test
     //Перевірка доданої <Послуги> у списку <Групи послуг>
     public void E_getCreatedServices() throws InterruptedException {
-        test.getCreatedService();
-        Assert.assertEquals(true, test.getCreatedService().contains(nameService));
-
+        String returnedValues = test.getCreatedService();
+        Assert.assertEquals(true, returnedValues.contains(nameService));
+        Assert.assertEquals(true, returnedValues.contains(serviceCost));
+        driver.navigate().refresh();
+    }
+    @Test
+    //Редагування <Послуги> та перевірка проредагованих елементів у списку <Групи послуг>
+    public void F_updateServices() throws InterruptedException {
+        test.updateServices(nameServiceUpdated, serviceCostUpdated);
+        Assert.assertEquals(true, test.successMessagePresents());
+        driver.navigate().refresh();
+    }
+    @Test
+    //Перевірка проредагованої <Послуги> у списку <Групи послуг>
+    public void G_getUpdatedServices() throws InterruptedException {
+        String returnUpdatedValues = test.getCreatedService();
+        Assert.assertEquals(true, returnUpdatedValues.contains(nameServiceUpdated));
+        Assert.assertEquals(true, returnUpdatedValues.contains(serviceCostUpdated));
+        driver.navigate().refresh();
+    }
+    @Test
+    //Видалення <Послуги> з <Шрупи послуг>
+    public void H_deleteServices() throws InterruptedException {
+        test.deleteServices();
+        Assert.assertEquals(true, test.successMessagePresents());
     }
     @Test
     //Вдалення <Групи послуг>
-    public void F_deleteServiceGroupe() throws InterruptedException {
+    public void K_deleteServiceGroupe() throws InterruptedException {
         test.deleteServiceGroupe();
+        Assert.assertEquals(true, test.successMessagePresents());
     }
     @AfterClass
     public void closeDriver() {
