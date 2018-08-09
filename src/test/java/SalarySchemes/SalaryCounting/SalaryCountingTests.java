@@ -3,6 +3,7 @@ package SalarySchemes.SalaryCounting;
 import LoginTests.LoginPageCode;
 import Managment.ManagementPageCode;
 import Routes.BaseUrls;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -58,9 +59,11 @@ public class SalaryCountingTests {
         code.narahuvatuZpFromModalClick();
         if (code.konfliktRozrahunkeModal()){
             code.konfliktRozrahunkyModalButton();
-            managementPageCode.clickAtSalaryHistory();
         }
-        else
+        else {
             managementPageCode.clickAtSalaryHistory();
-    }
+            managementPageCode.clickAtSalaryHistory();
+            Assert.assertEquals(true, driver.findElement(By.xpath("//*[contains(text()," + summa + ")]")));
+        }
+        }
 }
