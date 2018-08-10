@@ -14,6 +14,7 @@ public class ServicesLocators {
     String editServicesGroupIcon = "icon-edit";
     By deleteServicesGroupeIcon = By.className("icon-close");
     By succsessMessage = By.xpath("/html/body/md-toast/div/span");
+    By listOfServices = By.xpath("//div[@class='base-accordion']//md-card[1]//div[1]//base-accordion-item-content[1]");
     String dropdownIconSrevicesGrouope = "icon-dropdown";
     String addServicesModalTab = "add-service-modal-wrapper";
     String nameServiceField = "service_service";
@@ -31,6 +32,59 @@ public class ServicesLocators {
     String editGroupeIcon = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[1]/div/base-accordion-item-title/div/div/div/div[1]";
     By yesButton = By.xpath( "//button[contains(text(),'так')]");
     By deleteServiceGroupeModalDialog = By.xpath("/html/body/div[4]/md-dialog/md-dialog-actions/button[2]");
+    By serviceFromGroupe = By.className("services-item");
+    By editServiiceButton = By.className("icon-edit");
+    By deleteServiceButton = By.className("icon-close");
+    By deleteServiceModalDialog = By.xpath("//*[@id=\"dialogContent_21\"]");
+    By deleteServicesYesButton = By.xpath("//button[contains(text(),'так')]");
+
+    public By getDeleteServicesYesButton() {
+        return deleteServicesYesButton;
+    }
+
+    public void setDeleteServicesYesButton(By deleteServicesYesButton) {
+        this.deleteServicesYesButton = deleteServicesYesButton;
+    }
+
+    public By getDeleteServiceModalDialog() {
+        return deleteServiceModalDialog;
+    }
+
+    public void setDeleteServiceModalDialog(By deleteServiceModalDialog) {
+        this.deleteServiceModalDialog = deleteServiceModalDialog;
+    }
+
+    public By getDeleteServicesGroupeIcon() {
+        return deleteServicesGroupeIcon;
+    }
+
+    public void setDeleteServicesGroupeIcon(By deleteServicesGroupeIcon) {
+        this.deleteServicesGroupeIcon = deleteServicesGroupeIcon;
+    }
+
+    public By getEditServiiceButton() {
+        return editServiiceButton;
+    }
+
+    public void setEditServiiceButton(By editServiiceButton) {
+        this.editServiiceButton = editServiiceButton;
+    }
+
+    public By getServiceFromGroupe() {
+        return serviceFromGroupe;
+    }
+
+    public void setServiceFromGroupe(By serviceFromGroupe) {
+        this.serviceFromGroupe = serviceFromGroupe;
+    }
+
+    public By getListOfServices() {
+        return listOfServices;
+    }
+
+    public void setListOfServices(By listOfServices) {
+        this.listOfServices = listOfServices;
+    }
 
     public By getSuccsesMessage() {
         return succsessMessage;
