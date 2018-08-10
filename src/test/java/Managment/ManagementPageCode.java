@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ManagementPageCode {
     WebDriver driver;
     WebDriverWait wait;
+    ManagmentElementsLocators locators = new ManagmentElementsLocators();
     public  ManagementPageCode (WebDriver driver,WebDriverWait wait){
         this.driver = driver;
         this.wait = wait;
@@ -43,6 +44,11 @@ public class ManagementPageCode {
         WebElement element = driver.findElement(addBookingButton);
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
+    }
+    public void makeHoverAtClients() {
+        WebElement element = driver.findElement(locators.clientsButton);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
     }
 
     public void clickAtPoslugy () throws InterruptedException {
@@ -88,5 +94,11 @@ public class ManagementPageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemeSmallButton));
         makeHoverAtSalary();
         wait.until(ExpectedConditions.presenceOfElementLocated(salaryHistory)).click();
+    }
+    public void clickAtClients() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(locators.clientsButton));
+        makeHoverAtClients();
+        wait.until(ExpectedConditions.presenceOfElementLocated(locators.clientsSideTab)).click();
+        makeHoverAtBooking();
     }
 }
