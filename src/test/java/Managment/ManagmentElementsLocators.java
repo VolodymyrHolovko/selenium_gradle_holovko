@@ -11,6 +11,8 @@ public class ManagmentElementsLocators {
     String salarySchemeCountingButton = "/html/body/app/ui-view/div/business-left-bar/div/ul/li[8]/ul/li[3]/a/span";
     String salaryCounting = "/html/body/app/ui-view/div/business-left-bar/div/ul/li[8]/ul/li[4]/a/span";
     String salaryHistory = "/html/body/app/ui-view/div/business-left-bar/div/ul/li[8]/ul/li[5]/a/span";
+    String marketingButtonBig = "/html/body/app/ui-view/div/business-left-bar/div/ul/li[5]/a";
+    String marketingButtonSmall = "/html/body/app/ui-view/div/business-left-bar/div/ul/li[5]/ul/li/a/span";
 
     public String getPersonalButton() {
         return personalButton;

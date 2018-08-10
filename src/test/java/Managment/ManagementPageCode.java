@@ -26,6 +26,8 @@ public class ManagementPageCode {
     By salarySchemeCountingButton = By.xpath(management.salarySchemeCountingButton);
     By salaryCounting = By.xpath(management.salaryCounting);
     By salaryHistory = By.xpath(management.salaryHistory);
+    By marketingButtonBig = By.xpath(management.marketingButtonBig);
+    By marketingButtonSmall = By.xpath(management.marketingButtonSmall);
 
     public void makeHoverAtElement(){
         WebElement element = driver.findElement(managementButtonSmall);
@@ -35,6 +37,12 @@ public class ManagementPageCode {
 
     public void makeHoverAtSalary(){
         WebElement element = driver.findElement(salarySchemeSmallButton);
+        Actions builder = new Actions(driver);
+        builder.moveToElement(element).build().perform();
+    }
+
+    public void makeHoverAtMarketing(){
+        WebElement element = driver.findElement(marketingButtonBig);
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
@@ -88,5 +96,11 @@ public class ManagementPageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemeSmallButton));
         makeHoverAtSalary();
         wait.until(ExpectedConditions.presenceOfElementLocated(salaryHistory)).click();
+    }
+
+    public void clickAtMarketing(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(marketingButtonBig));
+        makeHoverAtMarketing();
+        wait.until(ExpectedConditions.presenceOfElementLocated(marketingButtonSmall)).click();
     }
 }
