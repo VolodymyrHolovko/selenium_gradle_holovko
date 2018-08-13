@@ -16,10 +16,10 @@ public class ManagementPageCode {
         this.wait = wait;
     }
     ManagmentElementsLocators management = new ManagmentElementsLocators();
-    By managementButtonSmall = By.xpath(management.getManagementButtonSmall());
-    By managementButtonBig = By.xpath(management.getManagementButtonBig());
-    By poslugyButton = By.linkText(management.getPoslugyButton());
-    By personalButton  = By.linkText(management.getPersonalButton());
+    By managementButtonSmall = By.xpath(management.managementButtonSmall);
+    By managementButtonBig = By.xpath(management.managementButtonBig);
+    By poslugyButton = By.linkText(management.poslugyButton);
+    By personalButton  = By.linkText(management.personalButton);
     By schedulesButton = By.linkText(management.schedules);
     By addBookingButton = By.xpath(management.bookingButton);
     By salarySchemeSmallButton = By.xpath(management.salarySchemeSmallButton);
@@ -28,12 +28,22 @@ public class ManagementPageCode {
     By salaryHistory = By.xpath(management.salaryHistory);
     By marketingButtonBig = By.xpath(management.marketingButtonBig);
     By marketingButtonSmall = By.xpath(management.marketingButtonSmall);
+    By cliensButtonBig = By.xpath(management.cliensButtonBig);
+    By clientsButtonSmall = By.xpath(management.clientsButtonSmall);
 
     public void makeHoverAtElement(){
         WebElement element = driver.findElement(managementButtonSmall);
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
+
+    public void makeHoverAtCliets(){
+        WebElement element = driver.findElement(cliensButtonBig);
+        Actions builder = new Actions(driver);
+        builder.moveToElement(element).build().perform();
+    }
+
+
 
     public void makeHoverAtSalary(){
         WebElement element = driver.findElement(salarySchemeSmallButton);
@@ -102,5 +112,11 @@ public class ManagementPageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(marketingButtonBig));
         makeHoverAtMarketing();
         wait.until(ExpectedConditions.presenceOfElementLocated(marketingButtonSmall)).click();
+    }
+
+    public void clickAtClients(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(cliensButtonBig));
+        makeHoverAtCliets();
+        wait.until(ExpectedConditions.presenceOfElementLocated(clientsButtonSmall)).click();
     }
 }

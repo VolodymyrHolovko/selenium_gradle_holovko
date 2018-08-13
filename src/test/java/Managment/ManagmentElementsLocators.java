@@ -13,24 +13,6 @@ public class ManagmentElementsLocators {
     String salaryHistory = "/html/body/app/ui-view/div/business-left-bar/div/ul/li[8]/ul/li[5]/a/span";
     String marketingButtonBig = "/html/body/app/ui-view/div/business-left-bar/div/ul/li[5]/a";
     String marketingButtonSmall = "/html/body/app/ui-view/div/business-left-bar/div/ul/li[5]/ul/li/a/span";
-
-    public String getPersonalButton() {
-        return personalButton;
-    }
-
-    public String getPoslugyButton() {
-        return poslugyButton;
-    }
-
-    public String getManagementButtonSmall() {
-        return managementButtonSmall;
-    }
-
-    public String getManagementButtonBig() {
-        return managementButtonBig;
-    }
-
-    public String getSchedules() {
-        return schedules;
-    }
+    String cliensButtonBig = "/html/body/app/ui-view/div/business-left-bar/div/ul/li[4]/a/i";
+    String clientsButtonSmall = "/html/body/app/ui-view/div/business-left-bar/div/ul/li[4]/ul/li/a/span";
 }

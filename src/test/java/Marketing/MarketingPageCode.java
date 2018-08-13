@@ -1,7 +1,10 @@
 package Marketing;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -21,7 +24,7 @@ public class MarketingPageCode {
     By chooseNewsButton = By.xpath(locators.chooseNewsButton);
     By newsNameInput = By.xpath(locators.newsNameInput);
     By newsDescription = By.xpath(locators.newsDescription);
-    By newsPhoto = By.className(locators.newsPhoto);
+    By newsPhoto = By.xpath(locators.newsPhoto);
     By createNewsButton = By.xpath(locators.createNewsButton);
     By adresamarketungy = By.xpath(locators.adresamarketungy);
 
@@ -33,7 +36,10 @@ public class MarketingPageCode {
         driver.findElement(newsDescription).sendKeys("Description");
     }
 
-    public void newsPhoto(){
+    public void newsPhoto()  {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(newsPhoto));
+        wait.until(ExpectedConditions.elementToBeClickable(newsPhoto));
+        driver.findElement(newsPhoto).click();
         driver.findElement(newsPhoto).sendKeys("C:/Users/User/Desktop/IMG_0094.png");
     }
 

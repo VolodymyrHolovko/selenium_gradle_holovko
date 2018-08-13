@@ -5,7 +5,7 @@ public class MarketingLocators {
     String chooseNewsButton="//*/div/div/div[2]/div";
     String newsNameInput="//*/div/div[1]/md-input-container/input";
     String newsDescription = "//*/div/div[2]/div/div[1]/md-input-container/div[1]/textarea";
-    String newsPhoto = "image-upload-container";
+    String newsPhoto = "/html/body/div[4]/md-dialog/md-dialog-content/div/div[2]/div/div[2]/div/div/div";
     String createNewsButton ="/html/body/div[4]/md-dialog/md-dialog-actions/button";
     String adresamarketungy = "//*/div/div[3]/div/md-input-container";
 }

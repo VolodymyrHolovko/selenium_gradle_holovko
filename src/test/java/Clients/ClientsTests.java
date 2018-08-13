@@ -1,4 +1,4 @@
-package Marketing;
+package Clients;
 
 import LoginTests.LoginPageCode;
 import Managment.ManagementPageCode;
@@ -6,41 +6,37 @@ import Routes.BaseUrls;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class MarketingTests {
+import java.util.concurrent.TimeUnit;
+
+public class ClientsTests {
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver,20);
     LoginPageCode login = new LoginPageCode(driver,wait);
     BaseUrls baseUrls = new BaseUrls();
-    MarketingPageCode code = new MarketingPageCode(driver,wait);
-    ManagementPageCode managementCode = new ManagementPageCode(driver,wait);
+    ClietsPageCode code = new ClietsPageCode(driver,wait);
+    ManagementPageCode managementPageCode = new ManagementPageCode(driver,wait);
 
     @BeforeClass
-    public void befoe()throws InterruptedException{
+    public void before() throws InterruptedException {
         driver.manage().window().maximize();
         driver.get(baseUrls.getHomeUrl());
         login.typeUsername();
         login.typePassword();
         login.pressSubmit();
         login.checkSuccessLogin();
-        managementCode.clickAtMarketing();
+        managementPageCode.clickAtClients();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test
-    public void createMarketing(){
-    code.nullButtonCreateMarketingClick();
-    code.chooseNewsButton();
-    code.newsNameInput();
-    code.newsDescription();
-    //code.newsPhoto();
-    //code.createNewsButton();
-    }
-
-    @AfterClass
-    public void before(){
-        driver.quit();
+    public void checkClientSearch(){
+        code.openClients();
+        code.choiseCertainFilter();
+        code.writeSearchString();
+        Assert.assertEquals(true,code.searchResultVisibility());
     }
 }
