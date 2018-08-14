@@ -18,6 +18,41 @@ public class ClientsLocators {
     By listOfSex = By.xpath("/html[1]/body[1]/div[5]");
     By sexTypeRow = By.tagName("md-option");
     By addClientPhoneField = By.xpath("/html[1]/body[1]/div[4]/md-dialog[1]/form[1]/md-dialog-content[1]/div[1]/div[2]/div[1]/div[1]/md-input-container[1]/phone[1]/div[1]/div[1]/input[1]");
+    By addClientBDayCheckbox = By.xpath("//md-checkbox[@type='checkbox']");
+    By addClientBDayInputField = By.xpath("/html/body/div[4]/md-dialog/form/md-dialog-content/div/div[3]/div/md-input-container/md-datepicker/div[1]/button");
+    By modalCalendarMonunthPicker = By.xpath("//table[@class='md-calendar']//tbody[4]//tr[1]//td[1]");
+    By yearMounthsList = By.xpath("//table[@class='md-calendar']//tbody[4]");
+    By randomClientsMonth = By.tagName("td");
+    By listOfDays = By.xpath("//table[@class='md-calendar']//tbody[4]");
+    By dayColums = By.tagName("td");
+
+    public By getDayColums() {
+        return dayColums;
+    }
+
+    public By getListOfDays() {
+        return listOfDays;
+    }
+
+    public By getRandomClientsMonth() {
+        return randomClientsMonth;
+    }
+
+    public By getYearMounthsList() {
+        return yearMounthsList;
+    }
+
+    public By getAddClientBDayInputField() {
+        return addClientBDayInputField;
+    }
+
+    public By getModalCalendarMonunthPicker() {
+        return modalCalendarMonunthPicker;
+    }
+
+    public By getAddClientBDayCheckbox() {
+        return addClientBDayCheckbox;
+    }
 
     public By getAddClientPhoneField() {
         return addClientPhoneField;

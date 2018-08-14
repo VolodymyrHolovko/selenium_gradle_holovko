@@ -2,6 +2,7 @@ package Clients;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -35,7 +36,32 @@ public class ClientsCode {
         int randomSexType = random.nextInt(listOfSex.size());
         listOfSex.get(randomSexType).click();
     }
-    public void addNewClients(String clientName, String clientMidleName, String clientLastName, String clientEmail, String clientPhoneNumber) {
+
+    public void setRandomMonthForClient() {
+        wait.until(ExpectedConditions.presenceOfElementLocated(locators.getModalCalendarMonunthPicker())).click();
+        List<WebElement> listOfYears = driver.findElement(locators.getYearMounthsList()).findElements(locators.getRandomClientsMonth());
+        Random random = new Random();
+        int randomYear = random.nextInt(listOfYears.size());
+        listOfYears.get(randomYear).click();
+    }
+
+    public void setRandomDayForClient() throws InterruptedException {
+        Thread.sleep(1500);
+        wait.until(ExpectedConditions.presenceOfElementLocated(locators.getListOfDays()));
+        List<WebElement> listOfDays = driver.findElement(locators.getListOfDays()).findElements(locators.getDayColums());
+        Random random = new Random();
+        int randomDays = random.nextInt(listOfDays.size());
+        listOfDays.get(randomDays).click();
+    }
+
+    public void setRandomClientBDay() throws InterruptedException {
+        wait.until(ExpectedConditions.presenceOfElementLocated(locators.addClientBDayCheckbox)).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(locators.addClientBDayInputField)).click();
+        setRandomMonthForClient();
+        setRandomDayForClient();
+    }
+    public void addNewClients(String clientName, String clientMidleName, String clientLastName, String clientEmail, String clientPhoneNumber) throws InterruptedException {
+        Thread.sleep(2000);
         wait.until(ExpectedConditions.presenceOfElementLocated(locators.getAddNewButton())).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(locators.getAddClientForm()));
         wait.until(ExpectedConditions.presenceOfElementLocated(locators.getAddClientNameField())).sendKeys(clientName);
@@ -44,5 +70,6 @@ public class ClientsCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(locators.getAddClientEmailField())).sendKeys(clientEmail);
         setRandomClientSex();
         wait.until(ExpectedConditions.presenceOfElementLocated(locators.getAddClientPhoneField())).sendKeys(clientPhoneNumber);
+        setRandomClientBDay();
     }
 }

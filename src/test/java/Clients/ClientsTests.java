@@ -46,7 +46,7 @@ public class ClientsTests {
     }
     @Test
     //Перевірка створення нового <Клієнта>
-    public void addClients() {
+    public void addClients() throws InterruptedException {
         test.addNewClients(clientName, clientMidleName, clientLastName, clientEmail, clientPhoneNumber);
     }
     @AfterClass
