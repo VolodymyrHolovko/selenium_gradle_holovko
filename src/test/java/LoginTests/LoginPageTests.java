@@ -33,6 +33,7 @@ public class LoginPageTests {
             login.typePassword();
             login.pressSubmit();
             worker.makeHoverAtElement();
+            Thread.sleep(1000);
             Assert.assertEquals(baseUrls.getCalendarBaseUrl(),login.checkSuccessLogin());
         }
 

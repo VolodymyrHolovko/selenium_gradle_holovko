@@ -73,20 +73,18 @@ public class SalarySchemePageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemesList));
         List<WebElement> list = driver.findElement(salarySchemesList).findElements(By.tagName("tr"));
         int count = list.size();
-        String xpath = "/html/body/app/ui-view/div/ui-view/business-accounting-scheme-payroll/div/div[2]/table/tbody/tr["+count+"]/td[2]/div/div/span";
+        String xpath = "/html/body/app/ui-view/div/ui-view/business-accounting-scheme-payroll/div/beauty-business-accounting-scheme-payroll/div/div[2]/table/tbody/tr["+count+"]/td[2]/div/div/span";
         String schemeText = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath))).getText();
         return schemeText;
     }
-
     public void openSchemeAfterCreate(){
         wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemesList));
         List<WebElement> list = driver.findElement(salarySchemesList).findElements(By.tagName("tr"));
         int count = list.size();
         this.countBefore=count;
-        String xpath = "/html/body/app/ui-view/div/ui-view/business-accounting-scheme-payroll/div/div[2]/table/tbody/tr["+count+"]/td[4]/i";
+        String xpath = "/html/body/app/ui-view/div/ui-view/business-accounting-scheme-payroll/div/beauty-business-accounting-scheme-payroll/div/div[2]/table/tbody/tr["+count+"]/td[4]/i";
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath))).click();
     }
-
     public void clickOnDeleteSalarySchemeButton() throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(deleteSalarySchemeButton)).click();
         Thread.sleep(2000);

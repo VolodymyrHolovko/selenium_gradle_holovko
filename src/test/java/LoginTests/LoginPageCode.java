@@ -28,7 +28,7 @@ import static org.testng.AssertJUnit.assertEquals;
         }
 
         public void typeUsername() {
-            wait.until(ExpectedConditions.presenceOfElementLocated(usernameFieldLocator)).clear();
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(usernameFieldLocator))).clear();
             driver.findElement(usernameFieldLocator).sendKeys(username);
         }
 

@@ -67,11 +67,6 @@ public class SalarySchemeTests {
         Assert.assertEquals(code.countBeforeDelete()-1,code.checkCountAfterDelete());
     }
 
-    @Test
-    public void createAwards(){
-
-    }
-
     @AfterClass
     public void after(){
         driver.quit();

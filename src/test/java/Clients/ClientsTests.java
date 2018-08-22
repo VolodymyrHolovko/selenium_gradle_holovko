@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -29,7 +30,7 @@ public class ClientsTests {
         login.pressSubmit();
         login.checkSuccessLogin();
         managementPageCode.clickAtClients();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
     @Test
@@ -38,5 +39,10 @@ public class ClientsTests {
         code.choiseCertainFilter();
         code.writeSearchString();
         Assert.assertEquals(true,code.searchResultVisibility());
+    }
+
+    @AfterClass
+    public void close(){
+        driver.close();
     }
 }

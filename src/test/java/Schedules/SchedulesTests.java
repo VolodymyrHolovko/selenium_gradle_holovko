@@ -33,7 +33,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void B_chooseFirstStaffSchedules() {
+    public void B_chooseFirstStaffSchedules() throws InterruptedException {
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
         schedulesPageCode.clickAtCertainSchedule(0);
@@ -41,7 +41,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void C_setRegularSchedule(){
+    public void C_setRegularSchedule() throws InterruptedException {
         //Перевірка встановлення регулярного графіку відділенню, на основі одного робочого дня
         //та подальша перевірка чи дані відносно дня збереглися
         schedulesPageCode.clickAtStaffSchedules();
@@ -55,7 +55,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void D_chooseThirdStaffSchedules() {
+    public void D_chooseThirdStaffSchedules() throws InterruptedException {
         //Перевірка встановлення довільного робочого дня на основі встановлення довільного дня
         //робочим - збереження - та перевірка чи день є робочим
         schedulesPageCode.clickAtStaffSchedules();
@@ -81,7 +81,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void E_setZminnuySchedule(){
+    public void E_setZminnuySchedule() throws InterruptedException {
         //Перевірка встановлення робочого графіку при змінному розкладі роботи робочих/неробочих
         //та подальшого їх сечення на календарі
         schedulesPageCode.clickAtStaffSchedules();
@@ -96,7 +96,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void A_checkDaysOfOnCalendar(){
+    public void A_checkDaysOfOnCalendar() throws InterruptedException {
         //Перевірка того що вихідні дні є вихідними)
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();
@@ -130,7 +130,7 @@ public class  SchedulesTests {
     }
 
     @Test
-    public void I_setBreakForWorker(){
+    public void I_setBreakForWorker() throws InterruptedException {
         //Перевірка встановлення годин обіду і їх подальшого відображення
         schedulesPageCode.clickAtStaffSchedules();
         schedulesPageCode.clickAtStaffSchedulesType();

@@ -8,6 +8,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class ManagementPageCode {
     WebDriver driver;
     WebDriverWait wait;
@@ -67,8 +69,8 @@ public class ManagementPageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
+        driver.findElement(poslugyButton);
         wait.until(ExpectedConditions.presenceOfElementLocated(poslugyButton)).click();
-
         makeHoverAtBooking();
     }
 
@@ -76,6 +78,7 @@ public class ManagementPageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
+        driver.findElement(personalButton);
         wait.until(ExpectedConditions.presenceOfElementLocated(personalButton)).click();
         makeHoverAtBooking();
     }
@@ -93,18 +96,21 @@ public class ManagementPageCode {
     public void clickAtSalaryScheme () throws StaleElementReferenceException{
         wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemeSmallButton));
         makeHoverAtSalary();
+        driver.findElement(salarySchemeCountingButton);
         wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemeCountingButton)).click();
     }
 
-    public void clickAtSalaryCounting() throws StaleElementReferenceException{
+    public void clickAtSalaryCounting() throws StaleElementReferenceException, InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemeSmallButton));
         makeHoverAtSalary();
-        wait.until(ExpectedConditions.presenceOfElementLocated(salaryCounting)).click();
+        Thread.sleep(500);
+        driver.findElement(salaryCounting).click();
     }
 
     public void clickAtSalaryHistory() throws StaleElementReferenceException{
         wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemeSmallButton));
         makeHoverAtSalary();
+        driver.findElement(salaryHistory);
         wait.until(ExpectedConditions.presenceOfElementLocated(salaryHistory)).click();
     }
 
@@ -114,9 +120,12 @@ public class ManagementPageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(marketingButtonSmall)).click();
     }
 
-    public void clickAtClients(){
+    public void clickAtClients() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfElementLocated(cliensButtonBig));
         makeHoverAtCliets();
+        driver.findElement(clientsButtonSmall);
         wait.until(ExpectedConditions.presenceOfElementLocated(clientsButtonSmall)).click();
+        Thread.sleep(1000);
+        makeHoverAtBooking();
     }
 }

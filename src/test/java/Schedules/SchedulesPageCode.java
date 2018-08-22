@@ -56,12 +56,13 @@ public class SchedulesPageCode {
     WebElement schedulesOk;*/
 
 
-    public void clickAtStaffSchedules() throws StaleElementReferenceException {
-        wait.until(ExpectedConditions.presenceOfElementLocated(staffSchedules)).click();
+    public void clickAtStaffSchedules() throws StaleElementReferenceException, InterruptedException {
+        Thread.sleep(500);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(staffSchedules))).click();
     }
 
     public void clickAtStaffSchedulesType(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(staffScheduleType)).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(staffScheduleType))).click();
     }
 
     public void clickAtCertainSchedule (int t) throws StaleElementReferenceException{
@@ -237,7 +238,7 @@ public class SchedulesPageCode {
     }
 
     public void checkWorkWhenAdressIsNotWork(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(dovilnuyDayOf)).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(dovilnuyDayOf))).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(whenAddessInThisDayNotWork));
     }
 

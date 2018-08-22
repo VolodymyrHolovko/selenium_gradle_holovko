@@ -17,7 +17,7 @@ public class CalendarCode {
         this.wait = wait;
     }
     public  void checkAddresField() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addresField)));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(locators.addresField))));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addresFieldTitle)));
     }
 
@@ -26,9 +26,9 @@ public class CalendarCode {
     public void checkModalCalendar() throws ElementClickInterceptedException {
         try  {
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
-            driver.findElement(By.xpath(locators.currentDate)).click();
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(locators.currentDate)))).click();
             wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
-            driver.findElement(By.xpath(locators.modalCalendarHeader)).click();
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(locators.modalCalendarHeader)))).click();
         }
         catch (ElementClickInterceptedException e){
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));

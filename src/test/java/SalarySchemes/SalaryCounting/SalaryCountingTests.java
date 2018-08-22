@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -34,8 +35,7 @@ public class SalaryCountingTests {
     }
 
     @Test
-    public void A_createAwards(){
-        driver.navigate().refresh();
+    public void A_createAwards() throws InterruptedException {
         code.clickAtCreateAwardsButton();
         code.chooseWorkers();
         code.writeSumma();
@@ -65,5 +65,10 @@ public class SalaryCountingTests {
             managementPageCode.clickAtSalaryHistory();
             Assert.assertEquals(true, driver.findElement(By.xpath("//*[contains(text()," + summa + ")]")));
         }
+        }
+
+        @AfterClass
+        public void quit(){
+        driver.quit();
         }
 }

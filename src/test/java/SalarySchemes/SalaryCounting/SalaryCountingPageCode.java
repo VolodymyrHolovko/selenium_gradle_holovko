@@ -1,6 +1,7 @@
 package SalarySchemes.SalaryCounting;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -35,12 +36,14 @@ public class SalaryCountingPageCode {
     By konfliktRozrahunkyModalButton = By.xpath(locators.konfliktRozrahunkyModalButton);
     By narahuvatuZpFromModal = By.xpath(locators.narahuvatuZpFromModal);
 
-    public void clickAtCreateAwardsButton(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(createAwardsButton)).click();
+    public void clickAtCreateAwardsButton() throws ElementNotInteractableException {
+        wait.until(ExpectedConditions.presenceOfElementLocated(createAwardsButton));
+        driver.findElement(createAwardsButton).click();
     }
 
-    public void chooseWorkers(){
+    public void chooseWorkers()  {
         driver.findElement(awardsChhoseWorkers).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(awardsChooseFirstWorkersOnList));
         driver.findElement(awardsChooseFirstWorkersOnList).click();
     }
 
@@ -53,7 +56,7 @@ public class SalaryCountingPageCode {
     }
 
     public void pressSaveAwardsButton(){
-        driver.findElement(awardsButtonCreate).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(awardsButtonCreate))).click();
     }
 
     public boolean awardsSuccessMessagePresent (){
@@ -93,13 +96,12 @@ public class SalaryCountingPageCode {
         return rozrahovanaSume;
     }
 
-    public boolean konfliktRozrahunkeModal(){
+    public boolean konfliktRozrahunkeModal() throws InterruptedException {
         driver.findElement(konfliktRozrahunkeModal).isDisplayed();
         return true;
     }
 
     public void konfliktRozrahunkyModalButton() throws InterruptedException {
-        Thread.sleep(2000);
         driver.findElement(konfliktRozrahunkyModalButton).click();
         wait.until(ExpectedConditions.invisibilityOfElementLocated(konfliktRozrahunkyModalButton));
     }
