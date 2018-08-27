@@ -21,6 +21,11 @@ public class ManagmentElementsLocators {
 
     By clientsButton = By.xpath("/html[1]/body[1]/app[1]/ui-view[1]/div[1]/business-left-bar[1]/div[1]/ul[1]/li[4]");
     By clientsSideTab = By.xpath("//li[@ng-class=\"{'active-item' : $ctrl.$state.is('business/clients')}\"]//ul[@class='sidebar-sub-level-items fly-out-list']//a");
+    By succsessMessage = By.xpath("/html/body/md-toast/div/span");
+
+    public By getSuccsessMessage() {
+        return succsessMessage;
+    }
 
     public By getClientsSideTab() {
         return clientsSideTab;

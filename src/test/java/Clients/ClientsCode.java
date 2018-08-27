@@ -52,7 +52,9 @@ public class ClientsCode {
         List<WebElement> listOfDays = driver.findElement(locators.getListOfDays()).findElements(locators.getDayColums());
         Random random = new Random();
         int randomDays = random.nextInt(listOfDays.size());
+        Thread.sleep(1500);
         listOfDays.get(randomDays).click();
+        Thread.sleep(1500);
     }
 
     public void setRandomClientBDay() throws InterruptedException {
@@ -70,7 +72,9 @@ public class ClientsCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(locators.getAddClientLastName())).sendKeys(clientLastName);
         wait.until(ExpectedConditions.presenceOfElementLocated(locators.getAddClientEmailField())).sendKeys(clientEmail);
         setRandomClientSex();
-        wait.until(ExpectedConditions.presenceOfElementLocated(locators.getAddClientPhoneField())).sendKeys(clientPhoneNumber);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locators.getAddClientPhoneField())).sendKeys(clientPhoneNumber);
         setRandomClientBDay();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locators.getSaveButton())).click();
+        Thread.sleep(2000);
     }
 }
