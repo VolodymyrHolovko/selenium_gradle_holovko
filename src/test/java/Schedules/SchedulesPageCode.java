@@ -66,10 +66,8 @@ public class SchedulesPageCode {
     }
 
     public void clickAtCertainSchedule (int t) throws StaleElementReferenceException{
-
-            List<WebElement> schedulesType = driver.findElement(schedulesDropDown).findElements(By.className("md-ink-ripple"));
+        List<WebElement> schedulesType = driver.findElement(schedulesDropDown).findElements(By.className("md-ink-ripple"));
             schedulesType.get(t).click();
-
     }
 
     public String checkSelectedStaffScheduleText() {
