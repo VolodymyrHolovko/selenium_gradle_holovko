@@ -35,6 +35,7 @@ public class ClientsCode {
         Random random = new Random();
         int randomSexType = random.nextInt(listOfSex.size());
         listOfSex.get(randomSexType).click();
+        
     }
 
     public void setRandomMonthForClient() {
