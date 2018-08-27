@@ -13,15 +13,18 @@ import java.util.concurrent.TimeUnit;
 public class ManagementPageCode {
     WebDriver driver;
     WebDriverWait wait;
-    public  ManagementPageCode (WebDriver driver,WebDriverWait wait){
+    ManagmentElementsLocators locators = new ManagmentElementsLocators();
+
+    public ManagementPageCode(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
+
     ManagmentElementsLocators management = new ManagmentElementsLocators();
     By managementButtonSmall = By.xpath(management.managementButtonSmall);
     By managementButtonBig = By.xpath(management.managementButtonBig);
     By poslugyButton = By.linkText(management.poslugyButton);
-    By personalButton  = By.linkText(management.personalButton);
+    By personalButton = By.linkText(management.personalButton);
     By schedulesButton = By.linkText(management.schedules);
     By addBookingButton = By.xpath(management.bookingButton);
     By salarySchemeSmallButton = By.xpath(management.salarySchemeSmallButton);
@@ -33,39 +36,44 @@ public class ManagementPageCode {
     By cliensButtonBig = By.xpath(management.cliensButtonBig);
     By clientsButtonSmall = By.xpath(management.clientsButtonSmall);
 
-    public void makeHoverAtElement(){
+    public void makeHoverAtElement() {
         WebElement element = driver.findElement(managementButtonSmall);
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
 
-    public void makeHoverAtCliets(){
+    public void makeHoverAtCliets() {
         WebElement element = driver.findElement(cliensButtonBig);
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
 
 
-
-    public void makeHoverAtSalary(){
+    public void makeHoverAtSalary() {
         WebElement element = driver.findElement(salarySchemeSmallButton);
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
 
-    public void makeHoverAtMarketing(){
+    public void makeHoverAtMarketing() {
         WebElement element = driver.findElement(marketingButtonBig);
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
 
-    public void makeHoverAtBooking(){
+    public void makeHoverAtBooking() {
         WebElement element = driver.findElement(addBookingButton);
         Actions builder = new Actions(driver);
         builder.moveToElement(element).build().perform();
     }
 
-    public void clickAtPoslugy () throws InterruptedException {
+    public void makeHoverAtClients() {
+        WebElement element = driver.findElement(locators.clientsButton);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
+    }
+
+    public void clickAtPoslugy() throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
@@ -74,7 +82,7 @@ public class ManagementPageCode {
         makeHoverAtBooking();
     }
 
-    public void clickAtPersonal(){
+    public void clickAtPersonal() {
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonSmall));
         makeHoverAtElement();
         wait.until(ExpectedConditions.presenceOfElementLocated(managementButtonBig)).click();
@@ -93,7 +101,7 @@ public class ManagementPageCode {
         makeHoverAtBooking();
     }
 
-    public void clickAtSalaryScheme () throws StaleElementReferenceException{
+    public void clickAtSalaryScheme() throws StaleElementReferenceException {
         wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemeSmallButton));
         makeHoverAtSalary();
         driver.findElement(salarySchemeCountingButton);
@@ -107,14 +115,15 @@ public class ManagementPageCode {
         driver.findElement(salaryCounting).click();
     }
 
-    public void clickAtSalaryHistory() throws StaleElementReferenceException{
+    public void clickAtSalaryHistory() throws StaleElementReferenceException {
         wait.until(ExpectedConditions.presenceOfElementLocated(salarySchemeSmallButton));
         makeHoverAtSalary();
         driver.findElement(salaryHistory);
         wait.until(ExpectedConditions.presenceOfElementLocated(salaryHistory)).click();
     }
 
-    public void clickAtMarketing(){
+
+    public void clickAtMarketing() {
         wait.until(ExpectedConditions.presenceOfElementLocated(marketingButtonBig));
         makeHoverAtMarketing();
         wait.until(ExpectedConditions.presenceOfElementLocated(marketingButtonSmall)).click();
@@ -126,6 +135,7 @@ public class ManagementPageCode {
         driver.findElement(clientsButtonSmall);
         wait.until(ExpectedConditions.presenceOfElementLocated(clientsButtonSmall)).click();
         Thread.sleep(1000);
-        makeHoverAtBooking();
+
+
     }
 }
