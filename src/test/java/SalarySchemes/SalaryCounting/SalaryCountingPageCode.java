@@ -97,7 +97,7 @@ public class SalaryCountingPageCode {
     }
 
     public boolean konfliktRozrahunkeModal() throws InterruptedException {
-        driver.findElement(konfliktRozrahunkeModal).isDisplayed();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(konfliktRozrahunkeModal))).isDisplayed();
         return true;
     }
 

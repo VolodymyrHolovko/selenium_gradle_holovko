@@ -188,7 +188,7 @@ public class SchedulesPageCode {
     }
 
     public void choseeDayAsWorkRegular(){
-            wait.until(ExpectedConditions.presenceOfElementLocated(swicherAtRegularSchedule)).click();
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(swicherAtRegularSchedule))).click();
 
     }
 
