@@ -1,5 +1,6 @@
 package Calendar;
 
+import helpers.Handler;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,7 @@ public class CalendarCode {
     WebDriver driver;
     WebDriverWait wait;
     CalendarLocators locators = new CalendarLocators();
+    Handler handler = new Handler();
 
 
     public CalendarCode(WebDriver driver, WebDriverWait wait) {
@@ -17,7 +19,7 @@ public class CalendarCode {
         this.wait = wait;
     }
     public  void checkAddresField() {
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(locators.addresField))));
+        handler.findElement(locators.addresField);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addresFieldTitle)));
     }
 
