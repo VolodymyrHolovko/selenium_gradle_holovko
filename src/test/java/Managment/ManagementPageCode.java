@@ -38,6 +38,11 @@ public class ManagementPageCode {
     By tovaruSmallButton = By.xpath(management.tovaruSmallButton);
     By tovaruSpusokTovariv = By.xpath(management.tovaruSpusokTovariv);
 
+    public boolean successMessagePresents(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(locators.succsessMessage));
+        return  driver.findElement(locators.succsessMessage).isDisplayed();
+    }
+
     public void makeHoverAtElement() {
         WebElement element = driver.findElement(managementButtonSmall);
         Actions builder = new Actions(driver);

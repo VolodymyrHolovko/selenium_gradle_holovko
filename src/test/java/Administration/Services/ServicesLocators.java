@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 public class ServicesLocators {
     String headerTabCaption = "body > app > ui-view > div > ui-view > business-profile > section > business-profile-tabs > div > md-tabs";
     String menuAdministrationButton = "/html/body/app/ui-view/business-left-bar/div/nav/ul/li[4]/a/span";
-    String addServiceGroupeButton = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/button/span";
+    String addServiceGroupeButton = "//button[@class='btn plus-text-btn']";
     String addNameServiceGroupe = "//*[@id=\"service_group_name\"]";
     String addGroupeButtonOnModal = "body > div.md-dialog-container.ng-scope > md-dialog > form > md-dialog-actions > button";
     String serviceGroupeNamefields = "//*/ui-view/business-profile-services/div/md-card/div/base-accordion-item-title/div/div/h4/span";
@@ -28,8 +28,8 @@ public class ServicesLocators {
     String addresCheckBoxesForService = "/html/body/div[4]/md-dialog/form/md-dialog-content/div/div[2]";
     String addresCheckboxService = "md-checkbox";
     String saveServiceButton = "/html/body/div[4]/md-dialog/form/md-dialog-actions/button";
-    String servicesGroupeLists = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div";
-    String editGroupeIcon = "/html/body/app/ui-view/div/ui-view/business-profile/section/ui-view/business-profile-services/div/md-card[1]/div/base-accordion-item-title/div/div/div/div[1]";
+    String servicesGroupeLists = "//div[@class='base-accordion']";
+    String editGroupeIcon = "//div[@class='base-accordion']//md-card[1]//div[1]//base-accordion-item-title[1]//div[1]//div[1]//div[1]//div[1]";
     By yesButton = By.xpath( "//button[contains(text(),'так')]");
     By deleteServiceGroupeModalDialog = By.xpath("/html/body/div[4]/md-dialog/md-dialog-actions/button[2]");
     By serviceFromGroupe = By.className("services-item");

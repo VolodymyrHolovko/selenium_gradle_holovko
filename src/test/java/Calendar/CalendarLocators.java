@@ -1,7 +1,13 @@
 package Calendar;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
 public class CalendarLocators {
-    String addresField = "/html/body/app/ui-view/div/ui-view/business-calendar/div/beauty-business-calendar/div/div/div/div[1]/div";
+    @FindBy(xpath = "//div[@class='top-header layout-row']")
+            public WebElement addresField;
+   /* By addresField = By.xpath("//div[@class='top-header layout-row']");*/
     String dateButton = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[2]/div[2]/md-datepicker/div[1]/button";
     String currentDate = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[2]/div[2]";
     String addresFieldTitle = "/html/body/app/ui-view/div/ui-view/business-calendar/div/beauty-business-calendar/div/div/div/div[1]/div/span[2]";
@@ -122,13 +128,6 @@ public class CalendarLocators {
         this.addresFieldTitle = addresFieldTitle;
     }
 
-    public String getAddresField() {
-        return addresField;
-    }
-
-    public void setAddresField(String addresField) {
-        this.addresField = addresField;
-    }
 
     public String getDateButton() {
         return dateButton;
