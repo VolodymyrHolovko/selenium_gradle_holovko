@@ -36,6 +36,11 @@ public class ManagementPageCode {
     By cliensButtonBig = By.xpath(management.cliensButtonBig);
     By clientsButtonSmall = By.xpath(management.clientsButtonSmall);
 
+    public boolean successMessagePresents(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(locators.succsessMessage));
+        return  driver.findElement(locators.succsessMessage).isDisplayed();
+    }
+
     public void makeHoverAtElement() {
         WebElement element = driver.findElement(managementButtonSmall);
         Actions builder = new Actions(driver);

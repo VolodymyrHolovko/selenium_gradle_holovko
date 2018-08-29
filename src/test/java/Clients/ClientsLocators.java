@@ -18,7 +18,7 @@ public class ClientsLocators {
     By addClientSexDropdown = By.xpath("/html[1]/body[1]/div[4]/md-dialog[1]/form[1]/md-dialog-content[1]/div[1]/div[3]/md-input-container[1]");
     By listOfSex = By.xpath("/html[1]/body[1]/div[5]");
     By sexTypeRow = By.tagName("md-option");
-    By addClientPhoneField = By.xpath("/html[1]/body[1]/div[4]/md-dialog[1]/form[1]/md-dialog-content[1]/div[1]/div[2]/div[1]/div[1]/md-input-container[1]/phone[1]/div[1]/div[1]/input[1]");
+    By addClientPhoneField = By.xpath("//*/div/div[2]/div/phone/div/div/input");
     By addClientBDayCheckbox = By.xpath("//md-checkbox[@type='checkbox']");
     By addClientBDayInputField = By.xpath("/html/body/div[4]/md-dialog/form/md-dialog-content/div/div[3]/div/md-input-container/md-datepicker/div[1]/button");
     By modalCalendarMonunthPicker = By.xpath("//table[@class='md-calendar']//tbody[4]//tr[1]//td[1]");
@@ -26,6 +26,11 @@ public class ClientsLocators {
     By randomClientsMonth = By.tagName("td");
     By listOfDays = By.xpath("//table[@class='md-calendar']//tbody[4]");
     By dayColums = By.tagName("td");
+    By saveButton = By.xpath("//button[@class='btn btn-danger ng-binding md-autofocus']");
+
+    public By getSaveButton() {
+        return saveButton;
+    }
 
     public By getDayColums() {
         return dayColums;

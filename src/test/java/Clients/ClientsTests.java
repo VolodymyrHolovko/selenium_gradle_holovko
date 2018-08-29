@@ -48,8 +48,6 @@ public class ClientsTests {
         managment.clickAtClients();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
-
-
     @Test
     //Перевірка UI елементів сторінки та наявності навігаційних кнопок
     public void checkPageElements() {
@@ -60,10 +58,10 @@ public class ClientsTests {
     //Перевірка створення нового <Клієнта>
     public void addClients() throws InterruptedException {
         test.addNewClients(clientName, clientMidleName, clientLastName, clientEmail, clientPhoneNumber);
+        Assert.assertEquals(true, managment.successMessagePresents());
     }
     @AfterClass
     public void closeDriver() {
         driver.quit();
-
     }
 }
