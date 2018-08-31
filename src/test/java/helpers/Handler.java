@@ -5,13 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageFactory.BaseObject;
 
 
-public class Handler  {
+public class Handler extends BaseObject {
 
-    public WebDriver driver = new FirefoxDriver();
-    public WebDriverWait wait = new WebDriverWait(driver, 30, 700);
-
+    public Handler(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
+    }
 
     public void clickOnElement(WebElement element) {
         element.click();

@@ -9,9 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.github.javafaker.Faker;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

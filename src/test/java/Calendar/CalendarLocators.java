@@ -1,16 +1,25 @@
 package Calendar;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import pageFactory.BaseObject;
 
-public class CalendarLocators {
+public class CalendarLocators extends BaseObject {
+    public CalendarLocators(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
+    }
+
+
     @FindBy(xpath = "//div[@class='top-header layout-row']")
             public WebElement addresField;
    /* By addresField = By.xpath("//div[@class='top-header layout-row']");*/
     String dateButton = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[2]/div[2]/md-datepicker/div[1]/button";
     String currentDate = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[2]/div[2]";
-    String addresFieldTitle = "/html/body/app/ui-view/div/ui-view/business-calendar/div/beauty-business-calendar/div/div/div/div[1]/div/span[2]";
+    @FindBy(xpath = "//span[@class='select-title ng-binding']")
+            public WebElement addresFieldTitle;
     String modalCalendarTab = "md-datepicker-calendar-pane";
     String calendarButton = "marketing-button-group";
     String calendarHeader = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[3]/div/div/business-calendar-month/div";
@@ -23,6 +32,7 @@ public class CalendarLocators {
     String profileIcon = "md-icon-button";
     String closeProfileModal = "icon-close";
     String modalCalendarHeader = "/html/body/div[4]";
+
 
     public String getModalCalendarHeader() {
         return modalCalendarHeader;
@@ -119,15 +129,6 @@ public class CalendarLocators {
     public void setModalCalendarTab(String modalCalendarTab) {
         this.modalCalendarTab = modalCalendarTab;
     }
-
-    public String getAddresFieldTitle() {
-        return addresFieldTitle;
-    }
-
-    public void setAddresFieldTitle(String addresFieldTitle) {
-        this.addresFieldTitle = addresFieldTitle;
-    }
-
 
     public String getDateButton() {
         return dateButton;
