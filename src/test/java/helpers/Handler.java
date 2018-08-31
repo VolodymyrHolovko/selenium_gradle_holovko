@@ -7,6 +7,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageFactory.BaseObject;
 
+import java.util.List;
+import java.util.Random;
+
 
 public class Handler extends BaseObject {
 
@@ -25,6 +28,15 @@ public class Handler extends BaseObject {
 
     public void findElement(WebElement element) {
     }
+
+    public void clickOnRandomElement(By listOfElements, By element) {
+        List<WebElement> webElementsList = driver.findElement(listOfElements).findElements(element);
+        Random random = new Random();
+        int randomElement = random.nextInt(webElementsList.size());
+        webElementsList.get(randomElement).click();
+
+    }
+
 
 }
 

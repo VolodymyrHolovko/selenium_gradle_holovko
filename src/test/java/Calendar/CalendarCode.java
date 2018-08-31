@@ -25,12 +25,12 @@ public class CalendarCode extends BaseObject {
     }
 
     public void checkModalCalendar() {
-            handler.findElement(locators.currentDate);
-            handler.clickOnElement(locators.currentDate);
-            handler.findElement(locators.modalCalendarTab);
-            handler.clickOnElement(locators.modalCalendarHeader);
+        handler.findElement(locators.currentDate);
+        handler.clickOnElement(locators.currentDate);
+        handler.findElement(locators.modalCalendarTab);
+        handler.clickOnElement(locators.modalCalendarHeader);
     }
-    
+
     public void checkCalendarButtons() {
         handler.findElement(locators.calendarButton);
         handler.clickOnElement(locators.nextDayButton);
@@ -42,10 +42,12 @@ public class CalendarCode extends BaseObject {
     public void checkStaff() {
         handler.findElement(locators.staffHeader);
     }
+
     public void checkCalendarGrid() {
         handler.findElement(locators.currentTimeLine);
         handler.findElement(locators.calendarGrid);
     }
+
     public  void checkProfileIcon() {
         handler.clickOnElement(locators.profileIcon);
         handler.findElement(locators.closeProfileModalIcon);
