@@ -18,25 +18,26 @@ public class CalendarCode extends BaseObject {
     }
 
 
-    public  void checkAddresField() {
+    public  void checkAddresField() throws InterruptedException {
         handler.findElement(locators.addresField);
         handler.findElement(locators.addresFieldTitle);
+        Thread.sleep(3000);
     }
 
 
 
     public void checkModalCalendar() throws ElementClickInterceptedException {
         try  {
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
-            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(locators.currentDate)))).click();
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
-            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(locators.modalCalendarHeader)))).click();
+            handler.findElement(locators.currentDate);
+            handler.clickOnElement(locators.currentDate);
+            handler.findElement(locators.modalCalendarTab);
+            handler.clickOnElement(locators.modalCalendarHeader);
         }
         catch (ElementClickInterceptedException e){
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
-            driver.findElement(By.xpath(locators.currentDate)).click();
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
-            driver.findElement(By.xpath(locators.modalCalendarHeader)).click();
+            handler.findElement(locators.currentDate);
+            handler.clickOnElement(locators.currentDate);
+            handler.findElement(locators.modalCalendarTab);
+            handler.clickOnElement(locators.modalCalendarHeader);
         }
     }
     public void checkCalendarButtons() {

@@ -25,5 +25,6 @@ public class Handler extends BaseObject {
 
     public void findElement(WebElement element) {
     }
+
 }
 

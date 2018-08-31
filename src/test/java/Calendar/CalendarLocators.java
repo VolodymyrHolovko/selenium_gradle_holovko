@@ -17,10 +17,12 @@ public class CalendarLocators extends BaseObject {
             public WebElement addresField;
    /* By addresField = By.xpath("//div[@class='top-header layout-row']");*/
     String dateButton = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[2]/div[2]/md-datepicker/div[1]/button";
-    String currentDate = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[2]/div[2]";
+    @FindBy(xpath = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[2]/div[2]")
+            public WebElement currentDate;
     @FindBy(xpath = "//span[@class='select-title ng-binding']")
             public WebElement addresFieldTitle;
-    String modalCalendarTab = "md-datepicker-calendar-pane";
+    @FindBy(className = "md-datepicker-calendar-pane")
+            public WebElement modalCalendarTab;
     String calendarButton = "marketing-button-group";
     String calendarHeader = "/html/body/app/ui-view/div/ui-view/business-calendar/div/div/div/div[3]/div/div/business-calendar-month/div";
     String staffHeader = "staff-calendar-header";
@@ -31,16 +33,10 @@ public class CalendarLocators extends BaseObject {
     String addBookingPageHeader = "/html/body/app/ui-view/div/ui-view/add-booking-beauty/div/div/section[1]/div[2]/h2";
     String profileIcon = "md-icon-button";
     String closeProfileModal = "icon-close";
-    String modalCalendarHeader = "/html/body/div[4]";
+    @FindBy(xpath = "/html/body/div[4]")
+            public WebElement modalCalendarHeader;
 
 
-    public String getModalCalendarHeader() {
-        return modalCalendarHeader;
-    }
-
-    public void setModalCalendarHeader(String modalCalendarHeader) {
-        this.modalCalendarHeader = modalCalendarHeader;
-    }
 
     public String getCloseProfileModal() {
         return closeProfileModal;
@@ -122,13 +118,6 @@ public class CalendarLocators extends BaseObject {
         this.calendarButton = calendarButton;
     }
 
-    public String getModalCalendarTab() {
-        return modalCalendarTab;
-    }
-
-    public void setModalCalendarTab(String modalCalendarTab) {
-        this.modalCalendarTab = modalCalendarTab;
-    }
 
     public String getDateButton() {
         return dateButton;
@@ -138,11 +127,4 @@ public class CalendarLocators extends BaseObject {
         this.dateButton = dateButton;
     }
 
-    public String getCurrentDate() {
-        return currentDate;
-    }
-
-    public void setCurrentDate(String currentDate) {
-        this.currentDate = currentDate;
-    }
 }
