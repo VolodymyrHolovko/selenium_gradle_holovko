@@ -19,8 +19,6 @@ public class CalendarPageTests extends Abstract {
 
     @BeforeClass
     public  void Before() throws InterruptedException{
-        driver.manage().window().maximize();
-        driver.get(baseUrls.getHomeUrl());
         login.typeUsername();
         login.typePassword();
         login.pressSubmit();
@@ -34,6 +32,7 @@ public class CalendarPageTests extends Abstract {
         test.checkModalCalendar();
         test.checkCalendarButtons();
         driver.navigate().back();
+        test.checkStaff();
         test.checkCalendarGrid();
         test.checkProfileIcon();
     }

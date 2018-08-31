@@ -21,42 +21,33 @@ public class CalendarCode extends BaseObject {
     public  void checkAddresField() throws InterruptedException {
         handler.findElement(locators.addresField);
         handler.findElement(locators.addresFieldTitle);
-        Thread.sleep(3000);
+        Thread.sleep(2000);
     }
 
-
-
-    public void checkModalCalendar() throws ElementClickInterceptedException {
-        try  {
+    public void checkModalCalendar() {
             handler.findElement(locators.currentDate);
             handler.clickOnElement(locators.currentDate);
             handler.findElement(locators.modalCalendarTab);
             handler.clickOnElement(locators.modalCalendarHeader);
-        }
-        catch (ElementClickInterceptedException e){
-            handler.findElement(locators.currentDate);
-            handler.clickOnElement(locators.currentDate);
-            handler.findElement(locators.modalCalendarTab);
-            handler.clickOnElement(locators.modalCalendarHeader);
-        }
     }
+    
     public void checkCalendarButtons() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarButton)));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.nextDayButton))).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarGrid)));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addBookingButton))).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addBookingPageHeader)));
-
+        handler.findElement(locators.calendarButton);
+        handler.clickOnElement(locators.nextDayButton);
+        handler.findElement(locators.calendarGrid);
+        handler.clickOnElement(locators.addBookingButton);
+        handler.findElement(locators.addBookingPageHeader);
     }
+
     public void checkStaff() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.staffHeader)));
+        handler.findElement(locators.staffHeader);
     }
     public void checkCalendarGrid() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentTimeLine)));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarGrid)));
+        handler.findElement(locators.currentTimeLine);
+        handler.findElement(locators.calendarGrid);
     }
     public  void checkProfileIcon() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.profileIcon))).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.closeProfileModal)));
+        handler.clickOnElement(locators.profileIcon);
+        handler.findElement(locators.closeProfileModalIcon);
     }
 }
