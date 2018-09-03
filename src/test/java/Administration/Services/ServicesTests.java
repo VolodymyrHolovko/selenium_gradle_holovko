@@ -4,16 +4,10 @@ import LoginTests.LoginPageCode;
 import Managment.ManagementPageCode;
 import Routes.BaseUrls;
 import com.github.javafaker.Faker;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pageFactory.Abstract;
-
-import java.util.concurrent.TimeUnit;
 
 public class ServicesTests extends Abstract {
     Faker faker = new Faker();
@@ -24,7 +18,7 @@ public class ServicesTests extends Abstract {
     String serviceCost = String.valueOf(faker.number().randomDigitNotZero());
     String serviceCostUpdated = String.valueOf(faker.number().randomDigitNotZero());
     BaseUrls baseUrls = new BaseUrls();
-    LoginPageCode login = new LoginPageCode(driver, wait);
+    LoginPageCode login = new LoginPageCode(driver,wait);
     ServicesCode test = new ServicesCode(driver, wait);
     ManagementPageCode managment = new ManagementPageCode(driver, wait);
 
