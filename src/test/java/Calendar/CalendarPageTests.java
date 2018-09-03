@@ -10,8 +10,6 @@ import pageFactory.Abstract;
 
 public class CalendarPageTests extends Abstract {
 
-    BaseUrls baseUrls = new BaseUrls();
-    LoginPageCode login = new LoginPageCode(driver,wait);
     CalendarCode test = new CalendarCode(driver, wait);
 
     @Test
@@ -24,11 +22,6 @@ public class CalendarPageTests extends Abstract {
         test.checkStaff();
         test.checkCalendarGrid();
         test.checkProfileIcon();
-    }
-
-    @AfterClass
-    public void closeDriver() {
-        driver.quit();
     }
 }
 

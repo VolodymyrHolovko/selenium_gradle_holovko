@@ -26,7 +26,6 @@ public class MarketingPageCode {
     By newsDescription = By.xpath(locators.newsDescription);
     By newsPhoto = By.xpath(locators.newsPhoto);
     By createNewsButton = By.xpath(locators.createNewsButton);
-    By adresamarketungy = By.xpath(locators.adresamarketungy);
 
     public void newsNameInput(){
         driver.findElement(newsNameInput).sendKeys("News");
@@ -34,17 +33,6 @@ public class MarketingPageCode {
 
     public void newsDescription(){
         driver.findElement(newsDescription).sendKeys("Description");
-    }
-
-    public void newsPhoto()  {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(newsPhoto));
-        wait.until(ExpectedConditions.elementToBeClickable(newsPhoto));
-        driver.findElement(newsPhoto).click();
-        driver.findElement(newsPhoto).sendKeys("C:/Users/User/Desktop/IMG_0094.png");
-    }
-
-    public void createNewsButton(){
-        driver.findElement(createNewsButton).click();
     }
 
     public void chooseNewsButton(){

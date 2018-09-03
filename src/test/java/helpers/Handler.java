@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pageFactory.BaseObject;
@@ -34,6 +35,12 @@ public class Handler extends BaseObject {
 
 
     public void findElement(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+    public void typeToField(WebElement element, String text) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+        element.clear();
+        element.sendKeys(text);
     }
 
     public void clickOnRandomElement(WebElement listOfElements, WebElement element) {
