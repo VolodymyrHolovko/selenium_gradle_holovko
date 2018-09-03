@@ -21,8 +21,6 @@ public class Abstract {
     protected CalendarLocators calendarLocators;
 
     protected BaseUrls baseUrls = new BaseUrls();
-
-
     protected WebDriver driver = new FirefoxDriver();
     protected WebDriverWait wait = new WebDriverWait(driver, 30, 700);
 
@@ -33,7 +31,6 @@ public class Abstract {
         driver.manage().window().maximize();
         driver.get(baseUrls.getHomeUrl());
         driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
-
     }
     }
 

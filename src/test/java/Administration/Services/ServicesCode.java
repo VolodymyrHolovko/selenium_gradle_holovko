@@ -1,102 +1,85 @@
 package Administration.Services;
 
+import helpers.Handler;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageFactory.BaseObject;
 
 import java.util.List;
 import java.util.Random;
 
-public class ServicesCode {
-    WebDriver driver;
-    WebDriverWait wait;
-    ServicesLocators locators = new ServicesLocators();
+public class ServicesCode extends BaseObject {
+    ServicesLocators locators = new ServicesLocators(driver, wait);
+    Handler handler = new Handler(driver, wait);
 
     public ServicesCode(WebDriver driver, WebDriverWait wait) {
-        this.driver = driver;
-        this.wait = wait;
+        super(driver, wait);
     }
 
     public void checkHeaderNavigationTab() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locators.headerTabCaption)));
+        handler.findElement(locators.headerTabCaption);
     }
 
     public void checkAddServicesButtons() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addServiceGroupeButton)));
+        handler.findElement(locators.addServiceGroupeButton);
     }
 
     public void checkEditServicesGroupeButton() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.editServicesGroupIcon)));
-    }
-    public void checkDeleteServicesGroupeButton() {
-        wait.until(ExpectedConditions.presenceOfElementLocated((locators.deleteServicesGroupeIcon)));
-    }
-    public void checkDropDownButtonGroupes() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.dropdownIconSrevicesGrouope)));
+        handler.findElement(locators.editServicesGroupIcon);
     }
 
-    public boolean successMessagePresents(){
-        wait.until(ExpectedConditions.presenceOfElementLocated(locators.succsessMessage));
-        return  driver.findElement(locators.succsessMessage).isDisplayed();
+    public void checkDeleteServicesGroupeButton() {
+        handler.findElement(locators.deleteServicesGroupeIcon);
+    }
+
+    public void checkDropDownButtonGroupes() {
+        handler.findElement(locators.dropdownIconSrevicesGrouope);
+    }
+
+    public void successMessagePresents() throws InterruptedException {
+        handler.assertElementIsEnabled(String.valueOf(locators.succsessMessage));
+        Thread.sleep(4000);
     }
 
     public void addServicesGroupe(String nameServiceGroupe) {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addServiceGroupeButton))).click();
+        handler.clickOnElement(locators.addServiceGroupeButton);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addNameServiceGroupe))).clear();
         driver.findElement(By.xpath(locators.addNameServiceGroupe)).sendKeys(nameServiceGroupe);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locators.addGroupeButtonOnModal)));
-        driver.findElement(By.cssSelector(locators.addGroupeButtonOnModal)).click();
+        handler.findElement(locators.addGroupeButtonOnModal);
+        handler.clickOnElement(locators.addGroupeButtonOnModal);
     }
+
     public void updateServicesGroupe(String updatedNameServicesGroupe) throws InterruptedException {
         Thread.sleep(500);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.servicesGroupeLists)));
-        List<WebElement> listServiceGroupes = driver.findElement(By.xpath(locators.servicesGroupeLists)).findElements(By.xpath(locators.editGroupeIcon));
-        Random random = new Random();
-        int randomGroupeForEdit = random.nextInt(listServiceGroupes.size());
-        listServiceGroupes.get(randomGroupeForEdit).click();
+        handler.clickOnRandomElement(locators.servicesGroupeLists, locators.editGroupeIcon);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addNameServiceGroupe))).clear();
         driver.findElement(By.xpath(locators.addNameServiceGroupe)).sendKeys(updatedNameServicesGroupe);
-        driver.findElement(By.cssSelector(locators.addGroupeButtonOnModal)).click();
+        handler.clickOnElement(locators.addGroupeButtonOnModal);
     }
 
-    public String getServiceGroupeName() throws InterruptedException {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.listOfSrvicesGroupe)));
-        List<WebElement> groupsNames = driver.findElement(By.xpath(locators.listOfSrvicesGroupe)).findElements(By.xpath(locators.serviceGroupeNamefields));
-        int size = groupsNames.size();
-        String results = "";
-        for (int i = 0; i <size ; i ++){
-            results += groupsNames.get(i).getText();
-        }
-        Thread.sleep(2000);
-            return   results;
-
+    public void getCreatedServiceGroupeName(String nameServiceGroupe) {
+        handler.getElementNameFromList(locators.listOfSrvicesGroupe,locators.serviceGroupeNamefields, nameServiceGroupe);
     }
-    public String getCreatedService() throws InterruptedException {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.servicesGroupeLists)));
-        List<WebElement> listServicesGroups = driver.findElement(By.xpath(locators.servicesGroupeLists)).findElements(By.className(locators.dropdownIconSrevicesGrouope));
-        Random random = new Random();
-        int randomGroupe = 0;/*random.nextInt(listServicesGroups.size());*/
-        Thread.sleep(3000);
-        listServicesGroups.get(randomGroupe).click();
+    public void getUpdatedServicesGroupeName(String updatedNameServicesGroupe) {
+        handler.getElementNameFromList(locators.listOfSrvicesGroupe,locators.serviceGroupeNamefields, updatedNameServicesGroupe);
+    }
+    public void checkCreatedService(String nameService) throws InterruptedException {
+        handler.clickOnFirstElementOfList(locators.servicesGroupeLists, locators.dropdownIconSrevicesGrouope);
         Thread.sleep(1000);
-        List<WebElement> services = driver.findElement(locators.listOfServices).findElements(locators.serviceFromGroupe);
-        int size = services.size();
-        String result = "";
-        for (int i = 0; i <size ; i ++){
-            result += services.get(i).getText();
-        }
-        Thread.sleep(2000);
-        System.out.println(result);
-        return  result;
+        handler.getElementNameFromList(locators.listOfServices, locators.serviceFromGroupe, nameService);
+    }
+    public void checkUpdatedService(String nameServiceUpdated) throws InterruptedException {
+        handler.clickOnFirstElementOfList(locators.servicesGroupeLists, locators.dropdownIconSrevicesGrouope);
+        Thread.sleep(1000);
+        handler.getElementNameFromList(locators.listOfServices, locators.serviceFromGroupe, nameServiceUpdated);
     }
 
     public void setServicesDuration() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.durationField))).click();
-        List<WebElement> durations = driver.findElement(By.xpath(locators.durationsListTAb)).findElements(By.tagName(locators.durationFieldFromList));
-        Random random = new Random();
-        int randomDuration = random.nextInt(durations.size());
-        durations.get(randomDuration).click();
+        handler.clickOnElement(locators.durationField);
+        handler.clickOnRandomElement(locators.durationsListTAb, locators.durationFieldFromList);
+
     }
     public void setServicesAddress() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addresCheckBoxesForService)));
@@ -113,22 +96,15 @@ public class ServicesCode {
         int randomCurrency = random.nextInt(currency.size());
         currency.get(randomCurrency).click();
     }
-    public void addServiceToRandomServicesGroupe() throws InterruptedException {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.servicesGroupeLists)));
-        List<WebElement> listServicesGroups = driver.findElement(By.xpath(locators.servicesGroupeLists)).findElements(By.className(locators.dropdownIconSrevicesGrouope));
-        Random random = new Random();
-        int randomGroupe = 0;/*random.nextInt(listServicesGroups.size());*/
-        listServicesGroups.get(randomGroupe).click();
+    public void addServiceToServicesGroupe() throws InterruptedException {
+        handler.clickOnFirstElementOfList(locators.servicesGroupeLists, locators.dropdownIconSrevicesGrouope);
         Thread.sleep(1000);
-            WebElement element = driver.findElement(By.xpath(locators.addServicesButton));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);" + "window.scrollBy(0,-100);", element);
-            Actions actions = new Actions(driver);
-            actions.moveToElement(element).click().perform();
+        handler.scrollPageToElementAndClick(locators.addServicesButton);
     }
 
     public void addServices(String nameService, String serviceCost) throws InterruptedException {
         Thread.sleep(2000);
-        addServiceToRandomServicesGroupe();
+        addServiceToServicesGroupe();
         Thread.sleep(1700);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locators.nameServiceField))).click();
         driver.findElement(By.id(locators.nameServiceField)).sendKeys(nameService);
@@ -142,16 +118,9 @@ public class ServicesCode {
     }
     public void updateServices(String nameServiceUpdated, String serviceCostUpdated) throws InterruptedException {
         Thread.sleep(2000);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.servicesGroupeLists)));
-        List<WebElement> listServicesGroups = driver.findElement(By.xpath(locators.servicesGroupeLists)).findElements(By.className(locators.dropdownIconSrevicesGrouope));
-        Random random = new Random();
-        int randomGroupe = 0;/*random.nextInt(listServicesGroups.size());*/
-        listServicesGroups.get(randomGroupe).click();
+        handler.clickOnFirstElementOfList(locators.servicesGroupeLists, locators.dropdownIconSrevicesGrouope);
         Thread.sleep(1000);
-        List<WebElement> services = driver.findElement(locators.listOfServices).findElements(locators.editServiiceButton);
-        Random random1 = new Random();
-        int randomService = random.nextInt(services.size());
-        services.get(randomService).click();
+        handler.clickOnRandomElement(locators.listOfServices, locators.editServiiceButton);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locators.nameServiceField))).click();
         driver.findElement(By.id(locators.nameServiceField)).sendKeys(nameServiceUpdated);
         driver.findElement(By.xpath(locators.serviceCostFField)).clear();
@@ -163,16 +132,9 @@ public class ServicesCode {
     }
     public  void deleteServices() throws InterruptedException {
         Thread.sleep(2000);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.servicesGroupeLists)));
-        List<WebElement> listServicesGroups = driver.findElement(By.xpath(locators.servicesGroupeLists)).findElements(By.className(locators.dropdownIconSrevicesGrouope));
-        Random random = new Random();
-        int randomGroupe = 0;/*random.nextInt(listServicesGroups.size());*/
-        listServicesGroups.get(randomGroupe).click();
+        handler.clickOnFirstElementOfList(locators.servicesGroupeLists, locators.dropdownIconSrevicesGrouope);
         Thread.sleep(1000);
-        List<WebElement> services = driver.findElement(locators.listOfServices).findElements(locators.deleteServiceButton);
-        Random random1 = new Random();
-        int randomService = random.nextInt(services.size());
-        services.get(randomService).click();
+        handler.clickOnRandomElement(locators.listOfServices, locators.deleteServiceButton);
         Thread.sleep(2000);
         Actions actions = new Actions(driver);
         WebElement yesButton = driver.findElement(locators.deleteServicesYesButton);
@@ -180,18 +142,13 @@ public class ServicesCode {
 
     }
     public void deleteServiceGroupe() throws InterruptedException {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.servicesGroupeLists)));
-        List<WebElement> listServicesGroups = driver.findElement(By.xpath(locators.servicesGroupeLists)).findElements(locators.deleteServicesGroupeIcon);
-        Random random = new Random();
-        int randomGroupe = 1;
-        Thread.sleep(1000);/*random.nextInt(listServicesGroups.size());*/
-        listServicesGroups.get(randomGroupe).click();
+        handler.clickOnSelectedElementOfList(locators.servicesGroupeLists, locators.deleteServicesGroupeIcon, 1);
         Thread.sleep(1000);
-        wait.until(ExpectedConditions.presenceOfElementLocated(locators.deleteServiceGroupeModalDialog));
+        handler.findElement(locators.deleteServiceGroupeModalDialog);
         WebElement element = driver.findElement(locators.yesButton);
         Actions actions2 = new Actions(driver);
         actions2.moveToElement(element).click().perform();
     }
 
-}
+    }
 
