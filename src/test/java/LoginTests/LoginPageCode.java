@@ -5,14 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageFactory.BaseObject;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-    public class LoginPageCode {
-        WebDriver driver;
-        WebDriverWait wait;
-        LoginPageElementsLocators loginPageElementsLocators = new LoginPageElementsLocators();
-        LoginPageElementsLocators elementsLocators = new LoginPageElementsLocators();
+    public class LoginPageCode extends BaseObject {
+
+        LoginPageElementsLocators loginPageElementsLocators = new LoginPageElementsLocators(driver,wait);
         BaseUrls baseUrls = new BaseUrls();
         String username = "JohnstonLouie@mail.com";
         String password = "12345678";
@@ -21,11 +20,10 @@ import static org.testng.AssertJUnit.assertEquals;
         By pressSubmitLoginButoonlocator = By.id(loginPageElementsLocators.submitLoginButoonlocator);
         By bookingButton = By.xpath(loginPageElementsLocators.bookingCreateButton);
 
-
-        public LoginPageCode(WebDriver driver, WebDriverWait wait){
-            this.driver = driver;
-            this.wait = wait;
+        public LoginPageCode(WebDriver driver, WebDriverWait wait) {
+            super(driver, wait);
         }
+
 
         public void typeUsername() {
             wait.until(ExpectedConditions.visibilityOf(driver.findElement(usernameFieldLocator))).clear();
