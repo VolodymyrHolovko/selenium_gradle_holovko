@@ -21,7 +21,6 @@ public class CalendarCode extends BaseObject {
     public  void checkAddresField() throws InterruptedException {
         handler.findElement(locators.addresField);
         handler.findElement(locators.addresFieldTitle);
-        Thread.sleep(2000);
     }
 
     public void checkModalCalendar() {

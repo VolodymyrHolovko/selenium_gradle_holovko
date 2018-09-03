@@ -1,6 +1,7 @@
 package LoginTests;
 
 import Routes.BaseUrls;
+import helpers.Handler;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,38 +11,30 @@ import pageFactory.BaseObject;
 import static org.testng.AssertJUnit.assertEquals;
 
     public class LoginPageCode extends BaseObject {
-
-        LoginPageElementsLocators loginPageElementsLocators = new LoginPageElementsLocators(driver,wait);
-        BaseUrls baseUrls = new BaseUrls();
+        Handler handler = new Handler(driver,wait);
+        LoginPageElementsLocators locators = new LoginPageElementsLocators(driver,wait);
         String username = "JohnstonLouie@mail.com";
         String password = "12345678";
-        By usernameFieldLocator = By.id(loginPageElementsLocators.getUsernameOnLoginFieldLocator());
-        By passwordFieldLocator = By.id(loginPageElementsLocators.getPasswordOnLoginFieldLocator());
-        By pressSubmitLoginButoonlocator = By.id(loginPageElementsLocators.submitLoginButoonlocator);
-        By bookingButton = By.xpath(loginPageElementsLocators.bookingCreateButton);
 
         public LoginPageCode(WebDriver driver, WebDriverWait wait) {
             super(driver, wait);
         }
 
-
         public void typeUsername() {
-            wait.until(ExpectedConditions.visibilityOf(driver.findElement(usernameFieldLocator))).clear();
-            driver.findElement(usernameFieldLocator).sendKeys(username);
+            handler.typeToField(locators.usernameOnLoginFieldLocator,username);
         }
 
         public void typePassword() {
-            wait.until(ExpectedConditions.presenceOfElementLocated(passwordFieldLocator)).clear();
-            driver.findElement(passwordFieldLocator).sendKeys(password);
+            handler.typeToField(locators.passwordOnLoginFieldLocator,password);
         }
 
         public void pressSubmit() throws InterruptedException {
-            driver.findElement(pressSubmitLoginButoonlocator).click();
+            handler.clickOnElement(locators.submitLoginButoonlocator);
             Thread.sleep(1500);
         }
 
         public String checkSuccessLogin(){
-            wait.until(ExpectedConditions.presenceOfElementLocated(bookingButton));
+           handler.findElement(locators.bookingCreateButton);
             String currentUrl =  driver.getCurrentUrl();
             return  currentUrl;
         }

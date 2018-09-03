@@ -35,6 +35,8 @@ public class ManagementPageCode {
     By marketingButtonSmall = By.xpath(management.marketingButtonSmall);
     By cliensButtonBig = By.xpath(management.cliensButtonBig);
     By clientsButtonSmall = By.xpath(management.clientsButtonSmall);
+    By tovaruSmallButton = By.xpath(management.tovaruSmallButton);
+    By tovaruSpusokTovariv = By.xpath(management.tovaruSpusokTovariv);
 
     public boolean successMessagePresents(){
         wait.until(ExpectedConditions.presenceOfElementLocated(locators.succsessMessage));
@@ -74,6 +76,12 @@ public class ManagementPageCode {
 
     public void makeHoverAtClients() {
         WebElement element = driver.findElement(locators.clientsButton);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
+    }
+
+    public void makeHoverAtTovaru(){
+        WebElement element = driver.findElement(tovaruSmallButton);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
@@ -134,13 +142,17 @@ public class ManagementPageCode {
         wait.until(ExpectedConditions.presenceOfElementLocated(marketingButtonSmall)).click();
     }
 
+    public void clickAtSpusokTovariv(){
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(tovaruSmallButton)));
+        makeHoverAtTovaru();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(tovaruSpusokTovariv))).click();
+    }
+
     public void clickAtClients() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOfElementLocated(cliensButtonBig));
         makeHoverAtCliets();
         driver.findElement(clientsButtonSmall);
         wait.until(ExpectedConditions.presenceOfElementLocated(clientsButtonSmall)).click();
         Thread.sleep(1000);
-
-
     }
 }
