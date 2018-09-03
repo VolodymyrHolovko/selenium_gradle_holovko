@@ -8,19 +8,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pageFactory.Abstract;
 
 
-public class CalendarPageTests {
-    WebDriver driver = new FirefoxDriver();
-    WebDriverWait wait = new WebDriverWait(driver, 30, 700);
+public class CalendarPageTests extends Abstract {
+
     BaseUrls baseUrls = new BaseUrls();
     LoginPageCode login = new LoginPageCode(driver, wait);
     CalendarCode test = new CalendarCode(driver, wait);
 
     @BeforeClass
     public  void Before() throws InterruptedException{
-        driver.manage().window().maximize();
-        driver.get(baseUrls.getHomeUrl());
         login.typeUsername();
         login.typePassword();
         login.pressSubmit();
@@ -34,6 +32,7 @@ public class CalendarPageTests {
         test.checkModalCalendar();
         test.checkCalendarButtons();
         driver.navigate().back();
+        test.checkStaff();
         test.checkCalendarGrid();
         test.checkProfileIcon();
     }

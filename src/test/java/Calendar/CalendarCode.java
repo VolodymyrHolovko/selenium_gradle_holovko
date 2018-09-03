@@ -6,56 +6,50 @@ import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageFactory.BaseObject;
 
-public class CalendarCode {
-    WebDriver driver;
-    WebDriverWait wait;
-    CalendarLocators locators = new CalendarLocators();
-    Handler handler = new Handler();
+public class CalendarCode extends BaseObject {
 
+    private CalendarLocators locators = new CalendarLocators(driver,wait);
+    private Handler handler = new Handler(driver,wait);
 
     public CalendarCode(WebDriver driver, WebDriverWait wait) {
-        this.driver = driver;
-        this.wait = wait;
+        super(driver, wait);
     }
-    public  void checkAddresField() {
+
+
+    public  void checkAddresField() throws InterruptedException {
         handler.findElement(locators.addresField);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addresFieldTitle)));
+        handler.findElement(locators.addresFieldTitle);
+        Thread.sleep(2000);
     }
 
-
-
-    public void checkModalCalendar() throws ElementClickInterceptedException {
-        try  {
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
-            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(locators.currentDate)))).click();
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
-            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(locators.modalCalendarHeader)))).click();
-        }
-        catch (ElementClickInterceptedException e){
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentDate)));
-            driver.findElement(By.xpath(locators.currentDate)).click();
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.modalCalendarTab)));
-            driver.findElement(By.xpath(locators.modalCalendarHeader)).click();
-        }
+    public void checkModalCalendar() {
+        handler.findElement(locators.currentDate);
+        handler.clickOnElement(locators.currentDate);
+        handler.findElement(locators.modalCalendarTab);
+        handler.clickOnElement(locators.modalCalendarHeader);
     }
+
     public void checkCalendarButtons() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarButton)));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.nextDayButton))).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarGrid)));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addBookingButton))).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.addBookingPageHeader)));
+        handler.findElement(locators.calendarButton);
+        handler.clickOnElement(locators.nextDayButton);
+        handler.findElement(locators.calendarGrid);
+        handler.clickOnElement(locators.addBookingButton);
+        handler.findElement(locators.addBookingPageHeader);
+    }
 
-    }
     public void checkStaff() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.staffHeader)));
+        handler.findElement(locators.staffHeader);
     }
+
     public void checkCalendarGrid() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locators.currentTimeLine)));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.calendarGrid)));
+        handler.findElement(locators.currentTimeLine);
+        handler.findElement(locators.calendarGrid);
     }
+
     public  void checkProfileIcon() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.profileIcon))).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.className(locators.closeProfileModal)));
+        handler.clickOnElement(locators.profileIcon);
+        handler.findElement(locators.closeProfileModalIcon);
     }
 }

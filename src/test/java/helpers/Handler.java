@@ -5,13 +5,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageFactory.BaseObject;
+
+import java.util.List;
+import java.util.Random;
 
 
-public class Handler  {
+public class Handler extends BaseObject {
 
-    public WebDriver driver = new FirefoxDriver();
-    public WebDriverWait wait = new WebDriverWait(driver, 30, 700);
-
+    public Handler(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
+    }
 
     public void clickOnElement(WebElement element) {
         element.click();
@@ -24,5 +28,15 @@ public class Handler  {
 
     public void findElement(WebElement element) {
     }
+
+    public void clickOnRandomElement(By listOfElements, By element) {
+        List<WebElement> webElementsList = driver.findElement(listOfElements).findElements(element);
+        Random random = new Random();
+        int randomElement = random.nextInt(webElementsList.size());
+        webElementsList.get(randomElement).click();
+
+    }
+
+
 }
 

@@ -17,7 +17,7 @@ public class SalarySchemeTests {
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver,20);
     BaseUrls baseUrls = new BaseUrls();
-    LoginPageCode login =new LoginPageCode(driver,wait);
+    LoginPageCode login =new LoginPageCode(driver, wait);
     SalarySchemePageCode code = new SalarySchemePageCode(driver, wait);
     ManagementPageCode managementPageCode = new ManagementPageCode(driver,wait);
     @BeforeClass
