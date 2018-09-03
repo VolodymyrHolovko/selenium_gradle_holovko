@@ -127,18 +127,10 @@ public class SchedulesPageCode {
     }
 
     public void chooseHowMutchWorkDays (){
-        try {
             wait.until(ExpectedConditions.presenceOfElementLocated(workingDaysDropDown)).click();
             List<WebElement> days = driver.findElement(workingDaysDropDown).findElements(chooseHowMatchWorkDays);
             this.workDaysCount = days.get(1).getText();
             days.get(1).click();
-        }
-        catch (ElementClickInterceptedException e){
-            wait.until(ExpectedConditions.presenceOfElementLocated(workingDaysDropDown)).click();
-            List<WebElement> days = driver.findElement(workingDaysDropDown).findElements(chooseHowMatchWorkDays);
-            this.workDaysCount = days.get(1).getText();
-            days.get(1).click();
-        }
     }
 
     public void chooseHowMutchFreeDays (){
@@ -175,16 +167,11 @@ public class SchedulesPageCode {
     }
 
     public String checkIfDaysCheckedOnCalendar(){
-        try {
+
             String className1 = wait.until(ExpectedConditions.presenceOfElementLocated(checkSaturdayOnCalendarIsFree)).getAttribute("class");
             String className2 = wait.until(ExpectedConditions.presenceOfElementLocated(checkSandayOnCalendarIsFree)).getAttribute("class");
             return className1 + className2;
-        }
-        catch (ElementNotInteractableException e){
-            String className1 = wait.until(ExpectedConditions.presenceOfElementLocated(checkSaturdayOnCalendarIsFree)).getAttribute("class");
-            String className2 = wait.until(ExpectedConditions.presenceOfElementLocated(checkSandayOnCalendarIsFree)).getAttribute("class");
-            return className1 + className2;
-        }
+
     }
 
     public void choseeDayAsWorkRegular(){
